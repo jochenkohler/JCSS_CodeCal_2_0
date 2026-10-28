@@ -21,14 +21,19 @@ you run cell by cell, take you from "what is a characteristic value" to
 
 Every lesson ends with exercises. Figures are written to `lessons/figures/`.
 
+The same story can be followed by clicking: `streamlit run app.py` opens a
+graphical interface with a **learning mode** (the six lessons as interactive
+steps) and a **lab mode** (edit the model, calibrate, compare, test the
+assumptions). See [The graphical interface](#the-graphical-interface).
+
 ## Setup
 
 Python ≥ 3.10 with numpy, scipy, pandas and matplotlib.
 
 ```bash
 cd JCSS_CodeCal_2_0
-pip install -e ".[dev]"        # installs codecal + pytest/jupytext; or just: pip install numpy scipy pandas matplotlib
-pytest                         # 21 tests, ~30 s — includes the reproduction of the AHG numbers
+pip install -e ".[dev]"        # codecal + streamlit, pytest, jupytext; or just: pip install -r requirements.txt
+pytest                         # 50 tests, ~2 min — includes the reproduction of the AHG numbers and the GUI
 ```
 
 ## Three ways to run a lesson
@@ -45,6 +50,41 @@ python run_calibration.py --equation 8.13 --free xi gamma_G gamma_Q
 python run_calibration.py --free gamma_G gamma_Q:wind gamma_Q:snow gamma_Q:imposed --method sorm
 ```
 
+## The graphical interface
+
+```bash
+streamlit run app.py           # opens http://localhost:8501 in the browser
+```
+
+**Learning mode** — the six lessons as interactive steps, each with a short
+background text, controls on the left, the picture and the numbers on the
+right, and a few things to try:
+
+1. *Random variables*: distribution, mean, CoV → density, the u → x transform, the fractile table; a Gumbel yearly maximum → T-year maximum and the simulated characteristic load.
+2. *FORM playground*: a two-variable limit state (R − S, or the product c − Θ·Q) in u-space, the HL-RF iterations, sensitivities, SORM and importance sampling next to FORM.
+3. *One design situation*: pick a failure mode, a load, a_G, a_Q, the design equation and the partial factors — z, β and the α² of the seven variables follow live; β against γ_Q for several a_Q.
+4. *The sweep*: the status quo of the present factors over all design situations — β per mode, per load, against a_Q, sensitivities, and the mode × load table.
+5. *Calibration*: choose the free parameters and the target, watch the optimiser work, compare calibrated and start values.
+6. *Verification*: FORM against SORM and importance sampling over a sample of the model.
+
+**Lab mode** — the research tool, six tabs:
+
+* *Model*: every number of the probabilistic model in two editable tables (failure modes, variable loads) plus the global settings; add or remove rows, pin a characteristic value or give a fractile, untick a row to exclude it. The model is validated as you type — problems are listed in words, and the run buttons stay hidden until it is consistent. Save it as JSON, load it back later, or reset to the AHG 2021 model (the differences from AHG are listed).
+* *Status quo*: β for every design situation for any set of partial factors (common or per-load γ_Q, FORM or SORM, eq. 8.12 / 8.13 / 8.14), with the same views as the learning mode and a CSV download.
+* *Calibration*: free parameters, start values, bounds, target (the model's β_t or the status-quo mean), optimiser settings; a progress display, the optimiser history, a warning when a factor sits on a bound.
+* *Compare*: every status-quo or calibration result can be saved as a named snapshot; overlay any two, and see the calibrated factors of all calibrations side by side.
+* *Sensitivity*: vary one parameter of the model (a CoV, a bias, a weight, the basic period, the target …) over a range and watch the status-quo reliability — or the calibrated γ_G, γ_Q — respond.
+* *Verification*: as in the learning mode, with the edited model.
+
+Models (`*.json`) are plain text: `codecal.from_json` / `codecal.build_model`
+read them in a script, so a model set up in the lab can be calibrated with
+`run_calibration.py` and the lessons' functions. Results are cached per model
+and factor set, so repeated runs are instant.
+
+Errors never leave a blank page: an inconsistent model is reported as a
+list of problems, a failed computation as one readable message with the
+details in an expander.
+
 ## The package
 
 ```
@@ -55,8 +95,11 @@ codecal/
 ├── model.py           FailureMode, VariableLoad, PartialFactors, DesignSituation (design equations, limit state),
 │                      CalibrationModel, evaluate() = the sweep
 ├── calibrate.py       the objective Σ w (β − β_t)² and its SLSQP minimisation
+├── spec.py            the model as a plain dictionary: validation, build, JSON save / load, diff
 ├── ahg2021.py         the AHG model as data — every number of the study in one readable file
-└── plots.py           the figures
+├── plots.py           the figures
+└── gui/               the Streamlit app: common.py (cache, guards, panels), learning.py, lab.py
+app.py                 streamlit run app.py
 ```
 
 Each module starts with a docstring that explains the concept it implements;

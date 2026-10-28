@@ -238,7 +238,11 @@ class DesignSituation:
             E_d = max(permanent, pf.xi * permanent + variable)
         else:
             raise ValueError(f"Unknown design equation {equation!r}; use one of {EQUATIONS}")
-        return E_d * m.gamma_M / (m.theta_R.char * m.R.char)
+        z = E_d * m.gamma_M / (m.theta_R.char * m.R.char)
+        if not np.isfinite(z) or z <= 0:
+            raise ValueError(f"design parameter z = {z!r} for {m.name} / {l.name}: "
+                             "check the characteristic values and partial factors")
+        return z
 
     # -- limit state ---------------------------------------------------------------
     def limit_state(self, z):
@@ -260,7 +264,7 @@ class DesignSituation:
                           name=f"{self.mode.name} / {self.load.name}, a_G={aG:.2f}, a_Q={aQ:.2f}")
 
     def reliability(self, pf: PartialFactors, equation='8.12', method='form'):
-        """(β, FORMResult) for the given partial factors."""
+        """(β, FORMResult, z) for the given partial factors."""
         z = self.design_parameter(pf, equation)
         ls = self.limit_state(z)
         res = form(ls)
@@ -285,10 +289,11 @@ def evaluate(model: CalibrationModel, pf: PartialFactors, equation='8.12',
     for k, s in enumerate(situations):
         beta, res, z = s.reliability(pf, equation, method)
         row = {'mode': s.mode.name, 'load': s.load.name, 'a_G': s.a_G, 'a_Q': s.a_Q,
-               'weight': s.weight, 'z': z, 'beta': beta, 'form_iterations': res.iterations}
+               'weight': s.weight, 'z': z, 'beta': beta, 'form_iterations': res.iterations,
+               'converged': bool(res.converged)}
         row.update({f'alpha_{n}': a for n, a in zip(s.variable_names, res.alpha)})
         rows.append(row)
-        if progress and k % 100 == 0:
+        if progress and k % 50 == 0:
             progress(k, len(situations))
     df = pd.DataFrame(rows)
     df['weight'] /= df['weight'].sum()          # Σ w = 1 (the AHG weights sum to 0.999)

@@ -75,8 +75,13 @@ class CalibrationResult:
 
 def calibrate(model: CalibrationModel, free=('gamma_G', 'gamma_Q'), start=None,
               equation='8.12', method='form', beta_target=None, bounds=None,
-              ftol=1e-6, eps=1e-4, verbose=True) -> CalibrationResult:
-    """Minimise Σ w (β − β_t)² over the parameters named in `free`."""
+              ftol=1e-6, eps=1e-4, verbose=True, progress=None) -> CalibrationResult:
+    """Minimise Σ w (β − β_t)² over the parameters named in `free`.
+
+    `progress(k, x, value)` is called after every objective evaluation
+    (GUIs use it for a progress display)."""
+    if not free:
+        raise ValueError("calibrate: choose at least one free parameter")
     start = PartialFactors() if start is None else start
     beta_target = model.beta_target if beta_target is None else beta_target
     bounds = bounds_for(free, equation) if bounds is None else bounds
@@ -93,6 +98,8 @@ def calibrate(model: CalibrationModel, free=('gamma_G', 'gamma_Q'), start=None,
         if verbose:
             print(f"  eval {len(history):3d}: " +
                   ', '.join(f"{n}={v:.4f}" for n, v in zip(free, x)) + f"  M = {val:.3e}")
+        if progress is not None:
+            progress(len(history), np.array(x), val)
         return val
 
     x0 = [start.get(n) for n in free]

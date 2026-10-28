@@ -7,8 +7,10 @@ codecal — reliability-based calibration of partial factors, written to be read
     model           FailureMode, VariableLoad, DesignSituation, design equations,
                     the sweep over design situations (evaluate)
     calibrate       the objective Σ w (β − β_t)² and its SLSQP minimisation
+    spec            the model as a plain dictionary: validation, build, JSON save/load
     ahg2021         the AHG "Reliability Background of the Eurocodes" model as data
     plots           figures for the lessons and reports
+    gui             the Streamlit application (streamlit run app.py)
 
 Start with lessons/01_random_variables.py.
 """
@@ -20,6 +22,9 @@ from .model import (CalibrationModel, DesignSituation, FailureMode, PartialFacto
                     VariableLoad, beta_table, evaluate, weighted_mean_beta)
 from .reliability import (FORMResult, LimitState, form, importance_sampling,
                           monte_carlo, sorm)
+from .spec import (ModelSpecError, build_model, diff_specs, from_json, spec_signature,
+                   to_json, validate_spec)
+from .ahg2021 import ahg_spec
 from .variables import RandomVariable, rv, time_variant_load
 
 __version__ = '2.0'

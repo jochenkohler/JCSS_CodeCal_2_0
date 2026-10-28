@@ -2,5 +2,6 @@ numpy>=1.24
 scipy>=1.10
 pandas>=2.0
 matplotlib>=3.7
+streamlit>=1.50    # the graphical interface (app.py)
 pytest>=7
 jupytext>=1.16      # lessons/*.py  <->  notebooks
