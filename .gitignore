@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+results/
+lessons/status_quo_sweep.csv
+lessons/calibration_results.csv
+.DS_Store
