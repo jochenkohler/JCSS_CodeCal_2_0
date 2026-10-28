@@ -1,6 +1,8 @@
 """
 codecal — reliability-based calibration of partial factors, written to be read.
 
+Modules::
+
     distributions   Normal / Lognormal / Gumbel from mean and CoV; u → x transform
     variables       RandomVariable with characteristic value; time-variant loads
     reliability     FORM (HL-RF), SORM (Breitung), Monte Carlo, importance sampling

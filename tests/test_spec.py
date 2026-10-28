@@ -98,3 +98,19 @@ def test_calibrate_progress_callback_and_empty_free():
     assert len(calls) == len(res.history) > 0
     with pytest.raises(ValueError):
         cc.calibrate(model, (), verbose=False)
+
+
+def test_cli_runs_a_model_file(tmp_path):
+    """run_calibration.py --model: a model saved by the lab mode is calibrated from the command line."""
+    import run_calibration
+    spec = cc.ahg_spec(n_mcs=50_000, n_aQ=2, n_aG=1)
+    spec['modes'][0]['theta_R']['cov'] = 0.08
+    path = tmp_path / 'm.json'
+    path.write_text(cc.to_json(spec), encoding='utf-8')
+    out = tmp_path / 'out'
+    run_calibration.main(['--model', str(path), '--free', 'gamma_Q', '--out', str(out)])
+    assert (out / 'summary.txt').exists() and (out / 'calibrated.csv').exists()
+    bad = tmp_path / 'bad.json'
+    bad.write_text('{"T_ref": 50}', encoding='utf-8')
+    with pytest.raises(cc.ModelSpecError):
+        run_calibration.main(['--model', str(bad), '--out', str(out)])

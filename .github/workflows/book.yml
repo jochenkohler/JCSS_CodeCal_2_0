@@ -1,0 +1,42 @@
+name: deploy-book-and-app
+
+# Build the Jupyter Book and the browser version of the interface on every
+# push to main, and publish both to the gh-pages branch (GitHub Pages):
+#   https://<user>.github.io/<repo>/        the documentation
+#   https://<user>.github.io/<repo>/app/    the interface (stlite)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          pip install "jupyter-book<2" sphinxcontrib-bibtex
+
+      - name: Tests (the numerics, without the GUI tests)
+        run: python -m pytest -q tests/test_codecal.py tests/test_spec.py
+
+      - name: Build the book and the web app
+        run: make site
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/html
+          force_orphan: true

@@ -105,17 +105,24 @@ def time_variant_load(name, mean, cov, T_input, T_basic, T_ref, theta_Q,
 
     Parameters
     ----------
-    mean, cov : moments of the maximum over the period `T_input` (years);
-                the AHG gives the 50-year maximum with mean 1.
-    T_basic   : basic recurrence period of the load (1 a for wind and snow,
-                5 a for imposed loads). A reference period shorter than
-                T_basic makes no sense for a maximum model, so the analysis
-                period is T_an = max(T_ref, T_basic).
-    theta_Q   : model uncertainty of the load effect (lognormal RV).
-    fractile  : fractile over T_basic defining the characteristic value.
-    char      : pin the characteristic value instead of simulating it.
+    mean, cov :
+        moments of the maximum over the period `T_input` (years);
+        the AHG gives the 50-year maximum with mean 1.
+    T_basic :
+        basic recurrence period of the load (1 a for wind and snow,
+        5 a for imposed loads). A reference period shorter than
+        T_basic makes no sense for a maximum model, so the analysis
+        period is T_an = max(T_ref, T_basic).
+    theta_Q :
+        model uncertainty of the load effect (lognormal RV).
+    fractile :
+        fractile over T_basic defining the characteristic value.
+    char :
+        pin the characteristic value instead of simulating it.
 
-    Returns the RandomVariable for the analysis period — mean normalised to
+    Returns
+    -------
+    The RandomVariable for the analysis period — mean normalised to
     1.0, same σ as the input (the Gumbel period shift leaves σ unchanged,
     so the CoV carries the whole effect of the reference period) — and
     the basic-period distribution used for the characteristic value.

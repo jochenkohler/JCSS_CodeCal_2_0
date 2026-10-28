@@ -229,7 +229,7 @@ def tab_model():
                              help='Points of the a_G range per failure mode.')
     seed = c[4].number_input('MCS seed', 0, 2 ** 31 - 1, int(min(max(int(spec.get('seed') or 0), 0), 2 ** 31 - 1)), 1,
                              key=f'lab_seed_{v}', help='Seed of the Monte-Carlo simulation of the characteristic load values.')
-    mcs_options = [100_000, 1_000_000, 10_000_000]
+    mcs_options = [100_000, 1_000_000] if C.IN_BROWSER else [100_000, 1_000_000, 10_000_000]
     mcs_now = min(mcs_options, key=lambda n: abs(np.log(n) - np.log(max(int(spec.get('n_mcs') or 1), 1))))
     n_mcs = c[5].select_slider('MCS draws', mcs_options, mcs_now, key=f'lab_nmcs_{v}', format_func=lambda n: f'{n:,}',
                                help='Draws for the characteristic values of Θ_Q·Q. 10 M reproduces the AHG '

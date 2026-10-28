@@ -1,0 +1,61 @@
+# Jupyter Book configuration — JCSS CodeCal 2.0 documentation
+# Build:  jupyter-book build .      (output in _build/html)
+title: JCSS CodeCal 2.0
+author: Jochen Köhler, NTNU — Joint Committee on Structural Safety
+logo: docs/jcss.png
+copyright: "2026"
+only_build_toc_files: true
+
+exclude_patterns: [_build, .git, .github, .pytest_cache, "**/__pycache__", "**/.ipynb_checkpoints",
+                   lessons/figures, lecture_figures, web, tests, codecal, README.md]
+
+execute:
+  execute_notebooks: "off"          # the notebooks are committed with their outputs (see Makefile: make notebooks)
+  timeout: 1800
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
+    - colon_fence
+    - deflist
+    - substitution
+    - html_image
+
+html:
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: ""
+  home_page_in_navbar: true
+
+repository:
+  url: https://github.com/jochenkohler/JCSS_CodeCal_2_0
+  path_to_book: .
+  branch: main
+
+launch_buttons:
+  notebook_interface: jupyterlab
+
+bibtex_bibfiles:
+  - docs/references.bib
+
+sphinx:
+  local_extensions:
+    codecal_path: docs/_ext
+  extra_extensions:
+    - sphinx.ext.autodoc
+    - sphinx.ext.napoleon
+    - sphinx.ext.viewcode
+  config:
+    bibtex_reference_style: author_year
+    bibtex_default_style: plain
+    autodoc_member_order: bysource
+    autodoc_default_options:
+      members: true
+      undoc-members: false
+      show-inheritance: false
+    html_theme_options:
+      show_navbar_depth: 1
+      use_download_button: true
+    suppress_warnings: ["myst.header", "bibtex.duplicate_citation"]

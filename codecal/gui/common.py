@@ -9,6 +9,7 @@ from __future__ import annotations
 import contextlib
 import copy
 import json
+import sys
 import time
 import traceback
 
@@ -19,6 +20,8 @@ import streamlit as st
 from .. import model as modelmod, plots, spec as specmod
 from ..calibrate import objective
 from ..model import PartialFactors
+
+IN_BROWSER = sys.platform == 'emscripten'      # running under Pyodide / stlite (the GitHub Pages version)
 
 EQUATION_LABELS = {
     '8.12': '8.12 — single combination (ex 6.10)',

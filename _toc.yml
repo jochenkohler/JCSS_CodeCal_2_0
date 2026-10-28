@@ -1,0 +1,37 @@
+format: jb-book
+root: docs/intro
+parts:
+- caption: Background
+  numbered: true
+  chapters:
+  - file: docs/background/codes_and_decisions
+  - file: docs/background/calibration
+  - file: docs/background/reliability_primer
+- caption: The Eurocode study
+  numbered: true
+  chapters:
+  - file: docs/eurocode_study/code_format
+  - file: docs/eurocode_study/model
+  - file: docs/eurocode_study/results
+  - file: docs/eurocode_study/verification
+- caption: The tool — manual
+  numbered: true
+  chapters:
+  - file: docs/manual/getting_started
+  - file: docs/manual/learning_mode
+  - file: docs/manual/lab_mode
+  - file: docs/manual/model_files
+  - file: docs/manual/scripting
+- caption: The lessons
+  numbered: true
+  chapters:
+  - file: lessons/notebooks/01_random_variables
+  - file: lessons/notebooks/02_form
+  - file: lessons/notebooks/03_design_situation
+  - file: lessons/notebooks/04_the_sweep
+  - file: lessons/notebooks/05_calibration
+  - file: lessons/notebooks/06_verification
+- caption: Reference
+  chapters:
+  - file: docs/reference/api
+  - file: docs/reference/bibliography

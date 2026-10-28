@@ -16,8 +16,10 @@ FORM (first-order reliability method)
 
     The iteration is the Hasofer–Lind / Rackwitz–Fiessler (HL-RF) scheme:
     linearise g at u_k, step to the design point of the linearised surface,
-    repeat:   α_k = −∇g(u_k)/‖∇g(u_k)‖
-              u_{k+1} = [α_k·u_k + g(u_k)/‖∇g(u_k)‖] α_k
+    repeat::
+
+        α_k     = −∇g(u_k)/‖∇g(u_k)‖
+        u_{k+1} = [α_k·u_k + g(u_k)/‖∇g(u_k)‖] α_k
 
 SORM (second-order, Breitung 1984)
     corrects P_f for the curvature of the failure surface at u*:
@@ -95,7 +97,7 @@ class FORMResult:
 
 def form(ls: LimitState, u0=None, tol=1e-6, maxiter=100) -> FORMResult:
     """FORM by the HL-RF iteration. Converged when the step ‖u_{k+1} − u_k‖
-    is below `tol` and |g| is small relative to ‖∇g‖."""
+    is below `tol` and abs(g) is small relative to ‖∇g‖."""
     n = ls.n
     u = np.zeros(n) if u0 is None else np.asarray(u0, dtype=float)
     history = []

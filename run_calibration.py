@@ -32,11 +32,19 @@ def main(argv=None):
     p.add_argument('--n-aQ', type=int, default=10)
     p.add_argument('--n-aG', type=int, default=3)
     p.add_argument('--seed', type=int, default=cc.ahg2021.DEFAULT_SEED)
+    p.add_argument('--model', metavar='FILE.json', default=None,
+                   help='a model saved by the lab mode (codecal.to_json) instead of the AHG 2021 model; '
+                        '--T-ref/--n-aQ/--n-aG/--seed are ignored, --target overrides its beta_target')
     p.add_argument('--out', default='results')
     a = p.parse_args(argv)
 
     os.makedirs(a.out, exist_ok=True)
-    model = cc.ahg_model(T_ref=a.T_ref, n_aQ=a.n_aQ, n_aG=a.n_aG, beta_target=a.target, seed=a.seed)
+    if a.model:
+        with open(a.model, encoding='utf-8') as f:
+            spec = cc.from_json(f.read())          # raises ModelSpecError with the list of problems
+        model = cc.build_model({**spec, 'beta_target': a.target})
+    else:
+        model = cc.ahg_model(T_ref=a.T_ref, n_aQ=a.n_aQ, n_aG=a.n_aG, beta_target=a.target, seed=a.seed)
     print(model.summary())
     print(f"\ncalibrating {a.free} for eq. {a.equation} with {a.method.upper()}, β_t = {a.target}\n")
     t0 = time.time()

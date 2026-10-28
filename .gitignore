@@ -8,3 +8,8 @@ results/
 lessons/status_quo_sweep.csv
 lessons/calibration_results.csv
 .DS_Store
+
+# book build and the web bundle
+_build/
+web/codecal_app.zip
+docs/**/results_summary.json

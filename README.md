@@ -26,6 +26,11 @@ graphical interface with a **learning mode** (the six lessons as interactive
 steps) and a **lab mode** (edit the model, calibrate, compare, test the
 assumptions). See [The graphical interface](#the-graphical-interface).
 
+**Documentation:** <https://jochenkohler.github.io/JCSS_CodeCal_2_0/> — background,
+the Eurocode study reproduced, the manual, the lessons, the API.
+**The interface in the browser, nothing to install:**
+<https://jochenkohler.github.io/JCSS_CodeCal_2_0/app/>.
+
 ## Setup
 
 Python ≥ 3.10 with numpy, scipy, pandas and matplotlib.
@@ -48,6 +53,7 @@ A complete calibration without reading anything:
 python run_calibration.py                                     # eq. 8.12, γ_G and γ_Q
 python run_calibration.py --equation 8.13 --free xi gamma_G gamma_Q
 python run_calibration.py --free gamma_G gamma_Q:wind gamma_Q:snow gamma_Q:imposed --method sorm
+python run_calibration.py --model my_model.json --free gamma_G gamma_Q   # a model saved by the lab mode
 ```
 
 ## The graphical interface
@@ -85,6 +91,31 @@ Errors never leave a blank page: an inconsistent model is reported as a
 list of problems, a failed computation as one readable message with the
 details in an expander.
 
+## Documentation and the web version
+
+The documentation is a Jupyter Book (`_config.yml`, `_toc.yml`, `docs/`) in the
+same style as the JCSS Probabilistic Model Code. It has three parts — the
+background (codes as decision rules, calibration as optimisation, the reliability
+concepts), the Eurocode study (the code format, the probabilistic model generated
+from `ahg_spec()`, the results of the AHG study reproduced with this code and
+compared number by number, the verification), and the manual of the tool — plus
+the six lessons as executed notebooks and the API reference.
+
+```bash
+pip install "jupyter-book<2" sphinxcontrib-bibtex
+make book          # → _build/html/index.html
+make notebooks     # re-execute the lessons and the documentation notebooks (≈ 15 min)
+make web           # → web/codecal_app.zip, the interface for the browser (stlite)
+make site          # book + web as GitHub Pages serves them
+```
+
+Pushing to `main` runs `.github/workflows/book.yml`, which builds the book and the
+web bundle and publishes them to the `gh-pages` branch: the book at the root of the
+Pages site, the interface at `/app/` (Streamlit running on Pyodide in the browser —
+see `web/README.md`; the installed version is several times faster, and
+[Streamlit Community Cloud](https://share.streamlit.io) can host `app.py` at full
+speed).
+
 ## The package
 
 ```
@@ -100,6 +131,8 @@ codecal/
 ├── plots.py           the figures
 └── gui/               the Streamlit app: common.py (cache, guards, panels), learning.py, lab.py
 app.py                 streamlit run app.py
+docs/                  the Jupyter Book (with lessons/notebooks/ and the API reference)
+web/                   the interface as a static web page (stlite)
 ```
 
 Each module starts with a docstring that explains the concept it implements;

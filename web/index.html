@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>JCSS CodeCal 2.0</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.css" />
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #root { height: 100%; }
+    #loading { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #444; max-width: 40em;
+               margin: 4em auto; line-height: 1.5; }
+    #loading code { background: #f3f3f3; padding: 0 .3em; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="loading">
+      <h2>JCSS CodeCal 2.0</h2>
+      <p>Loading Python and the numerical libraries into your browser (about 40 MB, once).
+         Everything is computed on your machine; nothing is uploaded.</p>
+      <p>Calibrations take a few minutes here — the installed version
+         (<code>streamlit run app.py</code>, see the
+         <a href="../docs/manual/getting_started.html">manual</a>) is several times faster.</p>
+    </div>
+  </div>
+  <script type="module">
+    import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.js";
+    mount(
+      {
+        requirements: ["numpy", "scipy", "pandas", "matplotlib"],
+        entrypoint: "app.py",
+        archives: [{ url: "./codecal_app.zip", format: "zip" }],
+        streamlitConfig: {
+          "client.toolbarMode": "viewer",
+          "theme.primaryColor": "#1f5fa8",
+        },
+      },
+      document.getElementById("root"),
+    );
+  </script>
+</body>
+</html>

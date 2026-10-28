@@ -214,7 +214,7 @@ class DesignSituation:
         """z from the design equation, EN 1990:2023 clause 8.3.3.
 
         With characteristic values x_k and the load fractions a_G, a_Q, the
-        design load effect is
+        design load effect is::
 
           8.12   E_d = (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q γ_Q q_k
           8.13   E_d = max( (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q ψ₀ γ_Q q_k ,

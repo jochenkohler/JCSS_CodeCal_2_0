@@ -29,6 +29,9 @@ with st.sidebar:
     st.markdown('### JCSS CodeCal 2.0')
     mode = st.radio('Mode', list(MODES), key='app_mode',
                     help='Learning: the lessons, step by step. Lab: the full calibration tool.')
+    if sys.platform == 'emscripten':
+        st.info('Running in your browser — nothing is uploaded. A sweep takes a few seconds here, '
+                'a calibration a few minutes; the installed version is several times faster.', icon='🌐')
     st.divider()
 
 MODES[mode]()
