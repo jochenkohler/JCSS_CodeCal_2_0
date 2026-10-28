@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Jochen Köhler, Norwegian University of Science and Technology (NTNU)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+The documentation (docs/, the text of the lessons in lessons/ and the
+executed notebooks in lessons/notebooks/) is licensed under the Creative
+Commons Attribution 4.0 International licence (CC BY 4.0),
+https://creativecommons.org/licenses/by/4.0/ — reuse with attribution to
+Jochen Köhler, JCSS CodeCal 2.0, https://github.com/jochenkohler/JCSS_CodeCal_2_0.
+
+The probabilistic model (codecal/ahg2021.py) is the input agreed by the
+CEN/TC 250/SC 10 Ad-hoc Group "Reliability Background of the Eurocodes"
+(2021), published in the JRC Technical Report "Reliability background of
+the Eurocodes" (2024, CC BY 4.0, doi:10.2760/9482837). The calibration
+study it reproduces is the work of Jochen Köhler, Ramon Hingorani and
+John Dalsgaard Sørensen.

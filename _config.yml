@@ -3,7 +3,7 @@
 title: JCSS CodeCal 2.0
 author: Jochen Köhler, NTNU — Joint Committee on Structural Safety
 logo: docs/jcss.png
-copyright: "2026"
+copyright: "2026 Jochen Köhler — code MIT, text CC BY 4.0"
 only_build_toc_files: true
 
 exclude_patterns: [_build, .git, .github, .pytest_cache, "**/__pycache__", "**/.ipynb_checkpoints",

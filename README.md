@@ -198,3 +198,12 @@ reproduces them (β to 2·10⁻⁶, the calibrated factors to 10⁻³).
 Open questions carried over from the AHG input: the pinned characteristic
 values of steel (0.83) and aluminium (0.85) strength; FORM versus SORM for
 the published factors (lesson 6).
+
+## Licence
+
+Code: MIT. Documentation and lessons: CC BY 4.0. See `LICENSE`. The model is
+the input of the CEN/TC 250/SC 10 Ad-hoc Group *Reliability Background of the
+Eurocodes* (2021), published in the JRC Technical Report of 2024 (CC BY 4.0);
+the calibration study is the work of Jochen Köhler, Ramon Hingorani and John
+Dalsgaard Sørensen. If you use CodeCal 2.0 in a publication, please cite the
+JRC report and the repository.

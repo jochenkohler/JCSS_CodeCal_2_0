@@ -51,5 +51,6 @@ CodeCal 2.0 is a rewrite of the calibration code used for the Ad-hoc Group's
 study (Hingorani, Köhler, Sørensen, 2021–2023), restructured for reading and
 teaching. It reproduces the results of that code to the numerical precision
 of the optimiser; the comparison with the published numbers is on the results
-page. Jochen Köhler, NTNU, 2026.
+page. Jochen Köhler, NTNU, 2026. Code under the MIT licence, this text
+under CC BY 4.0.
 ```

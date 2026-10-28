@@ -7,6 +7,9 @@ name = "codecal"
 version = "2.0"
 description = "Reliability-based calibration of partial factors — a didactic implementation (JCSS CodeCal 2.0)"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Jochen Köhler", email = "jochen.kohler@ntnu.no"}]
+readme = "README.md"
 dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0", "matplotlib>=3.7", "streamlit>=1.50"]
 
 [project.optional-dependencies]
