@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>13. Lesson 1 — Random variables and characteristic values &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/notebooks/01_random_variables';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="14. Lesson 2 — The reliability index and FORM" href="02_form.html" />
+    <link rel="prev" title="12. Scripting with codecal" href="../../docs/manual/scripting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/notebooks/01_random_variables.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 1 — Random variables and characteristic values</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-distributions-from-mean-and-cov">13.1. 1. Three distributions from mean and CoV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-values-are-fractiles">13.2. 2. Characteristic values are fractiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transformation-to-standard-normal-space">13.3. 3. The transformation to standard-normal space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-yearly-maximum-to-50-year-maximum">13.4. 4. From yearly maximum to 50-year maximum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-characteristic-value-of-a-climatic-load-with-model-uncertainty">13.5. 5. The characteristic value of a climatic load, with model uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-whole-model-at-a-glance">13.6. 6. The whole model at a glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.7. Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-1-random-variables-and-characteristic-values">
+<h1><span class="section-number">13. </span>Lesson 1 — Random variables and characteristic values<a class="headerlink" href="#lesson-1-random-variables-and-characteristic-values" title="Link to this heading">#</a></h1>
+<p>Code calibration starts from a <em>probabilistic model</em>: every quantity that
+enters a design — strengths, model uncertainties, self-weights, climatic
+loads — is a random variable with a distribution, a mean and a coefficient
+of variation (CoV). The design code, on the other hand, works with a single
+<em>characteristic value</em> <span class="math notranslate nohighlight">\(x_k\)</span> per quantity and partial factors <span class="math notranslate nohighlight">\(\gamma\)</span> that
+scale it. This lesson shows how the two worlds connect.</p>
+<p>What you will see:</p>
+<ol class="arabic simple">
+<li><p>the three distribution families of the model (normal, lognormal, Gumbel),</p></li>
+<li><p>characteristic values as fractiles,</p></li>
+<li><p>the transformation to standard-normal space that FORM relies on,</p></li>
+<li><p>how a yearly-maximum load becomes a 50-year maximum,</p></li>
+<li><p>the characteristic value of a climatic load by simulation.</p></li>
+</ol>
+<p>Run it cell by cell (Spyder: Ctrl+Enter, VS Code: “Run Cell”) or as a script.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>                     <span class="c1"># not installed: run from the lessons/ folder</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">FIG</span> <span class="o">=</span> <span class="s1">'figures'</span>                          <span class="c1"># figures are written next to the lesson</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure next to the lesson and show it (inline in Jupyter/Spyder)."""</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>            <span class="c1"># plain python: the PNG in figures/ is the output</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="three-distributions-from-mean-and-cov">
+<h2><span class="section-number">13.1. </span>1. Three distributions from mean and CoV<a class="headerlink" href="#three-distributions-from-mean-and-cov" title="Link to this heading">#</a></h2>
+<p>All variables of the AHG model are <em>normalised</em>: the mean is 1.0. A
+distribution is therefore fully described by its family and its CoV.</p>
+<ul class="simple">
+<li><p><strong>Normal</strong> — self-weights and permanent loads (small scatter, symmetric).</p></li>
+<li><p><strong>Lognormal</strong> — strengths and model uncertainties (positive, skewed; the
+product of lognormal variables is lognormal, which is why FORM likes it).</p></li>
+<li><p><strong>Gumbel</strong> — maxima of time-variant loads over a period (wind, snow, imposed).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">Normal</span><span class="o">.</span><span class="n">from_moments</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">)</span>
+<span class="n">lognormal</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">Lognormal</span><span class="o">.</span><span class="n">from_moments</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">)</span>
+<span class="n">gumbel</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">Gumbel</span><span class="o">.</span><span class="n">from_moments</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">normal</span><span class="p">,</span> <span class="s1">'Normal, CoV 0.10'</span><span class="p">),</span> <span class="p">(</span><span class="n">lognormal</span><span class="p">,</span> <span class="s1">'Lognormal, CoV 0.20'</span><span class="p">),</span> <span class="p">(</span><span class="n">gumbel</span><span class="p">,</span> <span class="s1">'Gumbel, CoV 0.14'</span><span class="p">)]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'x (normalised, mean = 1)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'density'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson01_densities.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/102bebd5b445e4c90553959b0e2f9153cb71256371a711e26c67a5a1777e8fdc.png" src="../../_images/102bebd5b445e4c90553959b0e2f9153cb71256371a711e26c67a5a1777e8fdc.png" />
+</div>
+</div>
+</section>
+<section id="characteristic-values-are-fractiles">
+<h2><span class="section-number">13.2. </span>2. Characteristic values are fractiles<a class="headerlink" href="#characteristic-values-are-fractiles" title="Link to this heading">#</a></h2>
+<p>Eurocode conventions: strengths use the <strong>5 % fractile</strong>, permanent loads
+the <strong>mean</strong> (50 %), climatic loads the <strong>98 % fractile of the yearly
+maximum</strong>. The ratio <span class="math notranslate nohighlight">\(x_k/\mu\)</span> depends only on the CoV:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"5 </span><span class="si">% f</span><span class="s2">ractile of a lognormal strength, relative to the mean:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cov</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">Lognormal</span><span class="o">.</span><span class="n">from_moments</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cov</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  CoV = </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">:  x_k/μ = </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 % fractile of a lognormal strength, relative to the mean:
+  CoV = 0.05:  x_k/μ = 0.920
+  CoV = 0.10:  x_k/μ = 0.844
+  CoV = 0.15:  x_k/μ = 0.774
+  CoV = 0.20:  x_k/μ = 0.708
+</pre></div>
+</div>
+</div>
+</div>
+<p>A larger CoV pushes the characteristic value further below the mean — and
+that is before any partial factor is applied. Timber (CoV 0.20) starts
+from 0.72 where steel (CoV 0.05) starts from 0.92.</p>
+<p>The AHG input pins steel at <strong>0.83</strong> and aluminium at 0.85 instead of the
+computed 0.92 (a legacy of the June-2021 input — the open question is
+recorded in <code class="docutils literal notranslate"><span class="pre">codecal/ahg2021.py</span></code>). The <code class="docutils literal notranslate"><span class="pre">rv()</span></code> helper accepts either form:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steel</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'Steel yield strength'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">0.83</span><span class="p">)</span>
+<span class="n">concrete</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'Concrete strength'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="n">fractile</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">steel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">concrete</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steel yield strength: Lognormal(mean=1, CoV=0.05), x_k=0.83
+Concrete strength: Lognormal(mean=1, CoV=0.1), x_k=0.844
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-transformation-to-standard-normal-space">
+<h2><span class="section-number">13.3. </span>3. The transformation to standard-normal space<a class="headerlink" href="#the-transformation-to-standard-normal-space" title="Link to this heading">#</a></h2>
+<p>FORM does not work with the physical variables directly. Each variable <span class="math notranslate nohighlight">\(X\)</span>
+is mapped to a standard-normal variable <span class="math notranslate nohighlight">\(U\)</span> by matching the distribution
+functions,</p>
+<div class="math notranslate nohighlight">
+\[ \Phi(u) = F_X(x) \quad\Longleftrightarrow\quad x = F_X^{-1}(\Phi(u)) . \]</div>
+<p>In <span class="math notranslate nohighlight">\(u\)</span>-space all variables look alike (mean 0, standard deviation 1,
+independent), so “distance from the origin” means “how improbable”. The
+curves below show how far from linear the mapping is: for the normal it is
+a straight line, for the lognormal and the Gumbel the upper tail bends
+upwards — a large <span class="math notranslate nohighlight">\(u\)</span> corresponds to a very large load.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">normal</span><span class="p">,</span> <span class="s1">'Normal'</span><span class="p">),</span> <span class="p">(</span><span class="n">lognormal</span><span class="p">,</span> <span class="s1">'Lognormal'</span><span class="p">),</span> <span class="p">(</span><span class="n">gumbel</span><span class="p">,</span> <span class="s1">'Gumbel'</span><span class="p">)]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'u (standard normal)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'x = F⁻¹(Φ(u))'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson01_transform.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d3de7be1e5f6d7d129ca91a875e8e72dc9b243dea234746a5779600598c48565.png" src="../../_images/d3de7be1e5f6d7d129ca91a875e8e72dc9b243dea234746a5779600598c48565.png" />
+</div>
+</div>
+</section>
+<section id="from-yearly-maximum-to-50-year-maximum">
+<h2><span class="section-number">13.4. </span>4. From yearly maximum to 50-year maximum<a class="headerlink" href="#from-yearly-maximum-to-50-year-maximum" title="Link to this heading">#</a></h2>
+<p>A Gumbel variable describing the yearly maximum <span class="math notranslate nohighlight">\(Q_1\)</span> has distribution
+function <span class="math notranslate nohighlight">\(F_1\)</span>. The maximum over 50 independent years has <span class="math notranslate nohighlight">\(F_{50} = F_1^{50}\)</span>,
+which is again Gumbel with the <strong>same scatter</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> and a mean shifted by</p>
+<div class="math notranslate nohighlight">
+\[ \mu_{50} = \mu_1 + \frac{\sqrt 6}{\pi}\,\sigma \ln 50 . \]</div>
+<p>The AHG model gives the 50-year maximum with mean 1 and CoV 0.14 for wind.
+Going back to the yearly maximum:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wind_50</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">Gumbel</span><span class="o">.</span><span class="n">from_moments</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">)</span>
+<span class="n">wind_1</span> <span class="o">=</span> <span class="n">wind_50</span><span class="o">.</span><span class="n">over_period</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"50-year maximum: mean </span><span class="si">{</span><span class="n">wind_50</span><span class="o">.</span><span class="n">mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, std </span><span class="si">{</span><span class="n">wind_50</span><span class="o">.</span><span class="n">std</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yearly  maximum: mean </span><span class="si">{</span><span class="n">wind_1</span><span class="o">.</span><span class="n">mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, std </span><span class="si">{</span><span class="n">wind_1</span><span class="o">.</span><span class="n">std</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  (CoV </span><span class="si">{</span><span class="n">wind_1</span><span class="o">.</span><span class="n">cov</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"check F_50(1.2) = </span><span class="si">{</span><span class="n">wind_50</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> = F_1(1.2)^50 = </span><span class="si">{</span><span class="n">wind_1</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span><span class="o">**</span><span class="mi">50</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">wind_1</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">'yearly maximum'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">wind_50</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">'50-year maximum'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">wind_1</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.98</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'98 </span><span class="si">% f</span><span class="s1">ractile of the yearly maximum'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'wind load (relative to the 50-year mean)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'density'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson01_gumbel_periods.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50-year maximum: mean 1.000, std 0.140
+yearly  maximum: mean 0.573, std 0.140  (CoV 0.244)
+check F_50(1.2) = 0.9141 = F_1(1.2)^50 = 0.9141
+</pre></div>
+</div>
+<img alt="../../_images/680cca8463afa1d9e8284ec9d8713fb4df5fab5f03ad211a6e1a97ab43e7e931.png" src="../../_images/680cca8463afa1d9e8284ec9d8713fb4df5fab5f03ad211a6e1a97ab43e7e931.png" />
+</div>
+</div>
+</section>
+<section id="the-characteristic-value-of-a-climatic-load-with-model-uncertainty">
+<h2><span class="section-number">13.5. </span>5. The characteristic value of a climatic load, with model uncertainty<a class="headerlink" href="#the-characteristic-value-of-a-climatic-load-with-model-uncertainty" title="Link to this heading">#</a></h2>
+<p>The characteristic wind load is the 98 % fractile of the yearly maximum —
+of the load <em>effect</em>, which carries a model uncertainty <span class="math notranslate nohighlight">\(\Theta_Q\)</span>
+(lognormal, mean 0.97, CoV 0.26 for wind). The AHG defines <span class="math notranslate nohighlight">\(q_k\)</span> on the
+product <span class="math notranslate nohighlight">\(\Theta_Q \cdot Q_1\)</span>. There is no closed form for the fractile of a
+lognormal × Gumbel product, so it is simulated. With the seed used
+throughout, this reproduces the number of the AHG study, <span class="math notranslate nohighlight">\(q_k = 1.083\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta_wind</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'Wind model uncertainty'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">Q_wind</span><span class="p">,</span> <span class="n">Q_wind_yearly</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">time_variant_load</span><span class="p">(</span>
+    <span class="s1">'Wind, 50-year maximum'</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="mf">0.14</span><span class="p">,</span> <span class="n">T_input</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">T_basic</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T_ref</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">theta_Q</span><span class="o">=</span><span class="n">theta_wind</span><span class="p">,</span> <span class="n">fractile</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">n_mcs</span><span class="o">=</span><span class="mi">2_000_000</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q_wind</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"without model uncertainty the 98 % fractile would be </span><span class="si">{</span><span class="n">Q_wind_yearly</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.98</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wind, 50-year maximum: Gumbel(mean=1, CoV=0.14), x_k=1.08
+without model uncertainty the 98 % fractile would be 0.936
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the characteristic value is about 8 % <em>above</em> the mean of the 50-year
+maximum. The partial factor <span class="math notranslate nohighlight">\(\gamma_Q = 1.5\)</span> is applied on top of that:
+the design value of the wind load is <span class="math notranslate nohighlight">\(1.5 \times 1.083 = 1.62\)</span> times the
+mean 50-year maximum. Whether that is “enough” is exactly what the
+reliability analysis of the next lessons decides.</p>
+</section>
+<section id="the-whole-model-at-a-glance">
+<h2><span class="section-number">13.6. </span>6. The whole model at a glance<a class="headerlink" href="#the-whole-model-at-a-glance" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">(</span><span class="n">n_mcs</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>     <span class="c1"># 1 M draws for the characteristic values: fast</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AHG "Reliability Background of the Eurocodes", input of November 2021
+
+reference period 50 a, target β 3.8
+9 failure modes × 3 loads × 3 a_G × 10 a_Q = 810 design situations
+
+Failure modes:
+  Steel bending: Θ_R mean 1.15 CoV 0.05, R CoV 0.050 (x_k 0.830), γ_M 1.0, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.17
+  Concrete compression: Θ_R mean 0.97 CoV 0.14, R CoV 0.100 (x_k 0.844), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Concrete bending: Θ_R mean 1.03 CoV 0.07, R CoV 0.045 (x_k 0.928), γ_M 1.15, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.4
+  Glulam bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.150 (x_k 0.774), γ_M 1.25, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.035
+  Timber bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.200 (x_k 0.708), γ_M 1.3, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.017
+  Masonry: Θ_R mean 1.16 CoV 0.18, R CoV 0.160 (x_k 0.760), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Aluminium bending: Θ_R mean 1.27 CoV 0.15, R CoV 0.050 (x_k 0.850), γ_M 1.1, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.017
+  Pile foundation: Θ_R mean 1.00 CoV 0.20, R CoV 0.120 (x_k 0.816), γ_M 1.5, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+  Shallow foundation: Θ_R mean 1.00 CoV 0.15, R CoV 0.150 (x_k 0.774), γ_M 1.4, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+
+Variable loads:
+  wind: Θ_Q mean 0.97 CoV 0.26, Q Gumbel CoV 0.140 (q_k 1.084), ψ₀ 0.6, w 0.4
+  snow: Θ_Q mean 0.81 CoV 0.26, Q Gumbel CoV 0.200 (q_k 0.821), ψ₀ 0.5, w 0.1
+  imposed: Θ_Q mean 1.00 CoV 0.10, Q Gumbel CoV 0.260 (q_k 1.350), ψ₀ 0.7, w 0.5
+
+  Load-effect model uncertainty: Lognormal(mean=1, CoV=0.1), x_k=1
+  Permanent load (other than self-weight): Normal(mean=1, CoV=0.1), x_k=1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">13.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What is the 5 % fractile of a <em>normal</em> strength with CoV 0.20? Compare
+with the lognormal — which one is more conservative, and why?</p></li>
+<li><p>Compute the characteristic snow load <span class="math notranslate nohighlight">\(q_k\)</span> (CoV 0.20 for the 50-year
+maximum, model uncertainty mean 0.81, CoV 0.26). Why is it <em>below</em> 1?</p></li>
+<li><p>The imposed load has a basic period of 5 years and a 99 % fractile. Build
+it with <code class="docutils literal notranslate"><span class="pre">time_variant_load</span></code> and compare the simulated <span class="math notranslate nohighlight">\(q_k\)</span> with the
+value 1.35 pinned in the AHG input.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../docs/manual/scripting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_form.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Lesson 2 — The reliability index and FORM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-distributions-from-mean-and-cov">13.1. 1. Three distributions from mean and CoV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-values-are-fractiles">13.2. 2. Characteristic values are fractiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transformation-to-standard-normal-space">13.3. 3. The transformation to standard-normal space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-yearly-maximum-to-50-year-maximum">13.4. 4. From yearly maximum to 50-year maximum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-characteristic-value-of-a-climatic-load-with-model-uncertainty">13.5. 5. The characteristic value of a climatic load, with model uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-whole-model-at-a-glance">13.6. 6. The whole model at a glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">13.7. Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

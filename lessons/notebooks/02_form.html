@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>14. Lesson 2 — The reliability index and FORM &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/notebooks/02_form';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="15. Lesson 3 — The design equation and one design situation" href="03_design_situation.html" />
+    <link rel="prev" title="13. Lesson 1 — Random variables and characteristic values" href="01_random_variables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/notebooks/02_form.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 2 — The reliability index and FORM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-g-r-s">14.1. 1. The problem: <span class="math notranslate nohighlight">\(g = R - S\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-first-monte-carlo">14.2. 2. Brute force first: Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-the-design-point-by-the-hl-rf-iteration">14.3. 3. FORM: the design point by the HL-RF iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivities-who-is-responsible">14.4. 4. Sensitivities: who is responsible?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-surface-is-curved-sorm-and-importance-sampling">14.5. 5. When the surface is curved: SORM and importance sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-depends-on-the-safety-margin">14.6. 6. How β depends on the safety margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">14.7. Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-2-the-reliability-index-and-form">
+<h1><span class="section-number">14. </span>Lesson 2 — The reliability index and FORM<a class="headerlink" href="#lesson-2-the-reliability-index-and-form" title="Link to this heading">#</a></h1>
+<p>A limit state function <span class="math notranslate nohighlight">\(g(\mathbf X)\)</span> separates safe (<span class="math notranslate nohighlight">\(g &gt; 0\)</span>) from failed
+(<span class="math notranslate nohighlight">\(g \le 0\)</span>) states. The probability of failure is</p>
+<div class="math notranslate nohighlight">
+\[ P_f = P[g(\mathbf X) \le 0] = \int_{g \le 0} f_{\mathbf X}(\mathbf x)\,d\mathbf x , \]</div>
+<p>an integral nobody wants to evaluate directly. The <strong>first-order
+reliability method (FORM)</strong> replaces it by a geometric problem: in the
+space of independent standard-normal variables <span class="math notranslate nohighlight">\(\mathbf U\)</span>, find the point
+of the failure surface <span class="math notranslate nohighlight">\(g(\mathbf u) = 0\)</span> that is closest to the origin —
+the <em>design point</em> <span class="math notranslate nohighlight">\(\mathbf u^*\)</span>. Its distance</p>
+<div class="math notranslate nohighlight">
+\[ \beta = \lVert \mathbf u^* \rVert, \qquad P_f \approx \Phi(-\beta) \]</div>
+<p>is the <strong>reliability index</strong> that the Eurocodes use as the target
+(<span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span> for 50 years, consequence class 2).</p>
+<p>This lesson works through two-variable examples so that every step can
+be drawn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">ndtr</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">FIG</span> <span class="o">=</span> <span class="s1">'figures'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure next to the lesson and show it (inline in Jupyter/Spyder)."""</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>            <span class="c1"># plain python: the PNG in figures/ is the output</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-problem-g-r-s">
+<h2><span class="section-number">14.1. </span>1. The problem: <span class="math notranslate nohighlight">\(g = R - S\)</span><a class="headerlink" href="#the-problem-g-r-s" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(R\)</span>: lognormal, mean 2.6, CoV 0.15 (a resistance including its model
+uncertainty). <span class="math notranslate nohighlight">\(S\)</span>: Gumbel, mean 1.0, CoV 0.30 (the 50-year maximum of a
+load effect). The mean safety margin is 2.6 — but how safe is that?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'S'</span><span class="p">,</span> <span class="s1">'gumbel'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'R − S'</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">'S (Gumbel)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">'R (lognormal)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">R</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'overlap'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'R, S'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'density'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson02_R_S.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00827c1b8d7f74aed8ed3b320bd1eeebe63bdb1266f9367673fe3e93f33c8682.png" src="../../_images/00827c1b8d7f74aed8ed3b320bd1eeebe63bdb1266f9367673fe3e93f33c8682.png" />
+</div>
+</div>
+</section>
+<section id="brute-force-first-monte-carlo">
+<h2><span class="section-number">14.2. </span>2. Brute force first: Monte Carlo<a class="headerlink" href="#brute-force-first-monte-carlo" title="Link to this heading">#</a></h2>
+<p>Draw <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(S\)</span> a few million times and count how often <span class="math notranslate nohighlight">\(R \le S\)</span>. The
+standard error tells how much the estimate scatters: for <span class="math notranslate nohighlight">\(\beta \approx 3\)</span>
+(<span class="math notranslate nohighlight">\(P_f \approx 10^{-3}\)</span>) one needs millions of samples for two decimals
+of <span class="math notranslate nohighlight">\(\beta\)</span> — and for <span class="math notranslate nohighlight">\(\beta = 3.8\)</span> a hundred times more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mc</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">monte_carlo</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">4_000_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Monte Carlo: P_f = </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">pf</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">failures</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> failures in </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">n</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> samples)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"             β   = </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monte Carlo: P_f = 1.821e-03  (7283 failures in 4,000,000 samples)
+             β   = 2.908 ± 0.004
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="form-the-design-point-by-the-hl-rf-iteration">
+<h2><span class="section-number">14.3. </span>3. FORM: the design point by the HL-RF iteration<a class="headerlink" href="#form-the-design-point-by-the-hl-rf-iteration" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cc.form</span></code> implements the Hasofer–Lind / Rackwitz–Fiessler iteration:
+linearise <span class="math notranslate nohighlight">\(g\)</span> at the current point, jump to the design point of the
+linearised surface, repeat. Each step needs <span class="math notranslate nohighlight">\(g\)</span> and its gradient in
+<span class="math notranslate nohighlight">\(u\)</span>-space; the gradient is obtained by the chain rule,
+<span class="math notranslate nohighlight">\(\partial g/\partial u_i = \partial g/\partial x_i \cdot dx_i/du_i\)</span>
+(numerically here — pass <code class="docutils literal notranslate"><span class="pre">grad=</span></code> for an analytic one).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FORM: β = </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, P_f ≈ </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">pf</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">iterations</span><span class="si">}</span><span class="s2"> iterations, converged=</span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">converged</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"      design point u* = </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">u_star</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">,  x* = </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">x_star</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"      α = </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">alpha</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">   α² = </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">sensitivities</span><span class="p">([</span><span class="s1">'R'</span><span class="p">,</span><span class="w"> </span><span class="s1">'S'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_form_history</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="s1">'lesson02_form_history.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FORM: β = 2.9027, P_f ≈ 1.850e-03, 6 iterations, converged=True
+      design point u* = [-1.22   2.634],  x* = [2.143 2.143]
+      α = [-0.42   0.907]   α² = {'R': 0.1766, 'S': 0.8234}
+</pre></div>
+</div>
+<img alt="../../_images/35837e76b7dfdc34dc34087e2788bc0f28a317700b29514e5fff66e7d6c7a7f9.png" src="../../_images/35837e76b7dfdc34dc34087e2788bc0f28a317700b29514e5fff66e7d6c7a7f9.png" />
+</div>
+</div>
+<p>FORM agrees with the Monte-Carlo estimate within its standard error. The
+picture shows why: in <span class="math notranslate nohighlight">\(u\)</span>-space the failure surface of <span class="math notranslate nohighlight">\(R - S\)</span> is almost
+a straight line, so the linearisation at the design point loses nothing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_limit_state_2d</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'g = R − S in u-space'</span><span class="p">),</span> <span class="s1">'lesson02_u_space.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3ae3be708ec2add8b734a3b4c98abef049d64fdf818178a7cc791a3e2c59f4f2.png" src="../../_images/3ae3be708ec2add8b734a3b4c98abef049d64fdf818178a7cc791a3e2c59f4f2.png" />
+</div>
+</div>
+<p>The red region is failure, the black line the limit state <span class="math notranslate nohighlight">\(g = 0\)</span>, the
+dashed circle has radius <span class="math notranslate nohighlight">\(\beta\)</span>. The design point is the point of the
+failure region closest to the origin, i.e. the <em>most likely failure
+scenario</em>: <span class="math notranslate nohighlight">\(x^*\)</span> tells you with which values of <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(S\)</span> the
+structure fails most probably.</p>
+</section>
+<section id="sensitivities-who-is-responsible">
+<h2><span class="section-number">14.4. </span>4. Sensitivities: who is responsible?<a class="headerlink" href="#sensitivities-who-is-responsible" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\alpha = u^*/\beta\)</span> is a unit vector; <span class="math notranslate nohighlight">\(\alpha_i^2\)</span> is the share of
+variable <span class="math notranslate nohighlight">\(i\)</span> in the uncertainty at the design point, and its sign says
+whether it acts as a resistance (<span class="math notranslate nohighlight">\(\alpha &lt; 0\)</span>) or as a load (<span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>).
+Here <span class="math notranslate nohighlight">\(S\)</span> dominates. Eurocode’s <strong>design-value format</strong> builds directly
+on this: the design value of each variable is</p>
+<div class="math notranslate nohighlight">
+\[ x_d = F^{-1}\big(\Phi(\alpha\,\beta)\big) , \]</div>
+<p>and with <em>fixed</em> sensitivities <span class="math notranslate nohighlight">\(\alpha_R = -0.8\)</span>, <span class="math notranslate nohighlight">\(\alpha_E = 0.7\)</span> (EN 1990,
+Annex C) one obtains partial factors <span class="math notranslate nohighlight">\(\gamma = x_d / x_k\)</span> without running
+FORM at all. Code calibration is the step that checks, over many
+structures, how good such fixed values are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">xd</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">ndtr</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: α = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">,  design value x_d = F⁻¹(Φ(α β)) = </span><span class="si">{</span><span class="n">xd</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  (x* = </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  R: α = -0.420,  design value x_d = F⁻¹(Φ(α β)) = 2.143  (x* = 2.143)
+  S: α = +0.907,  design value x_d = F⁻¹(Φ(α β)) = 2.143  (x* = 2.143)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="when-the-surface-is-curved-sorm-and-importance-sampling">
+<h2><span class="section-number">14.5. </span>5. When the surface is curved: SORM and importance sampling<a class="headerlink" href="#when-the-surface-is-curved-sorm-and-importance-sampling" title="Link to this heading">#</a></h2>
+<p>Now a limit state with the structure of the calibration problem: a load
+effect that is the <em>product</em> of a model uncertainty <span class="math notranslate nohighlight">\(\Theta\)</span> (lognormal,
+CoV 0.26 — the wind value of the AHG model) and a load <span class="math notranslate nohighlight">\(Q\)</span> (Gumbel, CoV
+0.14), against a fixed resistance 2.4:</p>
+<div class="math notranslate nohighlight">
+\[ g = 2.4 - \Theta\,Q . \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'Θ'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'Q'</span><span class="p">,</span> <span class="s1">'gumbel'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ls2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">2.4</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">theta</span><span class="p">,</span> <span class="n">Q</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'2.4 − Θ·Q'</span><span class="p">)</span>
+<span class="n">res2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls2</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_limit_state_2d</span><span class="p">(</span><span class="n">ls2</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'g = 2.4 − Θ·Q in u-space'</span><span class="p">),</span> <span class="s1">'lesson02_u_space_product.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/37cb858c3ebba03e175c64938cb659252abbe6b58cb30534d93b7bb43ac50451.png" src="../../_images/37cb858c3ebba03e175c64938cb659252abbe6b58cb30534d93b7bb43ac50451.png" />
+</div>
+</div>
+<p>The failure surface bends <em>towards</em> the origin on both sides of the
+design point: the failure domain is larger than FORM’s half-space and
+FORM is optimistic. Two cheap ways to check and improve it:</p>
+<ul class="simple">
+<li><p><strong>SORM</strong> (Breitung) corrects for the main curvatures <span class="math notranslate nohighlight">\(\kappa_i\)</span> of the
+surface at the design point: <span class="math notranslate nohighlight">\(P_f \approx \Phi(-\beta)\prod_i (1 + \beta\kappa_i)^{-1/2}\)</span>.</p></li>
+<li><p><strong>Importance sampling</strong> draws samples <em>around the design point</em> and
+re-weights them; a few thousand samples give what crude Monte Carlo
+needs millions for.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_sorm</span><span class="p">,</span> <span class="n">kappa</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">sorm</span><span class="p">(</span><span class="n">ls2</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span>
+<span class="n">isr</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">importance_sampling</span><span class="p">(</span><span class="n">ls2</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mc2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">monte_carlo</span><span class="p">(</span><span class="n">ls2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">4_000_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FORM                 β = </span><span class="si">{</span><span class="n">res2</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SORM (κ = </span><span class="si">{</span><span class="n">kappa</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">)  β = </span><span class="si">{</span><span class="n">b_sorm</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"importance sampling  β = </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">n</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> samples)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"crude Monte Carlo    β = </span><span class="si">{</span><span class="n">mc2</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">mc2</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">mc2</span><span class="o">.</span><span class="n">n</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> samples)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FORM                 β = 3.1052
+SORM (κ = [-0.063])  β = 3.0729
+importance sampling  β = 3.0733 ± 0.0025  (50,000 samples)
+crude Monte Carlo    β = 3.0753 ± 0.0046  (4,000,000 samples)
+</pre></div>
+</div>
+</div>
+</div>
+<p>SORM and importance sampling agree with the expensive Monte-Carlo
+estimate; FORM alone is about 0.035 too high. Keep that number in mind —
+the calibration limit state of the next lessons contains exactly this
+product, and the same bias (lesson 6 quantifies it over the whole model).</p>
+</section>
+<section id="how-depends-on-the-safety-margin">
+<h2><span class="section-number">14.6. </span>6. How β depends on the safety margin<a class="headerlink" href="#how-depends-on-the-safety-margin" title="Link to this heading">#</a></h2>
+<p>Finally the relation a code writer cares about: how much mean resistance
+buys how much reliability. Scaling <span class="math notranslate nohighlight">\(R\)</span> by a factor <span class="math notranslate nohighlight">\(z\)</span> — exactly what a
+partial factor does — moves <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.6</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">betas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zs</span><span class="p">:</span>
+    <span class="n">ls_z</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                         <span class="p">[</span><span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">S</span><span class="p">])</span>
+    <span class="n">betas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls_z</span><span class="p">)</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">zs</span><span class="p">,</span> <span class="n">betas</span><span class="p">,</span> <span class="s1">'o-'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'β_t = 3.8'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'z = mean resistance / mean load'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'β'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson02_beta_vs_z.png'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"z needed for β = 3.8: ≈ </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mf">3.8</span><span class="p">,</span><span class="w"> </span><span class="n">betas</span><span class="p">,</span><span class="w"> </span><span class="n">zs</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d50ce3de91682bdb93dd4ba36f64922146e92a95ff962c8d8ae022bd7ca2234d.png" src="../../_images/d50ce3de91682bdb93dd4ba36f64922146e92a95ff962c8d8ae022bd7ca2234d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>z needed for β = 3.8: ≈ 3.56
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">14.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Replace the Gumbel load by a normal one with the same mean and CoV.
+How do β and the FORM–Monte-Carlo gap change? Look at the u-space plot.</p></li>
+<li><p>Make <span class="math notranslate nohighlight">\(R\)</span> the dominant variable (CoV 0.30) and <span class="math notranslate nohighlight">\(S\)</span> a small one (CoV 0.10).
+What happens to <span class="math notranslate nohighlight">\(\alpha\)</span>? Compare with the EN 1990 values −0.8 / 0.7.</p></li>
+<li><p>Write the gradient of <span class="math notranslate nohighlight">\(g = R - S\)</span> analytically and pass it as <code class="docutils literal notranslate"><span class="pre">grad=</span></code>
+to <code class="docutils literal notranslate"><span class="pre">LimitState</span></code>; check that the design point is unchanged.</p></li>
+<li><p>In section 5, replace the fixed resistance 2.4 by a lognormal <span class="math notranslate nohighlight">\(R\)</span>
+(mean 2.4, CoV 0.10). Does the FORM bias grow or shrink?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_random_variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Lesson 1 — Random variables and characteristic values</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_design_situation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Lesson 3 — The design equation and one design situation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-g-r-s">14.1. 1. The problem: <span class="math notranslate nohighlight">\(g = R - S\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-first-monte-carlo">14.2. 2. Brute force first: Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-the-design-point-by-the-hl-rf-iteration">14.3. 3. FORM: the design point by the HL-RF iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivities-who-is-responsible">14.4. 4. Sensitivities: who is responsible?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-surface-is-curved-sorm-and-importance-sampling">14.5. 5. When the surface is curved: SORM and importance sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-depends-on-the-safety-margin">14.6. 6. How β depends on the safety margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">14.7. Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

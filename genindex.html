@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.a">a (codecal.distributions.Gumbel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.a_G">a_G (codecal.model.DesignSituation attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.a_G_range">a_G_range (codecal.model.FailureMode attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.a_Q">a_Q (codecal.model.DesignSituation attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.a_Q_range">a_Q_range (codecal.model.FailureMode attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.ahg2021.ahg_model">ahg_model() (in module codecal.ahg2021)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.ahg2021.ahg_spec">ahg_spec() (in module codecal.ahg2021)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.alpha">alpha (codecal.reliability.FORMResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.as_dict">as_dict() (codecal.model.PartialFactors method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.b">b (codecal.distributions.Gumbel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.beta">beta (codecal.reliability.FORMResult attribute)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult.beta">(codecal.reliability.SamplingResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.beta_after">beta_after (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.beta_before">beta_before (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.beta_table">beta_table() (in module codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.beta_target">beta_target (codecal.calibrate.CalibrationResult attribute)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.beta_target">(codecal.model.CalibrationModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.bounds_for">bounds_for() (in module codecal.calibrate)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.build_model">build_model() (in module codecal.spec)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.calibrate.calibrate">calibrate() (in module codecal.calibrate)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel">CalibrationModel (class in codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult">CalibrationResult (class in codecal.calibrate)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.cdf">cdf() (codecal.distributions.Gumbel method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.cdf">(codecal.distributions.Lognormal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.cdf">(codecal.distributions.Normal method)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.char">char (codecal.variables.RandomVariable attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.characteristic_value_mcs">characteristic_value_mcs() (in module codecal.variables)</a>
+</li>
+      <li>
+    codecal
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.ahg2021
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.ahg2021">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.calibrate
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.calibrate">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.distributions
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.distributions">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    codecal.model
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.model">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.plots
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.plots">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.reliability
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.reliability">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.spec
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.spec">module</a>
+</li>
+      </ul></li>
+      <li>
+    codecal.variables
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal.variables">module</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.converged">converged (codecal.reliability.FORMResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.cov">cov (codecal.distributions.Gumbel property)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.cov">(codecal.distributions.Lognormal property)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.cov">(codecal.distributions.Normal property)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.cov">(codecal.variables.RandomVariable property)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.reliability.curvatures">curvatures() (in module codecal.reliability)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.description">description (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.design_parameter">design_parameter() (codecal.model.DesignSituation method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.design_situations">design_situations() (codecal.model.CalibrationModel method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation">DesignSituation (class in codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.diff_specs">diff_specs() (in module codecal.spec)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.dist">dist (codecal.variables.RandomVariable attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.distribution">distribution() (in module codecal.distributions)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.dx_du">dx_du() (codecal.distributions.Gumbel method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.dx_du">(codecal.distributions.Lognormal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.dx_du">(codecal.distributions.Normal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.dx_du">(codecal.variables.RandomVariable method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.evaluate">evaluate() (in module codecal.model)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.factors">factors (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.failure_modes">failure_modes (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode">FailureMode (class in codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult.failures">failures (codecal.reliability.SamplingResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.figure_png">figure_png() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.form">form() (in module codecal.reliability)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult">FORMResult (class in codecal.reliability)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.free">free (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.from_json">from_json() (in module codecal.spec)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.from_moments">from_moments() (codecal.distributions.Gumbel class method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.from_moments">(codecal.distributions.Lognormal class method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.from_moments">(codecal.distributions.Normal class method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.G">G (codecal.model.FailureMode attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.LimitState.g_u">g_u() (codecal.reliability.LimitState method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.gamma_G">gamma_G (codecal.model.PartialFactors attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.gamma_GP">gamma_GP (codecal.model.PartialFactors attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.gamma_M">gamma_M (codecal.model.FailureMode attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.gamma_Q">gamma_Q (codecal.model.PartialFactors attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.gamma_Q_of">gamma_Q_of() (codecal.model.PartialFactors method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.get">get() (codecal.model.PartialFactors method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.LimitState.grad_u">grad_u() (codecal.reliability.LimitState method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel">Gumbel (class in codecal.distributions)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.hessian_u">hessian_u() (in module codecal.reliability)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.history">history (codecal.calibrate.CalibrationResult attribute)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.history">(codecal.reliability.FORMResult attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.importance_sampling">importance_sampling() (in module codecal.reliability)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.iterations">iterations (codecal.reliability.FORMResult attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.lam">lam (codecal.distributions.Lognormal attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.limit_state">limit_state() (codecal.model.DesignSituation method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.LimitState">LimitState (class in codecal.reliability)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.load">load (codecal.model.DesignSituation attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.loads">loads (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Lognormal">Lognormal (class in codecal.distributions)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.mean">mean (codecal.distributions.Gumbel property)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.mean">(codecal.distributions.Lognormal property)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.mean">(codecal.distributions.Normal attribute)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.mean">(codecal.variables.RandomVariable property)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.mode">mode (codecal.model.DesignSituation attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.model">model (codecal.model.DesignSituation attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.ModelSpecError">ModelSpecError</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="docs/reference/api.html#module-codecal">codecal</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.ahg2021">codecal.ahg2021</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.calibrate">codecal.calibrate</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.distributions">codecal.distributions</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.model">codecal.model</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.plots">codecal.plots</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.reliability">codecal.reliability</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.spec">codecal.spec</a>
+</li>
+        <li><a href="docs/reference/api.html#module-codecal.variables">codecal.variables</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.monte_carlo">monte_carlo() (in module codecal.reliability)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.LimitState.n">n (codecal.reliability.LimitState property)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult.n">(codecal.reliability.SamplingResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.n_aG">n_aG (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.n_aQ">n_aQ (codecal.model.CalibrationModel attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.name">name (codecal.model.FailureMode attribute)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.model.VariableLoad.name">(codecal.model.VariableLoad attribute)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.name">(codecal.variables.RandomVariable attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Normal">Normal (class in codecal.distributions)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.note">note (codecal.variables.RandomVariable attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.objective">objective (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.objective">objective() (in module codecal.calibrate)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.optimizer">optimizer (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.over_period">over_period() (codecal.distributions.Gumbel method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.P">P (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors">PartialFactors (class in codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.pdf">pdf() (codecal.distributions.Gumbel method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.pdf">(codecal.distributions.Lognormal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.pdf">(codecal.distributions.Normal method)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.pf">pf (codecal.reliability.FORMResult property)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult.pf">(codecal.reliability.SamplingResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_beta_distribution">plot_beta_distribution() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_beta_vs_aQ">plot_beta_vs_aQ() (in module codecal.plots)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_calibration_history">plot_calibration_history() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_form_history">plot_form_history() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_gamma_comparison">plot_gamma_comparison() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_limit_state_2d">plot_limit_state_2d() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.plot_sensitivities">plot_sensitivities() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.ppf">ppf() (codecal.distributions.Gumbel method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.ppf">(codecal.distributions.Lognormal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.ppf">(codecal.distributions.Normal method)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.model.VariableLoad.psi_0">psi_0 (codecal.model.VariableLoad attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.VariableLoad.Q">Q (codecal.model.VariableLoad attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.R">R (codecal.model.FailureMode attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.RandomVariable">RandomVariable (class in codecal.variables)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.reliability">reliability() (codecal.model.DesignSituation method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.rv">rv() (in module codecal.variables)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult">SamplingResult (class in codecal.reliability)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.SamplingResult.se_beta">se_beta (codecal.reliability.SamplingResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.sensitivities">sensitivities() (codecal.reliability.FORMResult method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.plots.short">short() (in module codecal.plots)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.reliability.sorm">sorm() (in module codecal.reliability)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.spec_signature">spec_signature() (in module codecal.spec)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.std">std (codecal.distributions.Gumbel property)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.std">(codecal.distributions.Lognormal property)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.std">(codecal.distributions.Normal attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.summary">summary() (codecal.model.CalibrationModel method)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.sweep_after">sweep_after (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.calibrate.CalibrationResult.sweep_before">sweep_before (codecal.calibrate.CalibrationResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.symbol">symbol (codecal.variables.RandomVariable attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.VariableLoad.T_basic">T_basic (codecal.model.VariableLoad attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.T_ref">T_ref (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.theta_E">theta_E (codecal.model.CalibrationModel attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.VariableLoad.theta_Q">theta_Q (codecal.model.VariableLoad attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.FailureMode.theta_R">theta_R (codecal.model.FailureMode attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.variables.time_variant_load">time_variant_load() (in module codecal.variables)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.spec.to_json">to_json() (in module codecal.spec)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.CalibrationModel.total_weight">total_weight() (codecal.model.CalibrationModel method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.u_star">u_star (codecal.reliability.FORMResult attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.spec.validate_spec">validate_spec() (in module codecal.spec)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.variable_names">variable_names (codecal.model.DesignSituation property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.VariableLoad">VariableLoad (class in codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.variables">variables (codecal.model.DesignSituation property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.DesignSituation.weight">weight (codecal.model.DesignSituation attribute)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.model.FailureMode.weight">(codecal.model.FailureMode attribute)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.model.VariableLoad.weight">(codecal.model.VariableLoad attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.model.weighted_mean_beta">weighted_mean_beta() (in module codecal.model)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.with_values">with_values() (codecal.model.PartialFactors method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Gumbel.x_of_u">x_of_u() (codecal.distributions.Gumbel method)</a>
+
+      <ul>
+        <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.x_of_u">(codecal.distributions.Lognormal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.distributions.Normal.x_of_u">(codecal.distributions.Normal method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.reliability.LimitState.x_of_u">(codecal.reliability.LimitState method)</a>
+</li>
+        <li><a href="docs/reference/api.html#codecal.variables.RandomVariable.x_of_u">(codecal.variables.RandomVariable method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.reliability.FORMResult.x_star">x_star (codecal.reliability.FORMResult attribute)</a>
+</li>
+      <li><a href="docs/reference/api.html#codecal.model.PartialFactors.xi">xi (codecal.model.PartialFactors attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="docs/reference/api.html#codecal.distributions.Lognormal.zeta">zeta (codecal.distributions.Lognormal attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

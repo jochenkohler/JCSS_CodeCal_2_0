@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>17. Lesson 5 — Calibration: choosing the partial factors &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/notebooks/05_calibration';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18. Lesson 6 — How good is FORM? Verification and the method decision" href="06_verification.html" />
+    <link rel="prev" title="16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?" href="04_the_sweep.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/notebooks/05_calibration.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 5 — Calibration: choosing the partial factors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-objective-function-as-a-landscape">17.1. 1. The objective function as a landscape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-g-and-q-for-eq-8-12">17.2. 2. Calibrating γ_G and γ_Q for eq. 8.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-degrees-of-freedom">17.3. 3. More degrees of freedom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-combination-rule-eq-8-13-with-free">17.4. 4. The two-combination rule, eq. 8.13, with ξ free</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-calibrations">17.5. 5. Comparing the calibrations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">17.6. Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-5-calibration-choosing-the-partial-factors">
+<h1><span class="section-number">17. </span>Lesson 5 — Calibration: choosing the partial factors<a class="headerlink" href="#lesson-5-calibration-choosing-the-partial-factors" title="Link to this heading">#</a></h1>
+<p>Lesson 4 showed the reliability the present code delivers: 3.74 on
+average, between 2.5 and 4.5 across the design situations. Calibration
+asks which partial factors bring all situations <em>as close as possible</em> to
+the target <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \min_{\gamma}\; M(\gamma) = \sum_k w_k \big(\beta_k(\gamma) - \beta_t\big)^2 . \]</div>
+<p>A single pair <span class="math notranslate nohighlight">\((\gamma_G, \gamma_Q)\)</span> cannot hit 3.8 everywhere — β falls
+with <span class="math notranslate nohighlight">\(a_Q\)</span> for any fixed pair — so the optimum is a compromise weighted
+by how common each situation is. More free parameters (separate factors
+per load, a ξ for the two-combination equations) buy a smaller residual
+scatter at the price of a more complicated code.</p>
+<p>Each evaluation of <span class="math notranslate nohighlight">\(M\)</span> runs FORM for 810 situations (about a second);
+a calibration needs 20–60 of them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">FIG</span> <span class="o">=</span> <span class="s1">'figures'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure next to the lesson and show it (inline in Jupyter/Spyder)."""</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>            <span class="c1"># plain python: the PNG in figures/ is the output</span>
+        <span class="k">pass</span>
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-objective-function-as-a-landscape">
+<h2><span class="section-number">17.1. </span>1. The objective function as a landscape<a class="headerlink" href="#the-objective-function-as-a-landscape" title="Link to this heading">#</a></h2>
+<p>Before optimising, look at <span class="math notranslate nohighlight">\(M(\gamma_G, \gamma_Q)\)</span> on a grid (with a
+coarser sweep of 108 situations so that it takes seconds). The valley
+is long and shallow along one direction: raising <span class="math notranslate nohighlight">\(\gamma_G\)</span> and lowering
+<span class="math notranslate nohighlight">\(\gamma_Q\)</span> (or vice versa) changes the objective little — the two factors
+can partly substitute each other, which is why calibrated values should
+always be reported together with the equation and weights they belong to.
+(The coarse sweep shifts the minimum a little compared with the full
+model used below.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coarse</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">(</span><span class="n">n_mcs</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">n_aQ</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_aG</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">gQ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">gQ</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">gG</span><span class="p">)))</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gQ</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gG</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">coarse</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="o">.</span><span class="n">with_values</span><span class="p">([</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">],</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span> <span class="n">q</span><span class="p">]))</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"grid of </span><span class="si">{</span><span class="n">M</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> objective evaluations in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s"</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">gG</span><span class="p">,</span> <span class="n">gQ</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.05</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">14</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'</span><span class="si">%.3f</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">argmin</span><span class="p">(),</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gG</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">gQ</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">'r*'</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'grid minimum (</span><span class="si">{</span><span class="n">gG</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">gQ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'ko'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Eurocode (1.35, 1.5)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'γ_G'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'γ_Q'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Objective M(γ_G, γ_Q), eq. 8.12, coarse sweep'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson05_objective_landscape.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>grid of 121 objective evaluations in 12 s
+</pre></div>
+</div>
+<img alt="../../_images/5c6810be6b5048a74030bae3e3bc29c6a687d39df25282eefd1441364cdf1bd7.png" src="../../_images/5c6810be6b5048a74030bae3e3bc29c6a687d39df25282eefd1441364cdf1bd7.png" />
+</div>
+</div>
+</section>
+<section id="calibrating-g-and-q-for-eq-8-12">
+<h2><span class="section-number">17.2. </span>2. Calibrating γ_G and γ_Q for eq. 8.12<a class="headerlink" href="#calibrating-g-and-q-for-eq-8-12" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">calibrate</span></code> minimises <span class="math notranslate nohighlight">\(M\)</span> with SLSQP. <code class="docutils literal notranslate"><span class="pre">free</span></code> names the parameters the
+optimiser may change; the others keep their start values. The printout
+shows every objective evaluation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">cal_12</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">cal_12</span><span class="si">}</span><span class="se">\n</span><span class="s2">(</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   1: gamma_G=1.3500, gamma_Q=1.5000  M = 1.889e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   2: gamma_G=1.3501, gamma_Q=1.5000  M = 1.889e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   3: gamma_G=1.3500, gamma_Q=1.5001  M = 1.889e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   4: gamma_G=1.1493, gamma_Q=1.8187  M = 1.464e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   5: gamma_G=1.1494, gamma_Q=1.8187  M = 1.464e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   6: gamma_G=1.1493, gamma_Q=1.8188  M = 1.464e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   7: gamma_G=1.3231, gamma_Q=1.9451  M = 2.916e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   8: gamma_G=1.1754, gamma_Q=1.8377  M = 1.423e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval   9: gamma_G=1.1755, gamma_Q=1.8377  M = 1.423e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  10: gamma_G=1.1754, gamma_Q=1.8378  M = 1.423e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  11: gamma_G=1.2234, gamma_Q=1.7315  M = 1.369e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  12: gamma_G=1.2235, gamma_Q=1.7315  M = 1.369e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  13: gamma_G=1.2234, gamma_Q=1.7316  M = 1.369e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  14: gamma_G=1.2154, gamma_Q=1.7505  M = 1.366e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  15: gamma_G=1.2155, gamma_Q=1.7505  M = 1.366e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  eval  16: gamma_G=1.2154, gamma_Q=1.7506  M = 1.366e-01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calibrated gamma_G, gamma_Q  (β_t = 3.8)
+  gamma_G            1.215
+  gamma_Q            1.750
+  weighted-mean β  3.741 → 3.809
+  objective        1.366e-01   (16 evaluations)
+(16 s)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The optimiser lowers <span class="math notranslate nohighlight">\(\gamma_G\)</span> and raises <span class="math notranslate nohighlight">\(\gamma_Q\)</span>: the status quo was
+too conservative for permanent-load-dominated structures and not
+conservative enough for variable-load-dominated ones, exactly what the
+falling β–<span class="math notranslate nohighlight">\(a_Q\)</span> curves of lesson 4 said. The weighted mean lands close
+to 3.8 by construction; what matters is the <em>scatter</em> around it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before</span><span class="p">,</span> <span class="n">after</span> <span class="o">=</span> <span class="n">cal_12</span><span class="o">.</span><span class="n">sweep_before</span><span class="p">,</span> <span class="n">cal_12</span><span class="o">.</span><span class="n">sweep_after</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"spread of β (weighted std):  before </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">((</span><span class="n">before</span><span class="o">.</span><span class="n">beta</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">before</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">weights</span><span class="o">=</span><span class="n">before</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span>
+      <span class="sa">f</span><span class="s2">"   after </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">((</span><span class="n">after</span><span class="o">.</span><span class="n">beta</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">after</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">weights</span><span class="o">=</span><span class="n">after</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'mode'</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">ref_df</span><span class="o">=</span><span class="n">before</span><span class="p">,</span>
+                                  <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">'calibrated'</span><span class="p">,</span> <span class="s1">'Eurocode 1.35 / 1.5'</span><span class="p">),</span>
+                                  <span class="n">title</span><span class="o">=</span><span class="s1">'Eq. 8.12: β per failure mode before and after calibration'</span><span class="p">),</span>
+     <span class="s1">'lesson05_before_after_mode.png'</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_vs_aQ</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">ref_df</span><span class="o">=</span><span class="n">before</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s1">'Eq. 8.12: β against a_Q, Eurocode factors (red) and calibrated (blue)'</span><span class="p">),</span>
+     <span class="s1">'lesson05_before_after_aQ.png'</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_calibration_history</span><span class="p">(</span><span class="n">cal_12</span><span class="p">),</span> <span class="s1">'lesson05_history.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spread of β (weighted std):  before 0.441   after 0.383
+</pre></div>
+</div>
+<img alt="../../_images/8dc7eaa2c6560edc1f8dad9eef73500597fb5590f7f36a50cd5bd685139cc17b.png" src="../../_images/8dc7eaa2c6560edc1f8dad9eef73500597fb5590f7f36a50cd5bd685139cc17b.png" />
+<img alt="../../_images/1fc0219ecb1f80a185af5914214a86342291992905f6f01a8d54bdac3d2627bc.png" src="../../_images/1fc0219ecb1f80a185af5914214a86342291992905f6f01a8d54bdac3d2627bc.png" />
+<img alt="../../_images/71d6a8cc9dfdc8b544e5b370d7c44cf0179f5fc20315a9149b1c406d2a3baf7a.png" src="../../_images/71d6a8cc9dfdc8b544e5b370d7c44cf0179f5fc20315a9149b1c406d2a3baf7a.png" />
+</div>
+</div>
+</section>
+<section id="more-degrees-of-freedom">
+<h2><span class="section-number">17.3. </span>3. More degrees of freedom<a class="headerlink" href="#more-degrees-of-freedom" title="Link to this heading">#</a></h2>
+<p>Separate factors for wind, snow and imposed load let the optimiser
+address the systematic differences between the loads (snow low, imposed
+high in the status quo):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cal_12_loads</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q:wind'</span><span class="p">,</span> <span class="s1">'gamma_Q:snow'</span><span class="p">,</span> <span class="s1">'gamma_Q:imposed'</span><span class="p">),</span>
+                            <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal_12_loads</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calibrated gamma_G, gamma_Q:wind, gamma_Q:snow, gamma_Q:imposed  (β_t = 3.8)
+  gamma_G            1.194
+  gamma_Q:wind       1.937
+  gamma_Q:snow       2.351
+  gamma_Q:imposed    1.602
+  weighted-mean β  3.741 → 3.815
+  objective        7.208e-02   (42 evaluations)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-two-combination-rule-eq-8-13-with-free">
+<h2><span class="section-number">17.4. </span>4. The two-combination rule, eq. 8.13, with ξ free<a class="headerlink" href="#the-two-combination-rule-eq-8-13-with-free" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cal_13</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'xi'</span><span class="p">,</span> <span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.13'</span><span class="p">,</span>
+                      <span class="n">start</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal_13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calibrated xi, gamma_G, gamma_Q  (β_t = 3.8)
+  xi                 0.892
+  gamma_G            1.329
+  gamma_Q            1.779
+  weighted-mean β  3.445 → 3.809
+  objective        1.344e-01   (30 evaluations)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparing-the-calibrations">
+<h2><span class="section-number">17.5. </span>5. Comparing the calibrations<a class="headerlink" href="#comparing-the-calibrations" title="Link to this heading">#</a></h2>
+<p>The objective value is the measure of success: the smaller, the more
+uniform the reliability across the situations the code covers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'8.12: γ_G, γ_Q'</span><span class="p">:</span> <span class="n">cal_12</span><span class="p">,</span> <span class="s1">'8.12: γ_G, γ_Q per load'</span><span class="p">:</span> <span class="n">cal_12_loads</span><span class="p">,</span> <span class="s1">'8.13: ξ, γ_G, γ_Q'</span><span class="p">:</span> <span class="n">cal_13</span><span class="p">}</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+                               <span class="s1">'objective'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">'weighted-mean β'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">beta_after</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+                        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_gamma_comparison</span><span class="p">(</span><span class="n">results</span><span class="p">),</span> <span class="s1">'lesson05_gamma_comparison.png'</span><span class="p">)</span>
+<span class="n">summary</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'calibration_results.csv'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                         gamma_G  gamma_GP     xi  gamma_Q:wind  gamma_Q:snow  gamma_Q:imposed  objective  weighted-mean β
+8.12: γ_G, γ_Q             1.215     1.215  0.850         1.750         1.750            1.750    0.13662            3.809
+8.12: γ_G, γ_Q per load    1.194     1.194  0.850         1.937         2.351            1.602    0.07208            3.815
+8.13: ξ, γ_G, γ_Q          1.329     1.329  0.892         1.779         1.779            1.779    0.13441            3.809
+</pre></div>
+</div>
+<img alt="../../_images/0da89784bb6cca77a48e8a6f499c7fae0402e7ad5b25dd1eb09710040cd3fb74.png" src="../../_images/0da89784bb6cca77a48e8a6f499c7fae0402e7ad5b25dd1eb09710040cd3fb74.png" />
+</div>
+</div>
+<p>A few things to take from the table:</p>
+<ul class="simple">
+<li><p>Differentiating <span class="math notranslate nohighlight">\(\gamma_Q\)</span> by load reduces the objective markedly:
+the snow load gets the largest factor, the imposed load the smallest.
+Whether a code should have three variable-load factors is a question
+of practicality, not of reliability.</p></li>
+<li><p>With ξ free, the optimiser trades ξ against <span class="math notranslate nohighlight">\(\gamma_G\)</span> — one of the
+flat directions of the landscape. The calibrated numbers of the
+two-combination rules depend strongly on the bounds and start values.</p></li>
+<li><p>All calibrated values are specific to the probabilistic model, the
+target, the weights and the FORM approximation (lesson 6).</p></li>
+</ul>
+</section>
+<section id="exercises">
+<h2><span class="section-number">17.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Calibrate with the target 4.3 (consequence class 3). How much do the
+factors rise? Is the increase the same for γ_G and γ_Q?</p></li>
+<li><p>Calibrate eq. 8.14 with ξ free and compare with 8.13.</p></li>
+<li><p>Give every design situation the same weight (<code class="docutils literal notranslate"><span class="pre">df['weight']</span> <span class="pre">=</span> <span class="pre">const</span></code> is
+not enough — change the weights in the model) and recalibrate. Which
+failure modes gain, which lose?</p></li>
+<li><p>Fix γ_G = 1.35 and calibrate γ_Q alone. Compare the objective with the
+two-parameter calibration: what does the second parameter buy?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_the_sweep.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_verification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Lesson 6 — How good is FORM? Verification and the method decision</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-objective-function-as-a-landscape">17.1. 1. The objective function as a landscape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-g-and-q-for-eq-8-12">17.2. 2. Calibrating γ_G and γ_Q for eq. 8.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-degrees-of-freedom">17.3. 3. More degrees of freedom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-combination-rule-eq-8-13-with-free">17.4. 4. The two-combination rule, eq. 8.13, with ξ free</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-calibrations">17.5. 5. Comparing the calibrations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">17.6. Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

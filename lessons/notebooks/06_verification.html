@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>18. Lesson 6 — How good is FORM? Verification and the method decision &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/notebooks/06_verification';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API reference" href="../../docs/reference/api.html" />
+    <link rel="prev" title="17. Lesson 5 — Calibration: choosing the partial factors" href="05_calibration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/notebooks/06_verification.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 6 — How good is FORM? Verification and the method decision</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-sorm-and-importance-sampling-for-every-design-situation">18.1. 1. FORM, SORM and importance sampling for every design situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-with-sorm-instead-of-form">18.2. 2. Calibrating with SORM instead of FORM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-as-the-final-arbiter">18.3. 3. Sampling as the final arbiter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">18.4. Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-6-how-good-is-form-verification-and-the-method-decision">
+<h1><span class="section-number">18. </span>Lesson 6 — How good is FORM? Verification and the method decision<a class="headerlink" href="#lesson-6-how-good-is-form-verification-and-the-method-decision" title="Link to this heading">#</a></h1>
+<p>Every number of lessons 4 and 5 rests on FORM. Lesson 2 showed that the
+product of a lognormal model uncertainty and a Gumbel load curves the
+failure surface and makes FORM optimistic by a few hundredths. The
+calibration limit state contains exactly such products — on both sides:
+<span class="math notranslate nohighlight">\(z\,\Theta_R R\)</span> and <span class="math notranslate nohighlight">\(\Theta_E\,\Theta_Q Q\)</span>. This lesson quantifies the
+effect over the whole model and shows what it does to the calibrated
+factors.</p>
+<p>Tools (all in <code class="docutils literal notranslate"><span class="pre">codecal.reliability</span></code>):</p>
+<ul class="simple">
+<li><p><strong>SORM</strong> — Breitung’s curvature correction, about 70 % extra cost;</p></li>
+<li><p><strong>importance sampling</strong> around the FORM design point — a few thousand
+samples per situation give β to ±0.01, independent of any
+linearisation.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
+
+<span class="n">FIG</span> <span class="o">=</span> <span class="s1">'figures'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure next to the lesson and show it (inline in Jupyter/Spyder)."""</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>            <span class="c1"># plain python: the PNG in figures/ is the output</span>
+        <span class="k">pass</span>
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">()</span>
+<span class="n">situations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">design_situations</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="form-sorm-and-importance-sampling-for-every-design-situation">
+<h2><span class="section-number">18.1. </span>1. FORM, SORM and importance sampling for every design situation<a class="headerlink" href="#form-sorm-and-importance-sampling-for-every-design-situation" title="Link to this heading">#</a></h2>
+<p>For each of the 810 situations: FORM (as in the sweep), SORM at the same
+design point, and importance sampling with 20 000 samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">situations</span><span class="p">:</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">design_parameter</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">,</span> <span class="s1">'8.12'</span><span class="p">)</span>
+    <span class="n">ls</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">limit_state</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+    <span class="n">b_sorm</span><span class="p">,</span> <span class="n">kappa</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">sorm</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="n">isr</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">importance_sampling</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'mode'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'a_G'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">a_G</span><span class="p">,</span> <span class="s1">'a_Q'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">a_Q</span><span class="p">,</span>
+                 <span class="s1">'beta_form'</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="s1">'beta_sorm'</span><span class="p">:</span> <span class="n">b_sorm</span><span class="p">,</span> <span class="s1">'beta_is'</span><span class="p">:</span> <span class="n">isr</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="s1">'se_is'</span><span class="p">:</span> <span class="n">isr</span><span class="o">.</span><span class="n">se_beta</span><span class="p">,</span>
+                 <span class="s1">'kappa_min'</span><span class="p">:</span> <span class="n">kappa</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s1">'dominant'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">variable_names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">alpha</span><span class="p">)))]})</span>
+<span class="n">ver</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ver</span><span class="p">)</span><span class="si">}</span><span class="s2"> situations verified in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s"</span><span class="p">)</span>
+<span class="n">ver</span><span class="p">[</span><span class="s1">'form-is'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ver</span><span class="o">.</span><span class="n">beta_form</span> <span class="o">-</span> <span class="n">ver</span><span class="o">.</span><span class="n">beta_is</span>
+<span class="n">ver</span><span class="p">[</span><span class="s1">'sorm-is'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ver</span><span class="o">.</span><span class="n">beta_sorm</span> <span class="o">-</span> <span class="n">ver</span><span class="o">.</span><span class="n">beta_is</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ver</span><span class="p">[[</span><span class="s1">'form-is'</span><span class="p">,</span> <span class="s1">'sorm-is'</span><span class="p">,</span> <span class="s1">'se_is'</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>810 situations verified in 4 s
+        form-is   sorm-is     se_is
+count  810.0000  810.0000  810.0000
+mean     0.0414    0.0007    0.0039
+std      0.0189    0.0042    0.0002
+min     -0.0057   -0.0135    0.0034
+25%      0.0299   -0.0021    0.0037
+50%      0.0437    0.0008    0.0039
+75%      0.0555    0.0034    0.0040
+max      0.0838    0.0130    0.0070
+</pre></div>
+</div>
+</div>
+</div>
+<p>FORM overestimates β by about 0.04 on average, up to 0.09; SORM agrees
+with the sampling estimate to within its standard error. The bias is not
+uniform — it depends on which variable dominates:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ver</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'dominant'</span><span class="p">)[[</span><span class="s1">'form-is'</span><span class="p">,</span> <span class="s1">'sorm-is'</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'count'</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ver</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'load'</span><span class="p">)[[</span><span class="s1">'form-is'</span><span class="p">,</span> <span class="s1">'sorm-is'</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">load</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">ver</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'load'</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">beta_is</span><span class="p">,</span> <span class="n">grp</span><span class="p">[</span><span class="s1">'form-is'</span><span class="p">],</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'FORM − IS, </span><span class="si">{</span><span class="n">load</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ver</span><span class="o">.</span><span class="n">beta_is</span><span class="p">,</span> <span class="n">ver</span><span class="p">[</span><span class="s1">'sorm-is'</span><span class="p">],</span> <span class="s1">'k.'</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SORM − IS'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'β (importance sampling)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'error in β'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">'lesson06_form_error.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         form-is              sorm-is             
+            mean    max count    mean    max count
+dominant                                          
+Q          0.015  0.050   165   0.001  0.010   165
+R          0.053  0.074    96   0.001  0.013    96
+Θ_E        0.063  0.084    24  -0.002  0.009    24
+Θ_Q        0.044  0.071   246   0.001  0.012   246
+Θ_R        0.049  0.080   279   0.000  0.012   279
+
+         form-is  sorm-is
+load                     
+imposed    0.025    0.001
+snow       0.048    0.001
+wind       0.051    0.000
+</pre></div>
+</div>
+<img alt="../../_images/84990d0f28ad35f43b41c1d1b0f6c81695a8a56078fe25602c70c19a322fa7ce.png" src="../../_images/84990d0f28ad35f43b41c1d1b0f6c81695a8a56078fe25602c70c19a322fa7ce.png" />
+</div>
+</div>
+<p>Situations dominated by a <em>lognormal</em> variable — the model uncertainties
+<span class="math notranslate nohighlight">\(\Theta_E\)</span>, <span class="math notranslate nohighlight">\(\Theta_R\)</span>, <span class="math notranslate nohighlight">\(\Theta_Q\)</span> and the strengths — carry the largest
+first-order error (0.05–0.06 in β); those dominated by the Gumbel load
+itself the smallest. Per load: wind and snow ≈ 0.05, imposed ≈ 0.025.
+In β terms the AHG study is systematically optimistic by ≈ 0.04; the
+next section shows what that is worth in partial factors.</p>
+</section>
+<section id="calibrating-with-sorm-instead-of-form">
+<h2><span class="section-number">18.2. </span>2. Calibrating with SORM instead of FORM<a class="headerlink" href="#calibrating-with-sorm-instead-of-form" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">method='sorm'</span></code> applies the correction inside every objective evaluation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">cal_form</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'form'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">cal_sorm</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'sorm'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"two calibrations in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"FORM:"</span><span class="p">,</span> <span class="n">cal_form</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">SORM:"</span><span class="p">,</span> <span class="n">cal_sorm</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_gamma_comparison</span><span class="p">({</span><span class="s1">'FORM'</span><span class="p">:</span> <span class="n">cal_form</span><span class="p">,</span> <span class="s1">'SORM'</span><span class="p">:</span> <span class="n">cal_sorm</span><span class="p">},</span>
+                                 <span class="n">title</span><span class="o">=</span><span class="s1">'Calibrated factors, eq. 8.12: FORM vs SORM'</span><span class="p">),</span>
+     <span class="s1">'lesson06_gamma_form_vs_sorm.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two calibrations in 43 s
+
+FORM:
+calibrated gamma_G, gamma_Q  (β_t = 3.8)
+  gamma_G            1.215
+  gamma_Q            1.750
+  weighted-mean β  3.741 → 3.809
+  objective        1.366e-01   (16 evaluations)
+
+SORM:
+calibrated gamma_G, gamma_Q  (β_t = 3.8)
+  gamma_G            1.228
+  gamma_Q            1.761
+  weighted-mean β  3.705 → 3.808
+  objective        1.406e-01   (17 evaluations)
+</pre></div>
+</div>
+<img alt="../../_images/c7761cfeb8f099a57f6d3386e1053574e685184253c3eebd77e35e2cab26e4be.png" src="../../_images/c7761cfeb8f099a57f6d3386e1053574e685184253c3eebd77e35e2cab26e4be.png" />
+</div>
+</div>
+<p>The status-quo weighted mean drops from 3.74 (FORM) to 3.70 (SORM), and
+the calibrated factors rise by about 0.01–0.015 each. Which method a
+code committee adopts is a decision — the target β itself was set with
+FORM in mind — but it has to be a conscious one, and the size of the
+effect should be known. That is what this lesson is for.</p>
+</section>
+<section id="sampling-as-the-final-arbiter">
+<h2><span class="section-number">18.3. </span>3. Sampling as the final arbiter<a class="headerlink" href="#sampling-as-the-final-arbiter" title="Link to this heading">#</a></h2>
+<p>When in doubt, importance sampling with more samples settles the
+question for any single situation. Steel bending under wind, the grid
+point closest to the situation of lesson 3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">situations</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'Steel bending'</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'wind'</span>
+         <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">a_G</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">a_Q</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.03</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">design_parameter</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">,</span> <span class="s1">'8.12'</span><span class="p">)</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">limit_state</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2_000</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">,</span> <span class="mi">200_000</span><span class="p">):</span>
+    <span class="n">isr</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">importance_sampling</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"importance sampling, n = </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">7,d</span><span class="si">}</span><span class="s2">: β = </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FORM </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, SORM </span><span class="si">{</span><span class="n">cc</span><span class="o">.</span><span class="n">sorm</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">mc</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">monte_carlo</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2_000_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"crude Monte Carlo, n = 2,000,000: β = </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">mc</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>importance sampling, n =   2,000: β = 3.4948 ± 0.0122
+importance sampling, n =  20,000: β = 3.4849 ± 0.0040
+importance sampling, n = 200,000: β = 3.4755 ± 0.0012
+FORM 3.5196, SORM 3.4776
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>crude Monte Carlo, n = 2,000,000: β = 3.4808 ± 0.0120
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">18.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Which single CoV of the model would you reduce to make FORM accurate
+enough? Try halving the CoV of the wind model uncertainty and rerun
+section 1 for the wind situations.</p></li>
+<li><p>The sensitivity factor of the <em>dominant</em> variable is often above 0.7
+for wind. Compare with the fixed α = 0.7 of EN 1990 Annex C: in which
+situations would the design-value format be conservative, in which not?</p></li>
+<li><p>Repeat section 2 for eq. 8.13 with ξ free. Does SORM change ξ?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_calibration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Lesson 5 — Calibration: choosing the partial factors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../docs/reference/api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-sorm-and-importance-sampling-for-every-design-situation">18.1. 1. FORM, SORM and importance sampling for every design situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-with-sorm-instead-of-form">18.2. 2. Calibrating with SORM instead of FORM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-as-the-final-arbiter">18.3. 3. Sampling as the final arbiter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">18.4. Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codecal.reliability &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/codecal/reliability';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for codecal.reliability</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""</span>
+<span class="sd">Reliability methods: FORM, SORM, crude Monte Carlo and importance sampling.</span>
+
+<span class="sd">Everything here works on a `LimitState`: a function g(x) of independent</span>
+<span class="sd">random variables, failure for g ≤ 0. The methods operate in the space of</span>
+<span class="sd">standard-normal variables u, reached variable by variable through</span>
+<span class="sd">x_i = F_i⁻¹(Φ(u_i)) (`RandomVariable.x_of_u`).</span>
+
+<span class="sd">FORM (first-order reliability method)</span>
+<span class="sd">    finds the *design point* u*, the point of the failure surface g(u) = 0</span>
+<span class="sd">    closest to the origin. Its distance β = ‖u*‖ is the reliability index</span>
+<span class="sd">    and P_f ≈ Φ(−β). The unit vector α = u*/β holds the sensitivities: α_i²</span>
+<span class="sd">    is the share of variable i in the total uncertainty at the design</span>
+<span class="sd">    point (Σ α_i² = 1), and the sign tells whether the variable acts as a</span>
+<span class="sd">    resistance (α_i &lt; 0) or a load (α_i &gt; 0).</span>
+
+<span class="sd">    The iteration is the Hasofer–Lind / Rackwitz–Fiessler (HL-RF) scheme:</span>
+<span class="sd">    linearise g at u_k, step to the design point of the linearised surface,</span>
+<span class="sd">    repeat::</span>
+
+<span class="sd">        α_k     = −∇g(u_k)/‖∇g(u_k)‖</span>
+<span class="sd">        u_{k+1} = [α_k·u_k + g(u_k)/‖∇g(u_k)‖] α_k</span>
+
+<span class="sd">SORM (second-order, Breitung 1984)</span>
+<span class="sd">    corrects P_f for the curvature of the failure surface at u*:</span>
+<span class="sd">    P_f ≈ Φ(−β) Π_i (1 + β κ_i)^(−1/2), κ_i the main curvatures. For the</span>
+<span class="sd">    product-type limit state of code calibration FORM is on the unsafe side</span>
+<span class="sd">    by a few hundredths in β; SORM removes most of that.</span>
+
+<span class="sd">Monte Carlo</span>
+<span class="sd">    draws u ~ N(0, I) and counts failures. Needs ~100/P_f samples for a</span>
+<span class="sd">    10 % standard error — millions for β ≈ 4. Importance sampling centred</span>
+<span class="sd">    at the FORM design point needs a few thousand instead.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">special</span>
+
+
+<div class="viewcode-block" id="LimitState">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.LimitState">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LimitState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""g(x) with its variables; gradient analytic (`grad`) or numerical."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">grad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'g'</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g_x</span> <span class="o">=</span> <span class="n">g</span>                    <span class="c1"># g(x) with x = list/array of physical values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grad_x</span> <span class="o">=</span> <span class="n">grad</span>              <span class="c1"># ∂g/∂x (optional)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LimitState.x_of_u">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.LimitState.x_of_u">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">x_of_u</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">ui</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">ui</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">u</span><span class="p">)])</span></div>
+
+
+<div class="viewcode-block" id="LimitState.g_u">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.LimitState.g_u">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">g_u</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">g_x</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">u</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="LimitState.grad_u">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.LimitState.grad_u">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">grad_u</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""∂g/∂u by the chain rule ∂g/∂u_i = ∂g/∂x_i · dx_i/du_i."""</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">dxdu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">dx_du</span><span class="p">(</span><span class="n">ui</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">ui</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">u</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grad_x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grad_x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxdu</span>
+        <span class="c1"># central differences in x</span>
+        <span class="n">gx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">gx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g_x</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">g_x</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">gx</span> <span class="o">*</span> <span class="n">dxdu</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="FORMResult">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.FORMResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FORMResult</span><span class="p">:</span>
+    <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">alpha</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">u_star</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">x_star</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">converged</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">history</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>     <span class="c1"># (β_k, g(u_k)) per iteration</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">special</span><span class="o">.</span><span class="n">ndtr</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">))</span>
+
+<div class="viewcode-block" id="FORMResult.sensitivities">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.FORMResult.sensitivities">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sensitivities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""α_i² per variable, as a dict."""</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">names</span> <span class="ow">or</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">))]</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="form">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.form">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">form</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">u0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FORMResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""FORM by the HL-RF iteration. Converged when the step ‖u_{k+1} − u_k‖</span>
+<span class="sd">    is below `tol` and abs(g) is small relative to ‖∇g‖."""</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">n</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">u0</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxiter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">g_u</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">grad</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">grad_u</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"FORM: zero gradient — g does not depend on u here."</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">grad</span> <span class="o">/</span> <span class="n">norm</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha</span> <span class="o">@</span> <span class="n">u</span><span class="p">)</span>                     <span class="c1"># signed distance of u along α</span>
+        <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">beta</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span>
+        <span class="n">u_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">@</span> <span class="n">u</span> <span class="o">+</span> <span class="n">g</span> <span class="o">/</span> <span class="n">norm</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span>     <span class="c1"># HL-RF step</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u_new</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u_new</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="n">norm</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>       <span class="c1"># |g|/‖∇g‖ = distance to the surface</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">g_u</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+            <span class="n">grad</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">grad_u</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">grad</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha</span> <span class="o">@</span> <span class="n">u</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">FORMResult</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">ls</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">k</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">history</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">FORMResult</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">ls</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">maxiter</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">history</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="hessian_u">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.hessian_u">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hessian_u</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Hessian of g in u-space by central differences of the gradient."""</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">e</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>
+        <span class="n">H</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">grad_u</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">-</span> <span class="n">ls</span><span class="o">.</span><span class="n">grad_u</span><span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">H</span> <span class="o">+</span> <span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="curvatures">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.curvatures">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">curvatures</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">res</span><span class="p">:</span> <span class="n">FORMResult</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Main curvatures κ_i of the failure surface at the design point, in</span>
+<span class="sd">    the convention g ≈ β + ½ Σ κ_i v_i² − v_n in coordinates rotated so</span>
+<span class="sd">    that v_n points along α (κ_i &gt; 0: surface bends away from the origin,</span>
+<span class="sd">    failure domain smaller than FORM's half-space)."""</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">alpha</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">grad_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">grad_u</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">u_star</span><span class="p">))</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">hessian_u</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">u_star</span><span class="p">)</span>
+    <span class="c1"># orthonormal basis with alpha last (Gram–Schmidt)</span>
+    <span class="n">basis</span> <span class="o">=</span> <span class="p">[</span><span class="n">alpha</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">basis</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">@</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+            <span class="n">basis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">basis</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">basis</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="n">basis</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">H</span> <span class="o">@</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span> <span class="o">/</span> <span class="n">grad_norm</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvalsh</span><span class="p">(</span><span class="n">A</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="sorm">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.sorm">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sorm</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">res</span><span class="p">:</span> <span class="n">FORMResult</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Breitung's SORM: returns (β_SORM, κ). Falls back to β_FORM if</span>
+<span class="sd">    1 + β κ_i ≤ 0 for some i (formula not applicable)."""</span>
+    <span class="n">kappa</span> <span class="o">=</span> <span class="n">curvatures</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">beta</span> <span class="o">*</span> <span class="n">kappa</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">factors</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">kappa</span>
+    <span class="n">log_pf</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">log_ndtr</span><span class="p">(</span><span class="o">-</span><span class="n">res</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">factors</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="n">special</span><span class="o">.</span><span class="n">ndtri</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_pf</span><span class="p">))),</span> <span class="n">kappa</span></div>
+
+
+
+<div class="viewcode-block" id="SamplingResult">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.SamplingResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SamplingResult</span><span class="p">:</span>
+    <span class="n">pf</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">se_beta</span><span class="p">:</span> <span class="nb">float</span>          <span class="c1"># standard error of β (delta method)</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">failures</span><span class="p">:</span> <span class="nb">float</span>         <span class="c1"># number (crude) or effective weight sum (IS)</span></div>
+
+
+
+<div class="viewcode-block" id="monte_carlo">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.monte_carlo">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">monte_carlo</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">200_000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SamplingResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Crude Monte Carlo in u-space."""</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">nfail</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">done</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">done</span><span class="p">)</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">ls</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">variables</span><span class="p">)])</span>
+        <span class="n">nfail</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">g_x</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">done</span> <span class="o">+=</span> <span class="n">m</span>
+    <span class="n">pf</span> <span class="o">=</span> <span class="n">nfail</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">if</span> <span class="n">nfail</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SamplingResult</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="n">special</span><span class="o">.</span><span class="n">ndtri</span><span class="p">(</span><span class="n">pf</span><span class="p">))</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pf</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pf</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">_phi</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SamplingResult</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">se</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">nfail</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="importance_sampling">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.reliability.importance_sampling">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">importance_sampling</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">res</span><span class="p">:</span> <span class="n">FORMResult</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">20_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SamplingResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Importance sampling with a standard-normal density centred at the</span>
+<span class="sd">    FORM design point: P_f = E_h[ I(g ≤ 0) φ(u)/h(u) ], with</span>
+<span class="sd">    φ(u)/h(u) = exp(−u·u* + ‖u*‖²/2)."""</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">u_star</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">ls</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ls</span><span class="o">.</span><span class="n">variables</span><span class="p">)])</span>
+    <span class="n">fail</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">g_x</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">u_star</span> <span class="o">@</span> <span class="n">U</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">u_star</span> <span class="o">@</span> <span class="n">res</span><span class="o">.</span><span class="n">u_star</span><span class="p">))</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">fail</span>
+    <span class="n">pf</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">pf</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SamplingResult</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">se_pf</span> <span class="o">=</span> <span class="n">ind</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="n">special</span><span class="o">.</span><span class="n">ndtri</span><span class="p">(</span><span class="n">pf</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">SamplingResult</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">se_pf</span> <span class="o">/</span> <span class="n">_phi</span><span class="p">(</span><span class="n">beta</span><span class="p">)),</span> <span class="n">n</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

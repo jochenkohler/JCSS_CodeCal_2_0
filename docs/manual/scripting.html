@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Scripting with codecal &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/manual/scripting';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13. Lesson 1 — Random variables and characteristic values" href="../../lessons/notebooks/01_random_variables.html" />
+    <link rel="prev" title="11. Model files (JSON)" href="model_files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/manual/scripting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scripting with codecal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">12.1. The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-design-situation">12.2. One design situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sweep">12.3. The sweep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration">12.4. Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-one-situation">12.5. Verification of one situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modified-model">12.6. A modified model</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scripting-with-codecal">
+<h1><span class="section-number">12. </span>Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code><a class="headerlink" href="#scripting-with-codecal" title="Link to this heading">#</a></h1>
+<p>Everything the interface does is a few function calls. This page is the
+tour of the package: build a model, evaluate a design situation, run the
+sweep, calibrate, verify, plot, and feed a modified model back in. The
+<a class="reference internal" href="../reference/api.html"><span class="doc">API reference</span></a> lists every function.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'../..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="the-model">
+<h2><span class="section-number">12.1. </span>The model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ahg_spec()</span></code> is the AHG model as a plain dictionary; <code class="docutils literal notranslate"><span class="pre">build_model</span></code>
+turns it into a <code class="docutils literal notranslate"><span class="pre">CalibrationModel</span></code> (simulating the characteristic
+loads on the way). <code class="docutils literal notranslate"><span class="pre">ahg_model()</span></code> does both. One million draws are
+enough for a script; the tests use ten million.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_spec</span><span class="p">(</span><span class="n">n_mcs</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">build_model</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()[:</span><span class="mi">600</span><span class="p">],</span> <span class="s1">'...'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AHG 2021 — Reliability Background of the Eurocodes
+
+reference period 50 a, target β 3.8
+9 failure modes × 3 loads × 3 a_G × 10 a_Q = 810 design situations
+
+Failure modes:
+  Steel bending: Θ_R mean 1.15 CoV 0.05, R CoV 0.050 (x_k 0.830), γ_M 1.0, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.17
+  Concrete compression: Θ_R mean 0.97 CoV 0.14, R CoV 0.100 (x_k 0.844), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Concrete bending: Θ_R mean 1.03 CoV 0.07, R CoV 0.045 (x_k 0.928), γ_M 1.15, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.4
+  Glulam bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.150 (x_k 0.774), γ_M 1.25,  ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>The model is a list of failure modes and a list of variable loads; each
+carries its random variables. A <code class="docutils literal notranslate"><span class="pre">RandomVariable</span></code> knows its
+distribution, its characteristic value and how to map a standard-normal
+<code class="docutils literal notranslate"><span class="pre">u</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steel</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'—'</span><span class="p">,</span> <span class="n">steel</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">dist</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">'CoV'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">cov</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">'x_k'</span><span class="p">,</span> <span class="n">steel</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+<span class="n">wind</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">loads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'— Q at the analysis period: mean'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">wind</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">'CoV'</span><span class="p">,</span> <span class="n">wind</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">cov</span><span class="p">,</span> <span class="s1">'q_k'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">wind</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'x(u) for u = -2, 0, 2:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">x_of_u</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])),</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steel bending — Steel yield strength Lognormal CoV 0.05 x_k 0.83
+wind — Q at the analysis period: mean 1.0 CoV 0.14 q_k 1.084
+x(u) for u = -2, 0, 2: [0.904 0.999 1.104]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-design-situation">
+<h2><span class="section-number">12.2. </span>One design situation<a class="headerlink" href="#one-design-situation" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">DesignSituation</span></code> is a failure mode, a load and the proportions
+<span class="math notranslate nohighlight">\((a_G, a_Q)\)</span>. <code class="docutils literal notranslate"><span class="pre">design_parameter</span></code> applies the design equation,
+<code class="docutils literal notranslate"><span class="pre">limit_state</span></code> builds <span class="math notranslate nohighlight">\(g\)</span>, and <code class="docutils literal notranslate"><span class="pre">reliability</span></code> does both and runs FORM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pf</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">PartialFactors</span><span class="p">(</span><span class="n">gamma_G</span><span class="o">=</span><span class="mf">1.35</span><span class="p">,</span> <span class="n">gamma_GP</span><span class="o">=</span><span class="mf">1.35</span><span class="p">,</span> <span class="n">gamma_Q</span><span class="o">=</span><span class="p">{</span><span class="s1">'wind'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'snow'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'imposed'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">},</span> <span class="n">xi</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">sit</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">DesignSituation</span><span class="p">(</span><span class="n">steel</span><span class="p">,</span> <span class="n">wind</span><span class="p">,</span> <span class="n">a_G</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">a_Q</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="s1">'8.13'</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">):</span>
+    <span class="n">beta</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">sit</span><span class="o">.</span><span class="n">reliability</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="n">eq</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'eq. </span><span class="si">{</span><span class="n">eq</span><span class="si">}</span><span class="s1">: z = </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, β = </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, converged in </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">iterations</span><span class="si">}</span><span class="s1"> iterations'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'sensitivities α²:'</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">sensitivities</span><span class="p">(</span><span class="n">sit</span><span class="o">.</span><span class="n">variable_names</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq. 8.12: z = 1.7924, β = 3.573, converged in 11 iterations
+eq. 8.13: z = 1.6704, β = 3.292, converged in 11 iterations
+eq. 8.14: z = 1.6704, β = 3.292, converged in 11 iterations
+sensitivities α²: {'Θ_R': 0.0408, 'R': 0.0408, 'Θ_E': 0.1625, 'G': 0.0007, 'P': 0.0007, 'Θ_Q': 0.4972, 'Q': 0.2574}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sweep">
+<h2><span class="section-number">12.3. </span>The sweep<a class="headerlink" href="#the-sweep" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">evaluate</span></code> runs FORM (or SORM) for every design situation and returns
+one row per situation. <code class="docutils literal notranslate"><span class="pre">weighted_mean_beta</span></code> and <code class="docutils literal notranslate"><span class="pre">beta_table</span></code> summarise
+it; the plot functions draw it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s1">'situations; weighted-mean β ='</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
+      <span class="s1">'; objective M ='</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>810 situations; weighted-mean β = 3.742 ; objective M = 0.1888
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mode</th>
+      <th>load</th>
+      <th>a_G</th>
+      <th>a_Q</th>
+      <th>weight</th>
+      <th>z</th>
+      <th>beta</th>
+      <th>form_iterations</th>
+      <th>converged</th>
+      <th>alpha_Θ_R</th>
+      <th>alpha_R</th>
+      <th>alpha_Θ_E</th>
+      <th>alpha_G</th>
+      <th>alpha_P</th>
+      <th>alpha_Θ_Q</th>
+      <th>alpha_Q</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Steel bending</td>
+      <td>wind</td>
+      <td>0.6</td>
+      <td>0.300000</td>
+      <td>0.002269</td>
+      <td>1.726060</td>
+      <td>4.194377</td>
+      <td>14</td>
+      <td>True</td>
+      <td>-0.241254</td>
+      <td>-0.241254</td>
+      <td>0.481608</td>
+      <td>0.034480</td>
+      <td>0.091946</td>
+      <td>0.636583</td>
+      <td>0.486586</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Steel bending</td>
+      <td>wind</td>
+      <td>0.6</td>
+      <td>0.355556</td>
+      <td>0.002269</td>
+      <td>1.744496</td>
+      <td>3.986871</td>
+      <td>13</td>
+      <td>True</td>
+      <td>-0.224728</td>
+      <td>-0.224728</td>
+      <td>0.448618</td>
+      <td>0.028259</td>
+      <td>0.075358</td>
+      <td>0.661800</td>
+      <td>0.503269</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Steel bending</td>
+      <td>wind</td>
+      <td>0.6</td>
+      <td>0.411111</td>
+      <td>0.002269</td>
+      <td>1.762932</td>
+      <td>3.808279</td>
+      <td>12</td>
+      <td>True</td>
+      <td>-0.211986</td>
+      <td>-0.211986</td>
+      <td>0.423182</td>
+      <td>0.023474</td>
+      <td>0.062596</td>
+      <td>0.680436</td>
+      <td>0.513399</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Steel bending</td>
+      <td>wind</td>
+      <td>0.6</td>
+      <td>0.466667</td>
+      <td>0.002269</td>
+      <td>1.781368</td>
+      <td>3.653423</td>
+      <td>12</td>
+      <td>True</td>
+      <td>-0.201657</td>
+      <td>-0.201657</td>
+      <td>0.402563</td>
+      <td>0.019596</td>
+      <td>0.052256</td>
+      <td>0.695126</td>
+      <td>0.519901</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Steel bending</td>
+      <td>wind</td>
+      <td>0.6</td>
+      <td>0.522222</td>
+      <td>0.002269</td>
+      <td>1.799804</td>
+      <td>3.517940</td>
+      <td>11</td>
+      <td>True</td>
+      <td>-0.192991</td>
+      <td>-0.192991</td>
+      <td>0.385263</td>
+      <td>0.016343</td>
+      <td>0.043582</td>
+      <td>0.707192</td>
+      <td>0.524208</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc</span><span class="o">.</span><span class="n">beta_table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>load</th>
+      <th>wind</th>
+      <th>snow</th>
+      <th>imposed</th>
+    </tr>
+    <tr>
+      <th>mode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Steel bending</th>
+      <td>3.52</td>
+      <td>3.17</td>
+      <td>3.94</td>
+    </tr>
+    <tr>
+      <th>Concrete compression</th>
+      <td>3.84</td>
+      <td>3.62</td>
+      <td>4.15</td>
+    </tr>
+    <tr>
+      <th>Concrete bending</th>
+      <td>3.42</td>
+      <td>3.15</td>
+      <td>3.78</td>
+    </tr>
+    <tr>
+      <th>Glulam bending</th>
+      <td>3.34</td>
+      <td>3.08</td>
+      <td>3.71</td>
+    </tr>
+    <tr>
+      <th>Timber bending</th>
+      <td>3.41</td>
+      <td>3.17</td>
+      <td>3.74</td>
+    </tr>
+    <tr>
+      <th>Masonry</th>
+      <td>4.10</td>
+      <td>3.92</td>
+      <td>4.37</td>
+    </tr>
+    <tr>
+      <th>Aluminium bending</th>
+      <td>3.61</td>
+      <td>3.31</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <th>Pile foundation</th>
+      <td>3.55</td>
+      <td>3.42</td>
+      <td>3.79</td>
+    </tr>
+    <tr>
+      <th>Shallow foundation</th>
+      <td>3.73</td>
+      <td>3.59</td>
+      <td>3.98</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_vs_aQ</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/39ddbe79f6e1de166b1efd5849af676f40c03b29ff604ea6875fe23d327a39d5.png" src="../../_images/39ddbe79f6e1de166b1efd5849af676f40c03b29ff604ea6875fe23d327a39d5.png" />
+</div>
+</div>
+</section>
+<section id="calibration">
+<h2><span class="section-number">12.4. </span>Calibration<a class="headerlink" href="#calibration" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">calibrate</span></code> minimises <span class="math notranslate nohighlight">\(M(\gamma)\)</span> over the named parameters. Names:
+<code class="docutils literal notranslate"><span class="pre">gamma_G</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma_GP</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma_Q</span></code> (common), <code class="docutils literal notranslate"><span class="pre">gamma_Q:&lt;load&gt;</span></code> (per load),
+<code class="docutils literal notranslate"><span class="pre">xi</span></code>. Setting <code class="docutils literal notranslate"><span class="pre">gamma_G</span></code> without <code class="docutils literal notranslate"><span class="pre">gamma_GP</span></code> sets both permanent-load
+factors (the convention of the study).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">start</span><span class="o">=</span><span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calibrated gamma_G, gamma_Q  (β_t = 3.8)
+  gamma_G            1.215
+  gamma_Q            1.750
+  weighted-mean β  3.742 → 3.809
+  objective        1.365e-01   (16 evaluations)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_after</span><span class="p">,</span> <span class="s1">'mode'</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="n">ref_df</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_before</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">'calibrated'</span><span class="p">,</span> <span class="s1">'start'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/80f9b45a2e326fb72906b2d1dc54747ea8cbb876ab4db3ea1d1a0c949519d360.png" src="../../_images/80f9b45a2e326fb72906b2d1dc54747ea8cbb876ab4db3ea1d1a0c949519d360.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CalibrationResult</span></code> carries the factors, the sweeps before and after,
+the optimiser history and the scipy result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">factors</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'evaluations:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">history</span><span class="p">),</span> <span class="s1">'| SLSQP:'</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'γ_Q,wind of the result:'</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'gamma_Q:wind'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PartialFactors(gamma_G=1.2154096497373543, gamma_GP=1.2154096497373543, gamma_Q={'wind': 1.75032560483013, 'snow': 1.75032560483013, 'imposed': 1.75032560483013}, xi=0.85)
+evaluations: 16 | SLSQP: Optimization terminated successfully
+γ_Q,wind of the result: 1.75032560483013
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verification-of-one-situation">
+<h2><span class="section-number">12.5. </span>Verification of one situation<a class="headerlink" href="#verification-of-one-situation" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">form</span></code>, <code class="docutils literal notranslate"><span class="pre">sorm</span></code>, <code class="docutils literal notranslate"><span class="pre">importance_sampling</span></code> and <code class="docutils literal notranslate"><span class="pre">monte_carlo</span></code> work on any
+<code class="docutils literal notranslate"><span class="pre">LimitState</span></code> — the ones of the model, or your own.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">sit</span><span class="o">.</span><span class="n">design_parameter</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">factors</span><span class="p">,</span> <span class="s1">'8.12'</span><span class="p">)</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">sit</span><span class="o">.</span><span class="n">limit_state</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<span class="n">b_sorm</span><span class="p">,</span> <span class="n">kappa</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">sorm</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="n">isr</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">importance_sampling</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50_000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'FORM </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">   SORM </span><span class="si">{</span><span class="n">b_sorm</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">   IS </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="n">isr</span><span class="o">.</span><span class="n">se_beta</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FORM 3.7472   SORM 3.7072   IS 3.7075 ± 0.0024
+</pre></div>
+</div>
+</div>
+</div>
+<p>A limit state of your own: two variables, <span class="math notranslate nohighlight">\(g = R - S\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="s1">'lognormal'</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">fractile</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">rv</span><span class="p">(</span><span class="s1">'S'</span><span class="p">,</span> <span class="s1">'gumbel'</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">fractile</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+<span class="n">ls2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'R − S'</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">form</span><span class="p">(</span><span class="n">ls2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'β = </span><span class="si">{</span><span class="n">r2</span><span class="o">.</span><span class="n">beta</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, α = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, design point x* = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">x_star</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot_limit_state_2d</span><span class="p">(</span><span class="n">ls2</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'R − S in u-space'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>β = 2.792, α = [-0.42   0.908], design point x* = [2.076 2.076]
+</pre></div>
+</div>
+<img alt="../../_images/143a1b29c9cd75d23e8865e0a1ad8d128419e69fad7932b4ee34cf39bccbc238.png" src="../../_images/143a1b29c9cd75d23e8865e0a1ad8d128419e69fad7932b4ee34cf39bccbc238.png" />
+</div>
+</div>
+</section>
+<section id="a-modified-model">
+<h2><span class="section-number">12.6. </span>A modified model<a class="headerlink" href="#a-modified-model" title="Link to this heading">#</a></h2>
+<p>Edit the dictionary, validate, build, and compare — the same thing the
+lab mode does. Here: snow with a more uncertain model (CoV 0.26 → 0.35).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spec2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_spec</span><span class="p">(</span><span class="n">n_mcs</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">spec2</span><span class="p">[</span><span class="s1">'loads'</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">'theta_Q'</span><span class="p">][</span><span class="s1">'cov'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'problems:'</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">validate_spec</span><span class="p">(</span><span class="n">spec2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'changes:'</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">diff_specs</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">spec2</span><span class="p">))</span>
+<span class="n">model2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">build_model</span><span class="p">(</span><span class="n">spec2</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'weighted-mean β:'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">'→'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">df2</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">cc</span><span class="o">.</span><span class="n">beta_table</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="s1">'snow'</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">'snow, CoV(Θ_Q) = 0.35'</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">beta_table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="s1">'snow'</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">'snow, CoV(Θ_Q) = 0.26'</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>problems: []
+changes: [('loads[snow].theta_Q.cov', 0.26, 0.35)]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weighted-mean β: 3.742 → 3.727
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>snow, CoV(Θ_Q) = 0.35</th>
+      <th>snow, CoV(Θ_Q) = 0.26</th>
+    </tr>
+    <tr>
+      <th>mode</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Steel bending</th>
+      <td>2.93</td>
+      <td>3.17</td>
+    </tr>
+    <tr>
+      <th>Concrete compression</th>
+      <td>3.49</td>
+      <td>3.62</td>
+    </tr>
+    <tr>
+      <th>Concrete bending</th>
+      <td>3.00</td>
+      <td>3.15</td>
+    </tr>
+    <tr>
+      <th>Glulam bending</th>
+      <td>2.98</td>
+      <td>3.08</td>
+    </tr>
+    <tr>
+      <th>Timber bending</th>
+      <td>3.09</td>
+      <td>3.17</td>
+    </tr>
+    <tr>
+      <th>Masonry</th>
+      <td>3.82</td>
+      <td>3.92</td>
+    </tr>
+    <tr>
+      <th>Aluminium bending</th>
+      <td>3.13</td>
+      <td>3.31</td>
+    </tr>
+    <tr>
+      <th>Pile foundation</th>
+      <td>3.38</td>
+      <td>3.42</td>
+    </tr>
+    <tr>
+      <th>Shallow foundation</th>
+      <td>3.53</td>
+      <td>3.59</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Save it for the lab mode, or for the command line
+(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">run_calibration.py</span> <span class="pre">--model</span> <span class="pre">snow_035.json</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'snow_035.json'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">spec2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'snow_035.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()[:</span><span class="mi">300</span><span class="p">],</span> <span class="s1">'...'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'snow_035.json'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ "name": "AHG 2021 — Reliability Background of the Eurocodes",
+ "T_ref": 50,
+ "n_aQ": 10,
+ "n_aG": 3,
+ "beta_target": 3.8,
+ "seed": 12345,
+ "n_mcs": 1000000,
+ "theta_E": {
+  "name": "Load-effect model uncertainty",
+  "family": "lognormal",
+  "mean": 1.0,
+  "cov": 0.1,
+  "char": 1.0,
+  "note": "by  ...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/manual"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="model_files.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Model files (JSON)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../lessons/notebooks/01_random_variables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Lesson 1 — Random variables and characteristic values</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">12.1. The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-design-situation">12.2. One design situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sweep">12.3. The sweep</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration">12.4. Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-one-situation">12.5. Verification of one situation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modified-model">12.6. A modified model</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

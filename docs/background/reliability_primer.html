@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. The reliability concepts needed &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/background/reliability_primer';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. The code format: three combination rules" href="../eurocode_study/code_format.html" />
+    <link rel="prev" title="2. Reliability-based code calibration" href="calibration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/background/reliability_primer.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The reliability concepts needed</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-state-failure-probability-reliability-index">3.1. Limit state, failure probability, reliability index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-the-design-point-and-the-sensitivity-factors">3.2. FORM: the design point and the sensitivity factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-values-and-partial-factors">3.3. Characteristic values and partial factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalised-variables">3.4. Normalised variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-variant-loads">3.5. Time-variant loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-weighted-average-and-the-objective">3.6. The weighted average and the objective</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-reliability-concepts-needed">
+<h1><span class="section-number">3. </span>The reliability concepts needed<a class="headerlink" href="#the-reliability-concepts-needed" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Reading time</p>
+<p>Ten minutes. This is the minimum needed to follow the Eurocode study; the
+lessons (<a class="reference internal" href="../../lessons/notebooks/01_random_variables.html"><span class="doc">Lesson 1 — Random variables and characteristic values</span></a> and
+<a class="reference internal" href="../../lessons/notebooks/02_form.html"><span class="doc">Lesson 2 — The reliability index and FORM</span></a>) treat the same material with code
+and exercises, and the compendium <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../reference/bibliography.html#id34" title="Jochen Köhler. TKT4196 aspects of structural safety – compendium. Lecture notes, Department of Structural Engineering, NTNU, 2026.">Köhler, 2026</a>]</span> or
+<span class="bibtex-citation" id="id2">[<a class="reference internal" href="../reference/bibliography.html#id33" title="R. E. Melchers and A. T. Beck. Structural reliability analysis and prediction. Wiley, Chichester, 3rd edition, 2018.">Melchers and Beck, 2018</a>]</span> give the full account.</p>
+</div>
+<section id="limit-state-failure-probability-reliability-index">
+<h2><span class="section-number">3.1. </span>Limit state, failure probability, reliability index<a class="headerlink" href="#limit-state-failure-probability-reliability-index" title="Link to this heading">#</a></h2>
+<p>A failure mode is described by a <em>limit state function</em> <span class="math notranslate nohighlight">\(g(\mathbf{x})\)</span> of
+the basic variables <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> — strengths, loads, model uncertainties —
+with <span class="math notranslate nohighlight">\(g \le 0\)</span> meaning failure. The probability of failure is</p>
+<div class="math notranslate nohighlight">
+\[
+p_f = P\big(g(\mathbf{X}) \le 0\big) .
+\]</div>
+<p>For a linear <span class="math notranslate nohighlight">\(g\)</span> of normally distributed variables, the safety margin
+<span class="math notranslate nohighlight">\(M = g(\mathbf{X})\)</span> is normal and <span class="math notranslate nohighlight">\(p_f = \Phi(-\beta)\)</span> with
+<span class="math notranslate nohighlight">\(\beta = \mu_M / \sigma_M\)</span> — the <em>reliability index</em>. In general <span class="math notranslate nohighlight">\(\beta\)</span> is
+simply defined through <span class="math notranslate nohighlight">\(p_f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\beta = -\Phi^{-1}(p_f),
+\]</div>
+<p>and is the quantity the codes prescribe: EN 1990 asks for <span class="math notranslate nohighlight">\(\beta = 3.8\)</span> for
+a 50-year reference period in the ordinary consequence class, which
+corresponds to <span class="math notranslate nohighlight">\(p_f \approx 7 \cdot 10^{-5}\)</span>.</p>
+</section>
+<section id="form-the-design-point-and-the-sensitivity-factors">
+<h2><span class="section-number">3.2. </span>FORM: the design point and the sensitivity factors<a class="headerlink" href="#form-the-design-point-and-the-sensitivity-factors" title="Link to this heading">#</a></h2>
+<p>Each basic variable is mapped to a standard normal variable,
+<span class="math notranslate nohighlight">\(x_i = F_{X_i}^{-1}\big(\Phi(u_i)\big)\)</span>, so that the problem lives in a
+space where the probability density is rotationally symmetric and decays
+with the distance from the origin. The <em>first-order reliability method</em>
+(FORM) <span class="bibtex-citation" id="id3">[<a class="reference internal" href="../reference/bibliography.html#id30" title="A. M. Hasofer and N. C. Lind. Exact and invariant second-moment code format. Journal of the Engineering Mechanics Division, ASCE, 100(1):111–121, 1974.">Hasofer and Lind, 1974</a>, <a class="reference internal" href="../reference/bibliography.html#id31" title="R. Rackwitz and B. Fiessler. Structural reliability under combined random load sequences. Computers &amp; Structures, 9(5):489–494, 1978. doi:10.1016/0045-7949(78)90046-9.">Rackwitz and Fiessler, 1978</a>]</span> finds the point of the
+failure surface <span class="math notranslate nohighlight">\(g(\mathbf{u}) = 0\)</span> closest to the origin — the <em>design
+point</em> <span class="math notranslate nohighlight">\(\mathbf{u}^*\)</span> — and takes its distance as the reliability index:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta = \|\mathbf{u}^*\|, \qquad p_f \approx \Phi(-\beta).
+\]</div>
+<p>The approximation replaces the failure surface by its tangent plane at the
+design point. It is exact for a linear surface and remains very good for
+the smooth, mildly curved surfaces of code calibration; the error can be
+checked with a second-order correction (SORM, <span class="bibtex-citation" id="id4">[<a class="reference internal" href="../reference/bibliography.html#id32" title="K. Breitung. Asymptotic approximations for multinormal integrals. Journal of Engineering Mechanics, 110(3):357–366, 1984. doi:10.1061/(ASCE)0733-9399(1984)110:3(357).">Breitung, 1984</a>]</span>) or with
+sampling around the design point, which is what the verification pages do.</p>
+<p>The unit vector <span class="math notranslate nohighlight">\(\boldsymbol{\alpha} = \mathbf{u}^* / \beta\)</span> carries the
+<em>sensitivity factors</em>: <span class="math notranslate nohighlight">\(\alpha_i^2\)</span> is the share of variable <span class="math notranslate nohighlight">\(i\)</span> in the
+total uncertainty at the design point, and <span class="math notranslate nohighlight">\(\sum \alpha_i^2 = 1\)</span>. Load
+variables have positive <span class="math notranslate nohighlight">\(\alpha\)</span> (a larger load brings failure closer),
+resistance variables negative. The <em>design values</em> are the coordinates of
+the design point mapped back,
+<span class="math notranslate nohighlight">\(x_{i,d} = F_{X_i}^{-1}\big(\Phi(\alpha_i \beta)\big)\)</span> — which is the
+relation the design value method of the previous chapter generalises with
+fixed <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</section>
+<section id="characteristic-values-and-partial-factors">
+<h2><span class="section-number">3.3. </span>Characteristic values and partial factors<a class="headerlink" href="#characteristic-values-and-partial-factors" title="Link to this heading">#</a></h2>
+<p>The code works with one <em>characteristic value</em> per variable — a specified
+fractile: 5 % for material strengths, the mean (50 %) for self-weight,
+the 98 % fractile of the annual maximum for climatic actions — and a partial
+factor that moves it towards the design value, <span class="math notranslate nohighlight">\(x_d = x_k \gamma\)</span> for a
+load, <span class="math notranslate nohighlight">\(x_d = x_k / \gamma\)</span> for a resistance. A design made with the code
+provides a certain resistance; FORM on the limit state function then tells
+which <span class="math notranslate nohighlight">\(\beta\)</span> that design actually reaches. Calibration closes the loop by
+choosing the <span class="math notranslate nohighlight">\(\gamma\)</span> such that the <span class="math notranslate nohighlight">\(\beta\)</span>’s come out as intended.</p>
+</section>
+<section id="normalised-variables">
+<h2><span class="section-number">3.4. </span>Normalised variables<a class="headerlink" href="#normalised-variables" title="Link to this heading">#</a></h2>
+<p>In the Eurocode model every variable has mean 1 — the absolute magnitude of
+a strength or a load does not matter for the comparison, only its
+coefficient of variation (CoV), its distribution family and its
+characteristic value as a ratio to the mean. A resistance is then described
+by three numbers (family, CoV, <span class="math notranslate nohighlight">\(x_k\)</span>), a load likewise, and the whole
+probabilistic model of the study fits in two tables.</p>
+</section>
+<section id="time-variant-loads">
+<h2><span class="section-number">3.5. </span>Time-variant loads<a class="headerlink" href="#time-variant-loads" title="Link to this heading">#</a></h2>
+<p>Wind and snow are represented by the distribution of their annual maximum
+(a Gumbel distribution), the imposed load by that of its five-year maximum.
+The reliability is required for a 50-year reference period, so the
+distribution of the maximum over 50 years is needed: for a Gumbel variable
+with scale <span class="math notranslate nohighlight">\(\sigma\)</span> the standard deviation is unchanged and the mean shifts
+by <span class="math notranslate nohighlight">\((\sqrt{6}/\pi)\,\sigma \ln(T_2/T_1)\)</span>. The characteristic value of a
+variable load is a fractile of the annual maximum of the <em>product</em> of the
+load and its model uncertainty <span class="math notranslate nohighlight">\(\Theta_Q\)</span>, which is why it is obtained by
+simulation in the model (<a class="reference internal" href="../eurocode_study/model.html"><span class="doc">The probabilistic model</span></a>).</p>
+</section>
+<section id="the-weighted-average-and-the-objective">
+<h2><span class="section-number">3.6. </span>The weighted average and the objective<a class="headerlink" href="#the-weighted-average-and-the-objective" title="Link to this heading">#</a></h2>
+<p>The calibration domain is a set of <em>design situations</em> — a failure mode, a
+dominating variable load, and the proportions <span class="math notranslate nohighlight">\(a_G\)</span> (share of self-weight
+in the permanent load) and <span class="math notranslate nohighlight">\(a_Q\)</span> (share of the variable load in the total)
+— each with a weight <span class="math notranslate nohighlight">\(w_k\)</span>. Two numbers summarise a set of partial factors:
+the weighted average reliability</p>
+<div class="math notranslate nohighlight">
+\[
+\beta_{\text{w-average}}(\boldsymbol{\gamma}) = \sum_k w_k\, \beta_k(\boldsymbol{\gamma}),
+\]</div>
+<p>and the objective</p>
+<div class="math notranslate nohighlight">
+\[
+M(\boldsymbol{\gamma}) = \sum_k w_k \big(\beta_k(\boldsymbol{\gamma}) - \beta_t\big)^2 ,
+\]</div>
+<p>which the calibration minimises. The first says whether the code is on
+target on average; the second — or the standard deviation of the <span class="math notranslate nohighlight">\(\beta_k\)</span>
+— says how <em>uniform</em> the reliability is, which is the more robust
+indicator of the quality of a code format.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/background"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="calibration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Reliability-based code calibration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../eurocode_study/code_format.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>The code format: three combination rules</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-state-failure-probability-reliability-index">3.1. Limit state, failure probability, reliability index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-the-design-point-and-the-sensitivity-factors">3.2. FORM: the design point and the sensitivity factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-values-and-partial-factors">3.3. Characteristic values and partial factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalised-variables">3.4. Normalised variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-variant-loads">3.5. Time-variant loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-weighted-average-and-the-objective">3.6. The weighted average and the objective</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

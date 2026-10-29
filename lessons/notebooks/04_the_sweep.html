@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode? &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/notebooks/04_the_sweep';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17. Lesson 5 — Calibration: choosing the partial factors" href="05_calibration.html" />
+    <link rel="prev" title="15. Lesson 3 — The design equation and one design situation" href="03_design_situation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/notebooks/04_the_sweep.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">16.1. 1. The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-status-quo-of-every-design-situation-with-g-1-35-q-1-5">16.2. 2. The status quo: β of every design situation with γ_G = 1.35, γ_Q = 1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-the-reliability-high-where-is-it-low">16.3. 3. Where is the reliability high, where is it low?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-uncertainties-drive-the-result">16.4. 4. Which uncertainties drive the result?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">16.5. 5. Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">16.6. Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-4-the-sweep-how-reliable-are-structures-designed-with-the-present-eurocode">
+<h1><span class="section-number">16. </span>Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?<a class="headerlink" href="#lesson-4-the-sweep-how-reliable-are-structures-designed-with-the-present-eurocode" title="Link to this heading">#</a></h1>
+<p>A code is used for many structures. The AHG model represents them by</p>
+<ul class="simple">
+<li><p>9 failure modes (materials and mechanisms), each with a weight for how
+common it is,</p></li>
+<li><p>3 dominating variable loads (wind, snow, imposed), also weighted,</p></li>
+<li><p>a grid of load proportions: 3 values of <span class="math notranslate nohighlight">\(a_G\)</span> (share of self-weight in
+the permanent load) and 10 values of <span class="math notranslate nohighlight">\(a_Q\)</span> (share of the variable load).</p></li>
+</ul>
+<p>That is 9 × 3 × 3 × 10 = 810 <strong>design situations</strong>, each with the weight
+<span class="math notranslate nohighlight">\(w = w_{mode}\,w_{load}/(n_{a_G} n_{a_Q})\)</span>. Evaluating all of them with
+the present partial factors is the <em>status quo</em> of the code — the
+starting point of every calibration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+
+<span class="n">FIG</span> <span class="o">=</span> <span class="s1">'figures'</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure next to the lesson and show it (inline in Jupyter/Spyder)."""</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FIG</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>            <span class="c1"># plain python: the PNG in figures/ is the output</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-model">
+<h2><span class="section-number">16.1. </span>1. The model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h2>
+<p>Everything is in <code class="docutils literal notranslate"><span class="pre">codecal/ahg2021.py</span></code> — a table of coefficients of
+variation, characteristic values and weights. Read it once; it is the
+whole “input” of the study.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">()</span>            <span class="c1"># 10 M Monte-Carlo draws for the characteristic values (a few seconds)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AHG 2021 — Reliability Background of the Eurocodes
+
+reference period 50 a, target β 3.8
+9 failure modes × 3 loads × 3 a_G × 10 a_Q = 810 design situations
+
+Failure modes:
+  Steel bending: Θ_R mean 1.15 CoV 0.05, R CoV 0.050 (x_k 0.830), γ_M 1.0, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.17
+  Concrete compression: Θ_R mean 0.97 CoV 0.14, R CoV 0.100 (x_k 0.844), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Concrete bending: Θ_R mean 1.03 CoV 0.07, R CoV 0.045 (x_k 0.928), γ_M 1.15, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.4
+  Glulam bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.150 (x_k 0.774), γ_M 1.25, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.035
+  Timber bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.200 (x_k 0.708), γ_M 1.3, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.017
+  Masonry: Θ_R mean 1.16 CoV 0.18, R CoV 0.160 (x_k 0.760), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Aluminium bending: Θ_R mean 1.27 CoV 0.15, R CoV 0.050 (x_k 0.850), γ_M 1.1, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.017
+  Pile foundation: Θ_R mean 1.00 CoV 0.20, R CoV 0.120 (x_k 0.816), γ_M 1.5, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+  Shallow foundation: Θ_R mean 1.00 CoV 0.15, R CoV 0.150 (x_k 0.774), γ_M 1.4, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+
+Variable loads:
+  wind: Θ_Q mean 0.97 CoV 0.26, Q Gumbel CoV 0.140 (q_k 1.083), ψ₀ 0.6, w 0.4
+  snow: Θ_Q mean 0.81 CoV 0.26, Q Gumbel CoV 0.200 (q_k 0.821), ψ₀ 0.5, w 0.1
+  imposed: Θ_Q mean 1.00 CoV 0.10, Q Gumbel CoV 0.260 (q_k 1.350), ψ₀ 0.7, w 0.5
+
+  Load-effect model uncertainty: Lognormal(mean=1, CoV=0.1), x_k=1
+  Permanent load (other than self-weight): Normal(mean=1, CoV=0.1), x_k=1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-status-quo-of-every-design-situation-with-g-1-35-q-1-5">
+<h2><span class="section-number">16.2. </span>2. The status quo: β of every design situation with γ_G = 1.35, γ_Q = 1.5<a class="headerlink" href="#the-status-quo-of-every-design-situation-with-g-1-35-q-1-5" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">evaluate</span></code> runs FORM for each situation and returns a table — one row per
+situation with its β, design parameter z and sensitivity factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> situations evaluated in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>810 situations evaluated in 0.9 s
+            mode  load  a_G    a_Q  weight      z   beta  form_iterations  converged  alpha_Θ_R  alpha_R  alpha_Θ_E  alpha_G  alpha_P  alpha_Θ_Q  alpha_Q
+0  Steel bending  wind  0.6  0.300   0.002  1.726  4.194               14       True     -0.241   -0.241      0.482    0.034    0.092      0.637    0.487
+1  Steel bending  wind  0.6  0.356   0.002  1.744  3.987               13       True     -0.225   -0.225      0.449    0.028    0.075      0.662    0.503
+2  Steel bending  wind  0.6  0.411   0.002  1.763  3.808               12       True     -0.212   -0.212      0.423    0.023    0.063      0.680    0.513
+3  Steel bending  wind  0.6  0.467   0.002  1.781  3.653               12       True     -0.202   -0.202      0.403    0.020    0.052      0.695    0.520
+4  Steel bending  wind  0.6  0.522   0.002  1.800  3.518               11       True     -0.193   -0.193      0.385    0.016    0.044      0.707    0.524
+</pre></div>
+</div>
+</div>
+</div>
+<p>The headline number of the status quo is the <strong>weighted-mean reliability
+index</strong>. The AHG reports it as 3.74; with the weights normalised to sum
+to 1 it is 3.74 as well (the input weights sum to 0.999):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta_mean</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"weighted-mean β = </span><span class="si">{</span><span class="n">beta_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">   (target 3.8)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"range over the situations: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> … </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weighted-mean β = 3.741   (target 3.8)
+range over the situations: 2.45 … 4.52
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="where-is-the-reliability-high-where-is-it-low">
+<h2><span class="section-number">16.3. </span>3. Where is the reliability high, where is it low?<a class="headerlink" href="#where-is-the-reliability-high-where-is-it-low" title="Link to this heading">#</a></h2>
+<p>Mean β per failure mode and load — the table the AHG discussed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">beta_table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>load                  wind  snow  imposed
+mode                                     
+Steel bending         3.52  3.17     3.94
+Concrete compression  3.84  3.62     4.15
+Concrete bending      3.42  3.15     3.78
+Glulam bending        3.34  3.08     3.71
+Timber bending        3.41  3.17     3.74
+Masonry               4.10  3.92     4.37
+Aluminium bending     3.61  3.31     4.00
+Pile foundation       3.55  3.42     3.79
+Shallow foundation    3.73  3.59     3.98
+</pre></div>
+</div>
+</div>
+</div>
+<p>Snow-dominated structures are consistently below the target, imposed
+load above it; masonry and concrete compression are high (large
+resistance model uncertainty with bias, large γ_M), glulam and timber
+low. The spread within a group is the load ratio: the next figure shows
+the whole distribution, the one after it β against <span class="math notranslate nohighlight">\(a_Q\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'mode'</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span>
+                                  <span class="n">title</span><span class="o">=</span><span class="s1">'Status quo: β per failure mode (all loads and load ratios)'</span><span class="p">),</span>
+     <span class="s1">'lesson04_beta_by_mode.png'</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'load'</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Status quo: β per load'</span><span class="p">),</span>
+     <span class="s1">'lesson04_beta_by_load.png'</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_vs_aQ</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Status quo: β against the variable-load share'</span><span class="p">),</span>
+     <span class="s1">'lesson04_beta_vs_aQ.png'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/90206e35823491e2c41db1b0300adbddafcafeada865fec84758ccc1a2c7af2e.png" src="../../_images/90206e35823491e2c41db1b0300adbddafcafeada865fec84758ccc1a2c7af2e.png" />
+<img alt="../../_images/8964848cb39a4c985f04b9402703fd7aafe802913885e925c02730ab67e4c32c.png" src="../../_images/8964848cb39a4c985f04b9402703fd7aafe802913885e925c02730ab67e4c32c.png" />
+<img alt="../../_images/4784dac64696122bdb2b4f73f6dbc5de4480bb0bfd089731d1e621e670abe004.png" src="../../_images/4784dac64696122bdb2b4f73f6dbc5de4480bb0bfd089731d1e621e670abe004.png" />
+</div>
+</div>
+<p>Every panel shows the same pattern: β falls with <span class="math notranslate nohighlight">\(a_Q\)</span>. With the present
+factors the code is more conservative for permanent-load-dominated
+structures than for variable-load-dominated ones. This is the
+“reliability differentiation” that a calibration of <span class="math notranslate nohighlight">\(\gamma_G\)</span> versus
+<span class="math notranslate nohighlight">\(\gamma_Q\)</span> tries to flatten.</p>
+</section>
+<section id="which-uncertainties-drive-the-result">
+<h2><span class="section-number">16.4. </span>4. Which uncertainties drive the result?<a class="headerlink" href="#which-uncertainties-drive-the-result" title="Link to this heading">#</a></h2>
+<p>The mean sensitivity factors <span class="math notranslate nohighlight">\(\alpha_i^2\)</span> per failure mode say which
+variables the reliability depends on — and therefore which parts of the
+probabilistic model deserve the most scrutiny:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_sensitivities</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'mode'</span><span class="p">),</span> <span class="s1">'lesson04_sensitivities.png'</span><span class="p">)</span>
+<span class="n">mean_alpha2</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">'alpha_'</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"mean α² over all situations:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_alpha2</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c202480eac8698f66a902896a774ba302559aa68fdb279abd42cf7d056514c22.png" src="../../_images/c202480eac8698f66a902896a774ba302559aa68fdb279abd42cf7d056514c22.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean α² over all situations:
+alpha_Θ_R    0.233
+alpha_R      0.192
+alpha_Θ_E    0.140
+alpha_G      0.011
+alpha_P      0.003
+alpha_Θ_Q    0.183
+alpha_Q      0.239
+</pre></div>
+</div>
+</div>
+</div>
+<p>The three model uncertainties — of the resistance (<span class="math notranslate nohighlight">\(\Theta_R\)</span>), of the
+load effect (<span class="math notranslate nohighlight">\(\Theta_E\)</span>) and of the variable load (<span class="math notranslate nohighlight">\(\Theta_Q\)</span>) — together
+carry more than half of the sensitivity; the self-weight and the
+permanent load almost nothing (their CoVs are small and their
+characteristic values are the means). The CoVs of the model
+uncertainties are also the least well-known numbers of the model.
+Lesson 3’s exercise 3 (wind CoV 0.15 instead of 0.26) is worth doing now
+on the whole model.</p>
+</section>
+<section id="weights">
+<h2><span class="section-number">16.5. </span>5. Weights<a class="headerlink" href="#weights" title="Link to this heading">#</a></h2>
+<p>The weighted mean is dominated by concrete bending (w = 0.40) and the
+imposed load (w = 0.5). Try a different weighting and see how much the
+headline number moves — it is a modelling decision, not a measurement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">alt</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>                                   <span class="c1"># every situation equal</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"weighted-mean β, AHG weights : </span><span class="si">{</span><span class="n">beta_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"weighted-mean β, equal weights: </span><span class="si">{</span><span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'status_quo_sweep.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"sweep saved to status_quo_sweep.csv"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weighted-mean β, AHG weights : 3.741
+weighted-mean β, equal weights: 3.646
+sweep saved to status_quo_sweep.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2><span class="section-number">16.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Evaluate the status quo for eq. 8.13 and 8.14 (with ξ = 0.85). Which
+one gives the lowest weighted-mean β, and why (see lesson 3, section 5)?</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">n_aQ=20</span></code> and check that the weighted mean hardly changes — the grid
+is fine enough.</p></li>
+<li><p>Give the snow load the weight 0.4 and the wind load 0.1. How does the
+weighted mean react, and which calibration result would you expect?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_design_situation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Lesson 3 — The design equation and one design situation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_calibration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Lesson 5 — Calibration: choosing the partial factors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">16.1. 1. The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-status-quo-of-every-design-situation-with-g-1-35-q-1-5">16.2. 2. The status quo: β of every design situation with γ_G = 1.35, γ_Q = 1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-the-reliability-high-where-is-it-low">16.3. 3. Where is the reliability high, where is it low?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-uncertainties-drive-the-result">16.4. 4. Which uncertainties drive the result?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">16.5. 5. Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">16.6. Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

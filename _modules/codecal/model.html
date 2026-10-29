@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codecal.model &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/codecal/model';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../docs/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for codecal.model</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""</span>
+<span class="sd">The calibration problem: failure modes, loads, design situations.</span>
+
+<span class="sd">A code calibration asks: *which partial factors make the reliability of</span>
+<span class="sd">structures designed with the code closest to the target, over the range of</span>
+<span class="sd">structures the code is used for?* Three things define that range here:</span>
+
+<span class="sd">Failure modes  (`FailureMode`)</span>
+<span class="sd">    one per material and mechanism — steel bending, concrete compression,</span>
+<span class="sd">    glulam bending, ... Each has a resistance model uncertainty Θ_R, a</span>
+<span class="sd">    material strength R with its partial factor γ_M, the self-weight G of</span>
+<span class="sd">    that material, a range of load ratios and a weight (how common it is).</span>
+
+<span class="sd">Variable loads  (`VariableLoad`)</span>
+<span class="sd">    wind, snow, imposed — each with its model uncertainty Θ_Q, the</span>
+<span class="sd">    time-variant load Q (Gumbel maximum over the reference period), the</span>
+<span class="sd">    combination factor ψ₀ and a weight.</span>
+
+<span class="sd">Load ratios</span>
+<span class="sd">    a_Q = share of the variable load in the total characteristic load,</span>
+<span class="sd">    a_G = share of the self-weight G in the permanent part (the rest is the</span>
+<span class="sd">    other permanent load P). Every (mode, load, a_G, a_Q) is one</span>
+<span class="sd">    *design situation* with weight w_mode · w_load / (n_aG · n_aQ).</span>
+
+<span class="sd">The limit state of one design situation is</span>
+
+<span class="sd">    g = z · Θ_R · R  −  Θ_E · [ (1 − a_Q)(a_G G + (1 − a_G) P) + a_Q Θ_Q Q ]</span>
+
+<span class="sd">where z is the *design parameter*: the resistance the engineer provides</span>
+<span class="sd">when designing with the code, obtained from the design equation with the</span>
+<span class="sd">characteristic values and the partial factors. All variables have mean 1;</span>
+<span class="sd">z therefore expresses how much mean resistance the code demands per unit</span>
+<span class="sd">of mean load, and the reliability index of the situation follows from the</span>
+<span class="sd">scatter of the seven variables around that ratio.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.reliability</span><span class="w"> </span><span class="kn">import</span> <span class="n">LimitState</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">importance_sampling</span><span class="p">,</span> <span class="n">sorm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.variables</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomVariable</span>
+
+
+<span class="c1"># ---- partial factors ----------------------------------------------------------</span>
+
+<div class="viewcode-block" id="PartialFactors">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.PartialFactors">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PartialFactors</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The reliability elements of the design equation.</span>
+
+<span class="sd">    gamma_Q maps load name → γ_Q; a single value is used for all loads.</span>
+<span class="sd">    xi is the reduction factor on permanent loads in eq. 8.13b / 8.14b.</span>
+<span class="sd">    """</span>
+    <span class="n">gamma_G</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.35</span>          <span class="c1"># self-weight (and, unless differentiated, all permanent load)</span>
+    <span class="n">gamma_GP</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.35</span>         <span class="c1"># other permanent load</span>
+    <span class="n">gamma_Q</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s1">'wind'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'snow'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'imposed'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span>
+    <span class="n">xi</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.85</span>
+
+<div class="viewcode-block" id="PartialFactors.gamma_Q_of">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.PartialFactors.gamma_Q_of">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gamma_Q_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">[</span><span class="n">load_name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">)</span></div>
+
+
+    <span class="c1"># -- free-parameter interface for the optimiser ---------------------</span>
+    <span class="c1"># Parameter names: 'gamma_G', 'gamma_GP', 'xi', 'gamma_Q' (common to all</span>
+    <span class="c1"># loads) or 'gamma_Q:wind' etc. (one per load).</span>
+<div class="viewcode-block" id="PartialFactors.get">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.PartialFactors.get">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'gamma_Q:'</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q_of</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'gamma_Q'</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">}</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PartialFactors.with_values">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.PartialFactors.with_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""A copy with the named parameters replaced by `values`.</span>
+
+<span class="sd">        Conventions of the AHG degrees of freedom: setting 'gamma_Q' sets</span>
+<span class="sd">        the factor of every load, and setting 'gamma_G' without 'gamma_GP'</span>
+<span class="sd">        sets the common factor of both permanent loads (self-weight and</span>
+<span class="sd">        other permanent load). Name 'gamma_GP' as well to differentiate.</span>
+<span class="sd">        """</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">kw</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">gq</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">'gamma_Q'</span><span class="p">:</span>
+                <span class="n">gq</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">gq</span><span class="p">}</span> <span class="k">if</span> <span class="n">gq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">v</span>
+            <span class="k">elif</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'gamma_Q:'</span><span class="p">):</span>
+                <span class="n">gq</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_GP'</span><span class="p">,</span> <span class="s1">'xi'</span><span class="p">):</span>
+                <span class="n">kw</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown partial factor </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">'gamma_G'</span> <span class="ow">in</span> <span class="n">kw</span> <span class="ow">and</span> <span class="s1">'gamma_GP'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">kw</span><span class="p">[</span><span class="s1">'gamma_GP'</span><span class="p">]</span> <span class="o">=</span> <span class="n">kw</span><span class="p">[</span><span class="s1">'gamma_G'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">gq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kw</span><span class="p">[</span><span class="s1">'gamma_Q'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gq</span>
+        <span class="k">return</span> <span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PartialFactors.as_dict">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.PartialFactors.as_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'gamma_G'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_G</span><span class="p">,</span> <span class="s1">'gamma_GP'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_GP</span><span class="p">,</span> <span class="s1">'xi'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xi</span><span class="p">}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="sa">f</span><span class="s1">'gamma_Q:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">'</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s1">'gamma_Q'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma_Q</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+</div>
+
+
+
+<span class="c1"># ---- model components ---------------------------------------------------------</span>
+
+<div class="viewcode-block" id="FailureMode">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.FailureMode">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FailureMode</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">theta_R</span><span class="p">:</span> <span class="n">RandomVariable</span>        <span class="c1"># resistance model uncertainty</span>
+    <span class="n">R</span><span class="p">:</span> <span class="n">RandomVariable</span>              <span class="c1"># material strength (char = fractile or pinned)</span>
+    <span class="n">gamma_M</span><span class="p">:</span> <span class="nb">float</span>                 <span class="c1"># partial factor of the material (fixed by the material code)</span>
+    <span class="n">G</span><span class="p">:</span> <span class="n">RandomVariable</span>              <span class="c1"># self-weight of the material</span>
+    <span class="n">a_Q_range</span><span class="p">:</span> <span class="nb">tuple</span>               <span class="c1"># (min, max) share of the variable load</span>
+    <span class="n">a_G_range</span><span class="p">:</span> <span class="nb">tuple</span>               <span class="c1"># (min, max) share of self-weight in the permanent load</span>
+    <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span>                  <span class="c1"># relative frequency of this mode in practice</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Θ_R mean </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_R</span><span class="o">.</span><span class="n">mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> CoV </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_R</span><span class="o">.</span><span class="n">cov</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, "</span>
+                <span class="sa">f</span><span class="s2">"R CoV </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">cov</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (x_k </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">char</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">), γ_M </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma_M</span><span class="si">}</span><span class="s2">, "</span>
+                <span class="sa">f</span><span class="s2">"a_Q </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a_Q_range</span><span class="si">}</span><span class="s2">, a_G </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a_G_range</span><span class="si">}</span><span class="s2">, w </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VariableLoad">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.VariableLoad">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VariableLoad</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">theta_Q</span><span class="p">:</span> <span class="n">RandomVariable</span>        <span class="c1"># model uncertainty of the load effect</span>
+    <span class="n">Q</span><span class="p">:</span> <span class="n">RandomVariable</span>              <span class="c1"># time-variant load, maximum over the analysis period</span>
+    <span class="n">psi_0</span><span class="p">:</span> <span class="nb">float</span>                   <span class="c1"># combination factor (eq. 8.13a)</span>
+    <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">T_basic</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Θ_Q mean </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_Q</span><span class="o">.</span><span class="n">mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> CoV </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_Q</span><span class="o">.</span><span class="n">cov</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, "</span>
+                <span class="sa">f</span><span class="s2">"Q Gumbel CoV </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">cov</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (q_k </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">char</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">), ψ₀ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">psi_0</span><span class="si">}</span><span class="s2">, w </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="CalibrationModel">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.CalibrationModel">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CalibrationModel</span><span class="p">:</span>
+    <span class="n">failure_modes</span><span class="p">:</span> <span class="nb">list</span>
+    <span class="n">loads</span><span class="p">:</span> <span class="nb">list</span>
+    <span class="n">theta_E</span><span class="p">:</span> <span class="n">RandomVariable</span>        <span class="c1"># load-effect model uncertainty</span>
+    <span class="n">P</span><span class="p">:</span> <span class="n">RandomVariable</span>              <span class="c1"># other permanent load</span>
+    <span class="n">T_ref</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">50.0</span>
+    <span class="n">n_aQ</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">n_aG</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">beta_target</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.8</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span>
+
+<div class="viewcode-block" id="CalibrationModel.design_situations">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.CalibrationModel.design_situations">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">design_situations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""All (mode, load, a_G, a_Q) combinations with their weights."""</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">load</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">):</span>
+            <span class="n">a_G_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">mode</span><span class="o">.</span><span class="n">a_G_range</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_aG</span><span class="p">)</span>
+            <span class="n">a_Q_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">mode</span><span class="o">.</span><span class="n">a_Q_range</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_aQ</span><span class="p">)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">load</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">mode</span><span class="o">.</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_aG</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_aQ</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">a_G</span> <span class="ow">in</span> <span class="n">a_G_values</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">a_Q</span> <span class="ow">in</span> <span class="n">a_Q_values</span><span class="p">:</span>
+                    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DesignSituation</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_G</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_Q</span><span class="p">),</span> <span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="CalibrationModel.total_weight">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.CalibrationModel.total_weight">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">)</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">weight</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CalibrationModel.summary">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.CalibrationModel.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span>
+                 <span class="sa">f</span><span class="s2">"reference period </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">T_ref</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> a, target β </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">beta_target</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                 <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">)</span><span class="si">}</span><span class="s2"> failure modes × </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span><span class="si">}</span><span class="s2"> loads × "</span>
+                 <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_aG</span><span class="si">}</span><span class="s2"> a_G × </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_aQ</span><span class="si">}</span><span class="s2"> a_Q = "</span>
+                 <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">n_aG</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">n_aQ</span><span class="si">}</span><span class="s2"> design situations"</span><span class="p">,</span>
+                 <span class="s1">''</span><span class="p">,</span> <span class="s1">'Failure modes:'</span><span class="p">]</span>
+        <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">]</span>
+        <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'Variable loads:'</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loads</span><span class="p">]</span>
+        <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">theta_E</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># ---- one design situation -----------------------------------------------------</span>
+
+<span class="n">EQUATIONS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="s1">'8.13'</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DesignSituation">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.DesignSituation">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DesignSituation</span><span class="p">:</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">FailureMode</span>
+    <span class="n">load</span><span class="p">:</span> <span class="n">VariableLoad</span>
+    <span class="n">a_G</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">a_Q</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">CalibrationModel</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Order of the seven variables in g: Θ_R, R, Θ_E, G, P, Θ_Q, Q."""</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">theta_R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">theta_E</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">G</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">P</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">theta_Q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">Q</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">variable_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">'Θ_R'</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">,</span> <span class="s1">'Θ_E'</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">,</span> <span class="s1">'P'</span><span class="p">,</span> <span class="s1">'Θ_Q'</span><span class="p">,</span> <span class="s1">'Q'</span><span class="p">]</span>
+
+    <span class="c1"># -- design equation → design parameter z ---------------------------------</span>
+<div class="viewcode-block" id="DesignSituation.design_parameter">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.DesignSituation.design_parameter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">design_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pf</span><span class="p">:</span> <span class="n">PartialFactors</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""z from the design equation, EN 1990:2023 clause 8.3.3.</span>
+
+<span class="sd">        With characteristic values x_k and the load fractions a_G, a_Q, the</span>
+<span class="sd">        design load effect is::</span>
+
+<span class="sd">          8.12   E_d = (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q γ_Q q_k</span>
+<span class="sd">          8.13   E_d = max( (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q ψ₀ γ_Q q_k ,</span>
+<span class="sd">                            ξ (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q γ_Q q_k )</span>
+<span class="sd">          8.14   E_d = max( (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] ,</span>
+<span class="sd">                            ξ (1−a_Q)[a_G γ_G g_k + (1−a_G) γ_GP p_k] + a_Q γ_Q q_k )</span>
+
+<span class="sd">        and the design resistance z θ_R,k r_k / γ_M must equal E_d, so</span>
+<span class="sd">        z = E_d γ_M / (θ_R,k r_k).</span>
+<span class="sd">        """</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span>
+        <span class="n">gk</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">qk</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">P</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">char</span>
+        <span class="n">gamma_Q</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">gamma_Q_of</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">permanent</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_Q</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a_G</span> <span class="o">*</span> <span class="n">pf</span><span class="o">.</span><span class="n">gamma_G</span> <span class="o">*</span> <span class="n">gk</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_G</span><span class="p">)</span> <span class="o">*</span> <span class="n">pf</span><span class="o">.</span><span class="n">gamma_GP</span> <span class="o">*</span> <span class="n">pk</span><span class="p">)</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_Q</span> <span class="o">*</span> <span class="n">gamma_Q</span> <span class="o">*</span> <span class="n">qk</span>
+        <span class="k">if</span> <span class="n">equation</span> <span class="o">==</span> <span class="s1">'8.12'</span><span class="p">:</span>
+            <span class="n">E_d</span> <span class="o">=</span> <span class="n">permanent</span> <span class="o">+</span> <span class="n">variable</span>
+        <span class="k">elif</span> <span class="n">equation</span> <span class="o">==</span> <span class="s1">'8.13'</span><span class="p">:</span>
+            <span class="n">E_d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">permanent</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">psi_0</span> <span class="o">*</span> <span class="n">variable</span><span class="p">,</span> <span class="n">pf</span><span class="o">.</span><span class="n">xi</span> <span class="o">*</span> <span class="n">permanent</span> <span class="o">+</span> <span class="n">variable</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">equation</span> <span class="o">==</span> <span class="s1">'8.14'</span><span class="p">:</span>
+            <span class="n">E_d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">permanent</span><span class="p">,</span> <span class="n">pf</span><span class="o">.</span><span class="n">xi</span> <span class="o">*</span> <span class="n">permanent</span> <span class="o">+</span> <span class="n">variable</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown design equation </span><span class="si">{</span><span class="n">equation</span><span class="si">!r}</span><span class="s2">; use one of </span><span class="si">{</span><span class="n">EQUATIONS</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">E_d</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">gamma_M</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">theta_R</span><span class="o">.</span><span class="n">char</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="ow">or</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"design parameter z = </span><span class="si">{</span><span class="n">z</span><span class="si">!r}</span><span class="s2"> for </span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">l</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: "</span>
+                             <span class="s2">"check the characteristic values and partial factors"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">z</span></div>
+
+
+    <span class="c1"># -- limit state ---------------------------------------------------------------</span>
+<div class="viewcode-block" id="DesignSituation.limit_state">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.DesignSituation.limit_state">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""g(x) = z Θ_R R − Θ_E[(1−a_Q)(a_G G + (1−a_G) P) + a_Q Θ_Q Q] with its gradient."""</span>
+        <span class="n">aG</span><span class="p">,</span> <span class="n">aQ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_G</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_Q</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">tR</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">tE</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tQ</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">tR</span> <span class="o">*</span> <span class="n">R</span> <span class="o">-</span> <span class="n">tE</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aQ</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">aG</span> <span class="o">*</span> <span class="n">G</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aG</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="n">aQ</span> <span class="o">*</span> <span class="n">tQ</span> <span class="o">*</span> <span class="n">Q</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">tR</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">tE</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tQ</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">load</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aQ</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">aG</span> <span class="o">*</span> <span class="n">G</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aG</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="n">aQ</span> <span class="o">*</span> <span class="n">tQ</span> <span class="o">*</span> <span class="n">Q</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z</span> <span class="o">*</span> <span class="n">R</span><span class="p">,</span> <span class="n">z</span> <span class="o">*</span> <span class="n">tR</span><span class="p">,</span> <span class="o">-</span><span class="n">load</span><span class="p">,</span>
+                             <span class="o">-</span><span class="n">tE</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aQ</span><span class="p">)</span> <span class="o">*</span> <span class="n">aG</span><span class="p">,</span> <span class="o">-</span><span class="n">tE</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aQ</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">aG</span><span class="p">),</span>
+                             <span class="o">-</span><span class="n">tE</span> <span class="o">*</span> <span class="n">aQ</span> <span class="o">*</span> <span class="n">Q</span><span class="p">,</span> <span class="o">-</span><span class="n">tE</span> <span class="o">*</span> <span class="n">aQ</span> <span class="o">*</span> <span class="n">tQ</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">LimitState</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span>
+                          <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, a_G=</span><span class="si">{</span><span class="n">aG</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, a_Q=</span><span class="si">{</span><span class="n">aQ</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DesignSituation.reliability">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.DesignSituation.reliability">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reliability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pf</span><span class="p">:</span> <span class="n">PartialFactors</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'form'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""(β, FORMResult, z) for the given partial factors."""</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">design_parameter</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="p">)</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_state</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">form</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'sorm'</span><span class="p">:</span>
+            <span class="n">beta</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sorm</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'form'</span><span class="p">:</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">beta</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"method must be 'form' or 'sorm'"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">beta</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">z</span></div>
+</div>
+
+
+
+<span class="c1"># ---- the sweep ---------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="evaluate">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.evaluate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">CalibrationModel</span><span class="p">,</span> <span class="n">pf</span><span class="p">:</span> <span class="n">PartialFactors</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">,</span>
+             <span class="n">method</span><span class="o">=</span><span class="s1">'form'</span><span class="p">,</span> <span class="n">situations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""β for every design situation. Returns a DataFrame with one row per</span>
+<span class="sd">    situation (mode, load, a_G, a_Q, weight, z, beta, α_i) — the material</span>
+<span class="sd">    for every table and plot of a calibration study."""</span>
+    <span class="n">situations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">design_situations</span><span class="p">()</span> <span class="k">if</span> <span class="n">situations</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">situations</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">situations</span><span class="p">):</span>
+        <span class="n">beta</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">reliability</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">equation</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'mode'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">'a_G'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">a_G</span><span class="p">,</span> <span class="s1">'a_Q'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">a_Q</span><span class="p">,</span>
+               <span class="s1">'weight'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="s1">'z'</span><span class="p">:</span> <span class="n">z</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="n">beta</span><span class="p">,</span> <span class="s1">'form_iterations'</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">iterations</span><span class="p">,</span>
+               <span class="s1">'converged'</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">converged</span><span class="p">)}</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="sa">f</span><span class="s1">'alpha_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">'</span><span class="p">:</span> <span class="n">a</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">variable_names</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">alpha</span><span class="p">)})</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">progress</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">progress</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">situations</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span> <span class="o">/=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>          <span class="c1"># Σ w = 1 (the AHG weights sum to 0.999)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="weighted_mean_beta">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.weighted_mean_beta">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">weighted_mean_beta</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span></div>
+
+
+
+<div class="viewcode-block" id="beta_table">
+<a class="viewcode-back" href="../../docs/reference/api.html#codecal.model.beta_table">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">beta_table</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Mean β per failure mode (rows) and load (columns)."""</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'mode'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'load'</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'beta'</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

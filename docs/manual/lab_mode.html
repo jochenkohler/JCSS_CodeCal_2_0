@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Lab mode &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/manual/lab_mode';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11. Model files (JSON)" href="model_files.html" />
+    <link rel="prev" title="9. Learning mode" href="learning_mode.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eurocode_study/verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/manual/lab_mode.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab mode</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">10.1. Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#status-quo">10.2. Status quo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration">10.3. Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare">10.4. Compare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">10.5. Sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">10.6. Verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">10.7. Error handling</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-mode">
+<h1><span class="section-number">10. </span>Lab mode<a class="headerlink" href="#lab-mode" title="Link to this heading">#</a></h1>
+<p>The lab mode is the research tool. Its six tabs follow the workflow of a
+calibration study: define the model, look at the status quo, calibrate,
+compare alternatives, test the assumptions, verify the numerics. Every
+run reads the <em>current</em> model from the Model tab, and every result
+remembers the model it was computed with — if the model changes
+afterwards, the result is marked as stale.</p>
+<section id="model">
+<h2><span class="section-number">10.1. </span>Model<a class="headerlink" href="#model" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/lab_model.png"><img alt="../../_images/lab_model.png" src="../../_images/lab_model.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">The Model tab: global settings and the two editable tables.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Everything that defines the probabilistic model is on this tab:</p>
+<dl class="simple myst">
+<dt>Global settings</dt><dd><p>reference period <span class="math notranslate nohighlight">\(T_{ref}\)</span>, target <span class="math notranslate nohighlight">\(\beta_t\)</span>, the number of <span class="math notranslate nohighlight">\(a_Q\)</span> and
+<span class="math notranslate nohighlight">\(a_G\)</span> values per failure mode, the seed and the number of Monte-Carlo
+draws for the characteristic loads, the CoV and mean of <span class="math notranslate nohighlight">\(\Theta_E\)</span>, and
+the CoV and fractile of the other permanent load <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt>Failure modes</dt><dd><p>one row per mode: the mean and CoV of <span class="math notranslate nohighlight">\(\Theta_R\)</span>, the CoV of <span class="math notranslate nohighlight">\(R\)</span> and
+either a pinned <span class="math notranslate nohighlight">\(x_k\)</span> <strong>or</strong> a fractile (leave the other cell empty),
+<span class="math notranslate nohighlight">\(\gamma_M\)</span>, the CoV and <span class="math notranslate nohighlight">\(x_k\)</span>/fractile of the self-weight, the <span class="math notranslate nohighlight">\(a_Q\)</span> and
+<span class="math notranslate nohighlight">\(a_G\)</span> ranges and the weight. Untick <em>include</em> to leave a mode out
+without deleting it; add rows with the + at the bottom of the table,
+delete rows by selecting them and pressing Delete.</p>
+</dd>
+<dt>Variable loads</dt><dd><p>one row per load: the mean and CoV of <span class="math notranslate nohighlight">\(\Theta_Q\)</span>, the CoV of the
+50-year maximum, <span class="math notranslate nohighlight">\(T_{input}\)</span> (the period the CoV refers to) and
+<span class="math notranslate nohighlight">\(T_{basic}\)</span> (the period of independent re-occurrence), the fractile that
+defines <span class="math notranslate nohighlight">\(q_k\)</span>, an optional pinned <span class="math notranslate nohighlight">\(q_k\)</span>, <span class="math notranslate nohighlight">\(\psi_0\)</span> and the weight.</p>
+</dd>
+</dl>
+<p>The tables are read back into the model as you type (a cell is committed
+with Enter or when you leave it). The model is validated on every change:
+problems are listed in words — <em>“failure mode 3 (Concrete bending): weight
+must be ≥ 0”</em> — and the run buttons of the other tabs are hidden until
+the model is consistent. If the model is valid, the differences from the
+AHG 2021 model are listed, and the built model’s random variables (with
+the simulated characteristic values) can be inspected.</p>
+<p><em>Save model as JSON</em> downloads the current model; <em>Load model</em> reads one
+back (the file is validated, with the same messages); <em>Reset to AHG 2021</em>
+restores the default. The JSON format is described in
+<a class="reference internal" href="model_files.html"><span class="doc">Model files (JSON)</span></a>; the same file can be used from a script.</p>
+</section>
+<section id="status-quo">
+<h2><span class="section-number">10.2. </span>Status quo<a class="headerlink" href="#status-quo" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/lab_status_quo.png"><img alt="../../_images/lab_status_quo.png" src="../../_images/lab_status_quo.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">The Status quo tab: β for every design situation for one set of partial factors.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Choose the combination rule, the β method (FORM, or SORM at about twice
+the cost), whether to give <span class="math notranslate nohighlight">\(\gamma_Q\)</span> per load, and the factors; the
+caption estimates the running time. The result panel has the metrics
+(weighted-mean β, the distance to the target, the min/max, the
+objective), a warning if FORM did not converge for some situations, the
+six views (see the learning mode), a <em>Save snapshot</em> row and a CSV download of the sweep.</p>
+</section>
+<section id="calibration">
+<h2><span class="section-number">10.3. </span>Calibration<a class="headerlink" href="#calibration" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/lab_calibration.png"><img alt="../../_images/lab_calibration.png" src="../../_images/lab_calibration.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">The Calibration tab after a run: calibrated factors, the metrics, the views with the start values as reference.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The free parameters, the combination rule and the method as in the
+learning mode, plus:</p>
+<ul class="simple">
+<li><p>the target: the model’s <span class="math notranslate nohighlight">\(\beta_t\)</span>, or the status-quo weighted mean of
+the start values (the <em>relative</em> calibration of
+<a class="reference internal" href="../background/calibration.html"><span class="doc">Reliability-based code calibration</span></a>);</p></li>
+<li><p>the start values, which are also the fixed values of the parameters
+that are not free;</p></li>
+<li><p>optimiser settings: <code class="docutils literal notranslate"><span class="pre">ftol</span></code>, the finite-difference step, and bounds in
+the form <code class="docutils literal notranslate"><span class="pre">gamma_Q=1.2:2.5,</span> <span class="pre">xi=0.7:1.0</span></code> (defaults: γ between 0 and 1.5 or
+1 and 3.5, ξ between 0.5 and 1.2; with ξ free, γ_G is kept ≥ 1).</p></li>
+</ul>
+<p>The progress display reports every evaluation. The result shows the
+calibrated factors (a warning if one sits on a bound, or if SLSQP stopped
+without declaring convergence), the weighted-mean β before and after, the
+objective, the table of all factors, the views against the start values,
+the optimiser history, a snapshot row and a CSV download.</p>
+</section>
+<section id="compare">
+<h2><span class="section-number">10.4. </span>Compare<a class="headerlink" href="#compare" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/lab_compare.png"><img alt="../../_images/lab_compare.png" src="../../_images/lab_compare.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text">The Compare tab: two snapshots overlaid, and the calibrated factors of all calibrations side by side.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Every status-quo or calibration result can be saved as a named snapshot
+(model, factors, equation, method, the sweep). This tab lists them,
+overlays any snapshot against any other in the six views (the metrics
+show the difference of the weighted means), and — when at least two
+calibrations are saved — draws their factors side by side. Snapshots live
+in the browser session; download the CSVs if you want to keep them.</p>
+</section>
+<section id="sensitivity">
+<h2><span class="section-number">10.5. </span>Sensitivity<a class="headerlink" href="#sensitivity" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/lab_sensitivity.png"><img alt="../../_images/lab_sensitivity.png" src="../../_images/lab_sensitivity.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">The Sensitivity tab: one model parameter varied over a range, the response of the status-quo reliability or of the calibrated factors.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Pick any numeric parameter of the model — a CoV, a bias, a weight, a
+basic period, a fractile, <span class="math notranslate nohighlight">\(\psi_0\)</span>, the target, <span class="math notranslate nohighlight">\(T_{ref}\)</span> — give a range
+and a number of points, and choose what to compute: the status-quo
+weighted-mean β (one sweep per point) or the calibrated <span class="math notranslate nohighlight">\(\gamma_G\)</span> and
+<span class="math notranslate nohighlight">\(\gamma_Q\)</span> (one calibration per point; use the quick grid). The plot shows
+the response with the current value marked; the table is downloadable.
+This is the quickest way to find out which assumptions of a model matter.</p>
+</section>
+<section id="verification">
+<h2><span class="section-number">10.6. </span>Verification<a class="headerlink" href="#verification" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/lab_verification.png"><img alt="../../_images/lab_verification.png" src="../../_images/lab_verification.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text">The Verification tab: FORM against SORM and importance sampling for a sample of the design situations of the current model.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As in the learning mode, for the edited model: every k-th situation,
+SORM and importance sampling, the error statistics, the plot against β,
+and the table by load and dominant variable; a convergence warning if
+FORM failed somewhere.</p>
+</section>
+<section id="error-handling">
+<h2><span class="section-number">10.7. </span>Error handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
+<p>The interface never leaves a blank page. An inconsistent model is
+reported as a list of problems before anything runs; a failing
+computation is reported as one readable sentence with the traceback in a
+<em>Details</em> expander; a model loaded from JSON with values outside the
+ranges the widgets offer is clamped with a warning. If you do hit an
+unexpected error, the expander says so — please report it with the model
+JSON attached.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/manual"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="learning_mode.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Learning mode</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="model_files.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Model files (JSON)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">10.1. Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#status-quo">10.2. Status quo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration">10.3. Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare">10.4. Compare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity">10.5. Sensitivity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verification">10.6. Verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">10.7. Error handling</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

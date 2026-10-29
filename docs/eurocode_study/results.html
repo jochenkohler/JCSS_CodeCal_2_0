@@ -1,0 +1,1462 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Results of the Eurocode study — reproduced &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/eurocode_study/results';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. Verification: how good is FORM here?" href="verification.html" />
+    <link rel="prev" title="5. The probabilistic model" href="model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="code_format.html">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/eurocode_study/results.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Results of the Eurocode study — reproduced</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-values-from-the-ahg-study">6.1. Reference values from the AHG study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-status-quo-reliability-with-the-present-partial-factors">6.2. 1. The status quo: reliability with the present partial factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-per-failure-mode-and-load-eq-8-12">6.2.1. Mean β per failure mode and load (eq. 8.12)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-to-beta-t-3-8">6.3. 2. Calibration to <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-spread-of-before-and-after-calibration-eq-8-12">6.3.1. The spread of β before and after calibration (eq. 8.12)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-study-concluded">6.4. 3. What the study concluded</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="results-of-the-eurocode-study-reproduced">
+<h1><span class="section-number">6. </span>Results of the Eurocode study — reproduced<a class="headerlink" href="#results-of-the-eurocode-study-reproduced" title="Link to this heading">#</a></h1>
+<p>This page reruns the reliability benchmark and the calibrations of the
+AHG study with CodeCal 2.0 and puts the numbers next to those reported
+in the AHG working document <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../reference/bibliography.html#id3" title="Jochen Köhler, Ramon Hingorani, and John Dalsgaard Sørensen. Calibration of load partial factors. Working document of the CEN/TC 250/SC 10 Ad-hoc Group “Reliability Background of the Eurocodes”, version 3, November 2021.">Köhler <em>et al.</em>, 2021</a>]</span> and in
+<span class="bibtex-citation" id="id2">[<a class="reference internal" href="../reference/bibliography.html#id7" title="Jochen Köhler. Reliability-based calibration of structural design standards: principles, practice and emerging challenges. In Time variant structural reliability analysis. 2026.">Köhler, 2026</a>, <a class="reference internal" href="../reference/bibliography.html#id4" title="Jochen Köhler, Ramon Hingorani, and John Dalsgaard Sørensen. Reliability level of the second generation of the Eurocodes – status and potential. In 14th International Conference on Applications of Statistics and Probability in Civil Engineering (ICASP14). Dublin, Ireland, 2023.">Köhler <em>et al.</em>, 2023</a>]</span>. Everything below is computed when
+the notebook is executed; nothing is typed in by hand except the
+reference values.</p>
+<p>All reliability indices are FORM values for a 50-year reference period,
+as in the study, on the grid of 10 values of <span class="math notranslate nohighlight">\(a_Q\)</span> × 3 values of <span class="math notranslate nohighlight">\(a_G\)</span> per
+failure mode (810 design situations) that the study’s code used. The
+<a class="reference internal" href="verification.html"><span class="doc">Verification: how good is FORM here?</span></a> page shows what SORM and sampling say about the FORM
+error.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">'../..'</span><span class="p">))</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">codecal</span><span class="w"> </span><span class="kn">import</span> <span class="n">plots</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.precision'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">ahg_model</span><span class="p">()</span>                       <span class="c1"># 10 M Monte-Carlo draws for the characteristic loads, seed 12345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'model built in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> s'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AHG 2021 — Reliability Background of the Eurocodes
+
+reference period 50 a, target β 3.8
+9 failure modes × 3 loads × 3 a_G × 10 a_Q = 810 design situations
+
+Failure modes:
+  Steel bending: Θ_R mean 1.15 CoV 0.05, R CoV 0.050 (x_k 0.830), γ_M 1.0, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.17
+  Concrete compression: Θ_R mean 0.97 CoV 0.14, R CoV 0.100 (x_k 0.844), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Concrete bending: Θ_R mean 1.03 CoV 0.07, R CoV 0.045 (x_k 0.928), γ_M 1.15, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.4
+  Glulam bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.150 (x_k 0.774), γ_M 1.25, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.035
+  Timber bending: Θ_R mean 1.00 CoV 0.10, R CoV 0.200 (x_k 0.708), γ_M 1.3, a_Q (0.2, 0.8), a_G (0.6, 1.0), w 0.017
+  Masonry: Θ_R mean 1.16 CoV 0.18, R CoV 0.160 (x_k 0.760), γ_M 1.5, a_Q (0.1, 0.7), a_G (0.6, 1.0), w 0.12
+  Aluminium bending: Θ_R mean 1.27 CoV 0.15, R CoV 0.050 (x_k 0.850), γ_M 1.1, a_Q (0.3, 0.8), a_G (0.6, 1.0), w 0.017
+  Pile foundation: Θ_R mean 1.00 CoV 0.20, R CoV 0.120 (x_k 0.816), γ_M 1.5, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+  Shallow foundation: Θ_R mean 1.00 CoV 0.15, R CoV 0.150 (x_k 0.774), γ_M 1.4, a_Q (0.1, 0.5), a_G (0.6, 1.0), w 0.06
+
+Variable loads:
+  wind: Θ_Q mean 0.97 CoV 0.26, Q Gumbel CoV 0.140 (q_k 1.083), ψ₀ 0.6, w 0.4
+  snow: Θ_Q mean 0.81 CoV 0.26, Q Gumbel CoV 0.200 (q_k 0.821), ψ₀ 0.5, w 0.1
+  imposed: Θ_Q mean 1.00 CoV 0.10, Q Gumbel CoV 0.260 (q_k 1.350), ψ₀ 0.7, w 0.5
+
+  Load-effect model uncertainty: Lognormal(mean=1, CoV=0.1), x_k=1
+  Permanent load (other than self-weight): Normal(mean=1, CoV=0.1), x_k=1
+model built in 1.0 s
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reference-values-from-the-ahg-study">
+<h2><span class="section-number">6.1. </span>Reference values from the AHG study<a class="headerlink" href="#reference-values-from-the-ahg-study" title="Link to this heading">#</a></h2>
+<p>Weighted-average 50-year reliability indices with the present factors
+(<span class="math notranslate nohighlight">\(\gamma_G = 1.35\)</span>, <span class="math notranslate nohighlight">\(\gamma_Q = 1.5\)</span>, <span class="math notranslate nohighlight">\(\xi = 0.85\)</span>, <span class="math notranslate nohighlight">\(\psi_0\)</span> = 0.6 / 0.5 /
+0.7), and the calibrated factors for <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span>, as reported in
+the November 2021 working document (design equations “6.10” and
+“6.10 a/b” of EN 1990:2002, which became (8.12) and (8.13) of
+EN 1990:2023) and in the 2026 chapter (which adds (8.14)).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AHG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'status quo'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'8.12'</span><span class="p">:</span> <span class="mf">3.74</span><span class="p">,</span> <span class="s1">'8.13'</span><span class="p">:</span> <span class="mf">3.44</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>         <span class="c1"># weighted averages of the Nov 2021 document (no 8.14 there)</span>
+    <span class="s1">'status quo, chapter'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'8.12'</span><span class="p">:</span> <span class="mf">3.74</span><span class="p">,</span> <span class="s1">'8.13'</span><span class="p">:</span> <span class="mf">3.51</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">:</span> <span class="mf">3.48</span><span class="p">},</span>  <span class="c1"># as printed in the 2026 chapter (see the note below)</span>
+    <span class="s1">'crude 8.12'</span><span class="p">:</span> <span class="mf">3.65</span><span class="p">,</span>
+    <span class="s1">'cal 8.12, common γ_Q'</span><span class="p">:</span>  <span class="p">{</span><span class="s1">'gamma_G'</span><span class="p">:</span> <span class="mf">1.22</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">:</span> <span class="mf">1.75</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="mf">3.81</span><span class="p">},</span>
+    <span class="s1">'cal 8.12, per load'</span><span class="p">:</span>    <span class="p">{</span><span class="s1">'gamma_G'</span><span class="p">:</span> <span class="mf">1.19</span><span class="p">,</span> <span class="s1">'gamma_Q:wind'</span><span class="p">:</span> <span class="mf">1.94</span><span class="p">,</span> <span class="s1">'gamma_Q:snow'</span><span class="p">:</span> <span class="mf">2.35</span><span class="p">,</span> <span class="s1">'gamma_Q:imposed'</span><span class="p">:</span> <span class="mf">1.60</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="mf">3.81</span><span class="p">},</span>
+    <span class="s1">'cal 8.13, common γ_Q'</span><span class="p">:</span>  <span class="p">{</span><span class="s1">'xi'</span><span class="p">:</span> <span class="mf">0.89</span><span class="p">,</span> <span class="s1">'gamma_G'</span><span class="p">:</span> <span class="mf">1.33</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">:</span> <span class="mf">1.78</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="mf">3.80</span><span class="p">},</span>
+    <span class="s1">'cal 8.13, per load'</span><span class="p">:</span>    <span class="p">{</span><span class="s1">'xi'</span><span class="p">:</span> <span class="mf">0.81</span><span class="p">,</span> <span class="s1">'gamma_G'</span><span class="p">:</span> <span class="mf">1.33</span><span class="p">,</span> <span class="s1">'gamma_Q:wind'</span><span class="p">:</span> <span class="mf">2.05</span><span class="p">,</span> <span class="s1">'gamma_Q:snow'</span><span class="p">:</span> <span class="mf">2.52</span><span class="p">,</span> <span class="s1">'gamma_Q:imposed'</span><span class="p">:</span> <span class="mf">1.69</span><span class="p">,</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="mf">3.86</span><span class="p">},</span>
+    <span class="s1">'std 8.12'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'status quo'</span><span class="p">:</span> <span class="mf">0.46</span><span class="p">,</span> <span class="s1">'calibrated per load'</span><span class="p">:</span> <span class="mf">0.24</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="n">AHG_TABLE_812</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>                 <span class="c1"># "Average reliability indices per material and action", eq. 6.10</span>
+    <span class="p">[[</span><span class="mf">3.52</span><span class="p">,</span> <span class="mf">3.17</span><span class="p">,</span> <span class="mf">3.94</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.84</span><span class="p">,</span> <span class="mf">3.62</span><span class="p">,</span> <span class="mf">4.15</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.42</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">,</span> <span class="mf">3.78</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.34</span><span class="p">,</span> <span class="mf">3.08</span><span class="p">,</span> <span class="mf">3.71</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.41</span><span class="p">,</span> <span class="mf">3.17</span><span class="p">,</span> <span class="mf">3.74</span><span class="p">],</span>
+     <span class="p">[</span><span class="mf">4.10</span><span class="p">,</span> <span class="mf">3.92</span><span class="p">,</span> <span class="mf">4.37</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.61</span><span class="p">,</span> <span class="mf">3.31</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.55</span><span class="p">,</span> <span class="mf">3.42</span><span class="p">,</span> <span class="mf">3.79</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.73</span><span class="p">,</span> <span class="mf">3.59</span><span class="p">,</span> <span class="mf">3.98</span><span class="p">]],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">failure_modes</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'wind'</span><span class="p">,</span> <span class="s1">'snow'</span><span class="p">,</span> <span class="s1">'imposed'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-status-quo-reliability-with-the-present-partial-factors">
+<h2><span class="section-number">6.2. </span>1. The status quo: reliability with the present partial factors<a class="headerlink" href="#the-status-quo-reliability-with-the-present-partial-factors" title="Link to this heading">#</a></h2>
+<p>The same 810 design situations, designed with each of the three
+combination rules of EN 1990:2023 and evaluated with FORM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pf0</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">START_VALUES</span>
+<span class="n">sweeps</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'8.12'</span><span class="p">,</span> <span class="s1">'8.13'</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">sweeps</span><span class="p">[</span><span class="n">eq</span><span class="p">]</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">pf0</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="n">eq</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'eq. </span><span class="si">{</span><span class="n">eq</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="n">eq</span><span class="p">])</span><span class="si">}</span><span class="s1"> situations, </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> s'</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'weight'</span><span class="p">]</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">'weighted mean'</span><span class="p">:</span> <span class="n">wm</span><span class="p">,</span> <span class="s1">'crude mean'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+            <span class="s1">'weighted std'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span> <span class="o">-</span> <span class="n">wm</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())),</span>
+            <span class="s1">'std'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="s1">'min'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s1">'max'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+            <span class="s1">'M(γ) = Σw(β−3.8)²'</span><span class="p">:</span> <span class="n">cc</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">)}</span>
+
+<span class="n">overview</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">eq</span><span class="p">:</span> <span class="n">stats</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="k">for</span> <span class="n">eq</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sweeps</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span><span class="o">.</span><span class="n">T</span>
+<span class="n">overview</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'AHG 2021, weighted mean'</span><span class="p">,</span> <span class="p">[</span><span class="n">AHG</span><span class="p">[</span><span class="s1">'status quo'</span><span class="p">][</span><span class="n">eq</span><span class="p">]</span> <span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">overview</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">overview</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'chapter 2026, weighted mean'</span><span class="p">,</span> <span class="p">[</span><span class="n">AHG</span><span class="p">[</span><span class="s1">'status quo, chapter'</span><span class="p">][</span><span class="n">eq</span><span class="p">]</span> <span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">overview</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">overview</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq. 8.12: 810 situations, 1.0 s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq. 8.13: 810 situations, 1.0 s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eq. 8.14: 810 situations, 1.1 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AHG 2021, weighted mean</th>
+      <th>chapter 2026, weighted mean</th>
+      <th>weighted mean</th>
+      <th>crude mean</th>
+      <th>weighted std</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>M(γ) = Σw(β−3.8)²</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8.12</th>
+      <td>3.74</td>
+      <td>3.74</td>
+      <td>3.741</td>
+      <td>3.646</td>
+      <td>0.431</td>
+      <td>0.416</td>
+      <td>2.450</td>
+      <td>4.520</td>
+      <td>0.189</td>
+    </tr>
+    <tr>
+      <th>8.13</th>
+      <td>3.44</td>
+      <td>3.51</td>
+      <td>3.445</td>
+      <td>3.368</td>
+      <td>0.404</td>
+      <td>0.392</td>
+      <td>2.288</td>
+      <td>4.199</td>
+      <td>0.289</td>
+    </tr>
+    <tr>
+      <th>8.14</th>
+      <td>NaN</td>
+      <td>3.48</td>
+      <td>3.384</td>
+      <td>3.326</td>
+      <td>0.385</td>
+      <td>0.376</td>
+      <td>2.288</td>
+      <td>4.196</td>
+      <td>0.321</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The weighted averages reproduce the 2021 document: 3.74 for (8.12) and
+3.44 for (8.13) — then called 6.10 and 6.10 a/b. (8.13) and (8.14) land a
+quarter to a third of a β-unit lower than (8.12), because the second
+combination (ξ on the permanent load) governs most situations and gives
+a smaller design value. The scatter is as reported — a standard
+deviation of about 0.4–0.46 for (8.12), somewhat less for the
+two-combination rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The chapter manuscript prints 3.51 for (8.13) and 3.48 for (8.14). Those
+two values are reproduced here with ξ = 0.89 — the value that the 2021
+calibration of (8.13) returned — instead of the recommended ξ = 0.85
+(next cell). The table of the chapter was apparently produced with the
+calibrated ξ left in the start values; the 2021 document and the
+recommended value of EN 1990 give 3.44 and 3.38.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pf089</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">PartialFactors</span><span class="p">(</span><span class="mf">1.35</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="p">{</span><span class="s1">'wind'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'snow'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">'imposed'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">},</span> <span class="n">xi</span><span class="o">=</span><span class="mf">0.89</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">eq</span><span class="p">:</span> <span class="p">{</span><span class="s1">'ξ = 0.85 (EN 1990)'</span><span class="p">:</span> <span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="n">eq</span><span class="p">]),</span>
+                   <span class="s1">'ξ = 0.89'</span><span class="p">:</span> <span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">pf089</span><span class="p">,</span> <span class="n">equation</span><span class="o">=</span><span class="n">eq</span><span class="p">)),</span>
+                   <span class="s1">'chapter 2026'</span><span class="p">:</span> <span class="n">AHG</span><span class="p">[</span><span class="s1">'status quo, chapter'</span><span class="p">][</span><span class="n">eq</span><span class="p">]}</span> <span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'8.13'</span><span class="p">,</span> <span class="s1">'8.14'</span><span class="p">)})</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ξ = 0.85 (EN 1990)</th>
+      <th>ξ = 0.89</th>
+      <th>chapter 2026</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8.13</th>
+      <td>3.445</td>
+      <td>3.51</td>
+      <td>3.51</td>
+    </tr>
+    <tr>
+      <th>8.14</th>
+      <td>3.384</td>
+      <td>3.48</td>
+      <td>3.48</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labelled</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s1">'(</span><span class="si">{</span><span class="n">eq</span><span class="si">}</span><span class="s1">)'</span><span class="p">:</span> <span class="n">df</span> <span class="k">for</span> <span class="n">eq</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sweeps</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">labelled</span><span class="p">)</span>                 <span class="c1"># the "Reliability Benchmark Design Equations" figure of the study</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/309ed1503357f1f42956f27fae9e5d8f3712429afbe7fc63d4c7c08cc65d0385.png" src="../../_images/309ed1503357f1f42956f27fae9e5d8f3712429afbe7fc63d4c7c08cc65d0385.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="s1">'8.12'</span><span class="p">])</span>           <span class="c1"># β per load and per failure mode, eq. 8.12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/033bee1141206558b668e961935366bd87d6a1317a1a6347976c374888ee26f7.png" src="../../_images/033bee1141206558b668e961935366bd87d6a1317a1a6347976c374888ee26f7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_vs_aQ</span><span class="p">(</span><span class="n">labelled</span><span class="p">)</span>                        <span class="c1"># β against a_q per failure mode: (8.12) red, (8.13) blue, (8.14) green</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf90e8f6df92ef632200c2aa119528475492d6aa1b41af53187ceabe4020c52f.png" src="../../_images/cf90e8f6df92ef632200c2aa119528475492d6aa1b41af53187ceabe4020c52f.png" />
+</div>
+</div>
+<section id="mean-per-failure-mode-and-load-eq-8-12">
+<h3><span class="section-number">6.2.1. </span>Mean β per failure mode and load (eq. 8.12)<a class="headerlink" href="#mean-per-failure-mode-and-load-eq-8-12" title="Link to this heading">#</a></h3>
+<p>CodeCal 2.0 against the table of the AHG document — identical to the
+two decimals printed there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">beta_table</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="s1">'8.12'</span><span class="p">])[[</span><span class="s1">'wind'</span><span class="p">,</span> <span class="s1">'snow'</span><span class="p">,</span> <span class="s1">'imposed'</span><span class="p">]]</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="s1">'CodeCal 2.0'</span><span class="p">:</span> <span class="n">tab</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s1">'AHG 2021'</span><span class="p">:</span> <span class="n">AHG_TABLE_812</span><span class="p">,</span>
+                        <span class="s1">'difference'</span><span class="p">:</span> <span class="p">(</span><span class="n">tab</span> <span class="o">-</span> <span class="n">AHG_TABLE_812</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">comparison</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">CodeCal 2.0</th>
+      <th colspan="3" halign="left">AHG 2021</th>
+      <th colspan="3" halign="left">difference</th>
+    </tr>
+    <tr>
+      <th>load</th>
+      <th>wind</th>
+      <th>snow</th>
+      <th>imposed</th>
+      <th>wind</th>
+      <th>snow</th>
+      <th>imposed</th>
+      <th>wind</th>
+      <th>snow</th>
+      <th>imposed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Steel bending</th>
+      <td>3.52</td>
+      <td>3.17</td>
+      <td>3.94</td>
+      <td>3.52</td>
+      <td>3.17</td>
+      <td>3.94</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Concrete compression</th>
+      <td>3.84</td>
+      <td>3.62</td>
+      <td>4.15</td>
+      <td>3.84</td>
+      <td>3.62</td>
+      <td>4.15</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Concrete bending</th>
+      <td>3.42</td>
+      <td>3.15</td>
+      <td>3.78</td>
+      <td>3.42</td>
+      <td>3.15</td>
+      <td>3.78</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Glulam bending</th>
+      <td>3.34</td>
+      <td>3.08</td>
+      <td>3.71</td>
+      <td>3.34</td>
+      <td>3.08</td>
+      <td>3.71</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>Timber bending</th>
+      <td>3.41</td>
+      <td>3.17</td>
+      <td>3.74</td>
+      <td>3.41</td>
+      <td>3.17</td>
+      <td>3.74</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Masonry</th>
+      <td>4.10</td>
+      <td>3.92</td>
+      <td>4.37</td>
+      <td>4.10</td>
+      <td>3.92</td>
+      <td>4.37</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Aluminium bending</th>
+      <td>3.61</td>
+      <td>3.31</td>
+      <td>4.00</td>
+      <td>3.61</td>
+      <td>3.31</td>
+      <td>4.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>Pile foundation</th>
+      <td>3.55</td>
+      <td>3.42</td>
+      <td>3.79</td>
+      <td>3.55</td>
+      <td>3.42</td>
+      <td>3.79</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Shallow foundation</th>
+      <td>3.73</td>
+      <td>3.59</td>
+      <td>3.98</td>
+      <td>3.73</td>
+      <td>3.59</td>
+      <td>3.98</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="calibration-to-beta-t-3-8">
+<h2><span class="section-number">6.3. </span>2. Calibration to <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span><a class="headerlink" href="#calibration-to-beta-t-3-8" title="Link to this heading">#</a></h2>
+<p>Four calibrations, as in the study: one common <span class="math notranslate nohighlight">\(\gamma_Q\)</span> or three
+load-specific ones, for the single-combination rule (8.12) and for the
+two-combination rule (8.13) with ξ free. The target is the Eurocode
+target for a 50-year reference period. Each takes 20–60 evaluations of
+the 810 situations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">runs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'cal 8.12, common γ_Q'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">),</span>
+    <span class="s1">'cal 8.12, per load'</span><span class="p">:</span>   <span class="nb">dict</span><span class="p">(</span><span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q:wind'</span><span class="p">,</span> <span class="s1">'gamma_Q:snow'</span><span class="p">,</span> <span class="s1">'gamma_Q:imposed'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.12'</span><span class="p">),</span>
+    <span class="s1">'cal 8.13, common γ_Q'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'xi'</span><span class="p">,</span> <span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.13'</span><span class="p">),</span>
+    <span class="s1">'cal 8.13, per load'</span><span class="p">:</span>   <span class="nb">dict</span><span class="p">(</span><span class="n">free</span><span class="o">=</span><span class="p">(</span><span class="s1">'xi'</span><span class="p">,</span> <span class="s1">'gamma_G'</span><span class="p">,</span> <span class="s1">'gamma_Q:wind'</span><span class="p">,</span> <span class="s1">'gamma_Q:snow'</span><span class="p">,</span> <span class="s1">'gamma_Q:imposed'</span><span class="p">),</span> <span class="n">equation</span><span class="o">=</span><span class="s1">'8.13'</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">runs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">beta_target</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">history</span><span class="p">)</span><span class="si">}</span><span class="s1"> evaluations, </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> s'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'   '</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">    '</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cal 8.12, common γ_Q: 16 evaluations, 14 s
+    calibrated gamma_G, gamma_Q  (β_t = 3.8)
+      gamma_G            1.215
+      gamma_Q            1.750
+      weighted-mean β  3.741 → 3.809
+      objective        1.366e-01   (16 evaluations)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cal 8.12, per load: 42 evaluations, 37 s
+    calibrated gamma_G, gamma_Q:wind, gamma_Q:snow, gamma_Q:imposed  (β_t = 3.8)
+      gamma_G            1.194
+      gamma_Q:wind       1.937
+      gamma_Q:snow       2.351
+      gamma_Q:imposed    1.602
+      weighted-mean β  3.741 → 3.815
+      objective        7.208e-02   (42 evaluations)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cal 8.13, common γ_Q: 30 evaluations, 25 s
+    calibrated xi, gamma_G, gamma_Q  (β_t = 3.8)
+      xi                 0.892
+      gamma_G            1.329
+      gamma_Q            1.779
+      weighted-mean β  3.445 → 3.809
+      objective        1.344e-01   (30 evaluations)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cal 8.13, per load: 74 evaluations, 59 s
+    calibrated xi, gamma_G, gamma_Q:wind, gamma_Q:snow, gamma_Q:imposed  (β_t = 3.8)
+      xi                 0.811
+      gamma_G            1.330
+      gamma_Q:wind       2.057
+      gamma_Q:snow       2.517
+      gamma_Q:imposed    1.686
+      weighted-mean β  3.445 → 3.816
+      objective        6.410e-02   (74 evaluations)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">AHG</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'calibration'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">'parameter'</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span> <span class="s1">'CodeCal 2.0'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
+                     <span class="s1">'AHG 2021'</span><span class="p">:</span> <span class="n">ref</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s1">'difference'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">ref</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">3</span><span class="p">)})</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'calibration'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">'parameter'</span><span class="p">:</span> <span class="s1">'weighted-mean β'</span><span class="p">,</span> <span class="s1">'CodeCal 2.0'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">beta_after</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                 <span class="s1">'AHG 2021'</span><span class="p">:</span> <span class="n">ref</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">],</span> <span class="s1">'difference'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">beta_after</span> <span class="o">-</span> <span class="n">ref</span><span class="p">[</span><span class="s1">'beta'</span><span class="p">],</span> <span class="mi">3</span><span class="p">)})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">'calibration'</span><span class="p">,</span> <span class="s1">'parameter'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>CodeCal 2.0</th>
+      <th>AHG 2021</th>
+      <th>difference</th>
+    </tr>
+    <tr>
+      <th>calibration</th>
+      <th>parameter</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">cal 8.12, common γ_Q</th>
+      <th>gamma_G</th>
+      <td>1.215</td>
+      <td>1.22</td>
+      <td>-0.005</td>
+    </tr>
+    <tr>
+      <th>gamma_Q</th>
+      <td>1.750</td>
+      <td>1.75</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>weighted-mean β</th>
+      <td>3.809</td>
+      <td>3.81</td>
+      <td>-0.001</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">cal 8.12, per load</th>
+      <th>gamma_G</th>
+      <td>1.194</td>
+      <td>1.19</td>
+      <td>0.004</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:wind</th>
+      <td>1.937</td>
+      <td>1.94</td>
+      <td>-0.003</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:snow</th>
+      <td>2.351</td>
+      <td>2.35</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:imposed</th>
+      <td>1.602</td>
+      <td>1.60</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>weighted-mean β</th>
+      <td>3.815</td>
+      <td>3.81</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">cal 8.13, common γ_Q</th>
+      <th>xi</th>
+      <td>0.892</td>
+      <td>0.89</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>gamma_G</th>
+      <td>1.329</td>
+      <td>1.33</td>
+      <td>-0.001</td>
+    </tr>
+    <tr>
+      <th>gamma_Q</th>
+      <td>1.779</td>
+      <td>1.78</td>
+      <td>-0.001</td>
+    </tr>
+    <tr>
+      <th>weighted-mean β</th>
+      <td>3.809</td>
+      <td>3.80</td>
+      <td>0.009</td>
+    </tr>
+    <tr>
+      <th rowspan="6" valign="top">cal 8.13, per load</th>
+      <th>xi</th>
+      <td>0.811</td>
+      <td>0.81</td>
+      <td>0.001</td>
+    </tr>
+    <tr>
+      <th>gamma_G</th>
+      <td>1.330</td>
+      <td>1.33</td>
+      <td>-0.000</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:wind</th>
+      <td>2.057</td>
+      <td>2.05</td>
+      <td>0.007</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:snow</th>
+      <td>2.517</td>
+      <td>2.52</td>
+      <td>-0.003</td>
+    </tr>
+    <tr>
+      <th>gamma_Q:imposed</th>
+      <td>1.686</td>
+      <td>1.69</td>
+      <td>-0.004</td>
+    </tr>
+    <tr>
+      <th>weighted-mean β</th>
+      <td>3.816</td>
+      <td>3.86</td>
+      <td>-0.044</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The calibrated factors agree with the study to ±0.005 — the resolution
+of the optimiser (the one larger deviation, the weighted-mean β of the
+per-load (8.13) calibration, 3.82 against 3.86, is the only number of
+the document that is not reproduced; the factors themselves are):
+<span class="math notranslate nohighlight">\(\gamma_G\)</span> comes down to about 1.2, <span class="math notranslate nohighlight">\(\gamma_Q\)</span> goes up to 1.75 with one
+common factor; with load-specific factors snow gets the largest one
+(2.35) and the imposed load the smallest (1.60), because their
+characteristic values sit at very different fractiles of the
+50-year maximum of Θ_Q·Q (see <a class="reference internal" href="model.html"><span class="doc">The probabilistic model</span></a>). The weighted-mean β is
+3.8 in every case — the target is met on average by construction; what
+the extra parameters buy is a smaller spread.</p>
+<section id="the-spread-of-before-and-after-calibration-eq-8-12">
+<h3><span class="section-number">6.3.1. </span>The spread of β before and after calibration (eq. 8.12)<a class="headerlink" href="#the-spread-of-before-and-after-calibration-eq-8-12" title="Link to this heading">#</a></h3>
+<p>The standard deviation of β over the design situations drops from
+about 0.46 to about 0.24 with load-specific factors; the remaining
+spread is between the materials, not within them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spread</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'status quo'</span><span class="p">:</span> <span class="n">stats</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="s1">'8.12'</span><span class="p">]),</span>
+    <span class="s1">'calibrated, common γ_Q'</span><span class="p">:</span> <span class="n">stats</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">'cal 8.12, common γ_Q'</span><span class="p">]</span><span class="o">.</span><span class="n">sweep_after</span><span class="p">),</span>
+    <span class="s1">'calibrated, per load'</span><span class="p">:</span> <span class="n">stats</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">'cal 8.12, per load'</span><span class="p">]</span><span class="o">.</span><span class="n">sweep_after</span><span class="p">),</span>
+<span class="p">})</span><span class="o">.</span><span class="n">T</span>
+<span class="n">spread</span><span class="p">[</span><span class="s1">'AHG std'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">AHG</span><span class="p">[</span><span class="s1">'std 8.12'</span><span class="p">][</span><span class="s1">'status quo'</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="n">AHG</span><span class="p">[</span><span class="s1">'std 8.12'</span><span class="p">][</span><span class="s1">'calibrated per load'</span><span class="p">]]</span>
+<span class="n">spread</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weighted mean</th>
+      <th>crude mean</th>
+      <th>weighted std</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>M(γ) = Σw(β−3.8)²</th>
+      <th>AHG std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>status quo</th>
+      <td>3.741</td>
+      <td>3.646</td>
+      <td>0.431</td>
+      <td>0.416</td>
+      <td>2.450</td>
+      <td>4.520</td>
+      <td>0.189</td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <th>calibrated, common γ_Q</th>
+      <td>3.809</td>
+      <td>3.708</td>
+      <td>0.369</td>
+      <td>0.378</td>
+      <td>2.709</td>
+      <td>4.547</td>
+      <td>0.137</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>calibrated, per load</th>
+      <td>3.815</td>
+      <td>3.847</td>
+      <td>0.268</td>
+      <td>0.247</td>
+      <td>3.289</td>
+      <td>4.401</td>
+      <td>0.072</td>
+      <td>0.24</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">'cal 8.12, per load'</span><span class="p">]</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_distribution</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_after</span><span class="p">,</span> <span class="s1">'both'</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="n">ref_df</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_before</span><span class="p">)</span>    <span class="c1"># "Effect of calibration": existing (grey, left) against calibrated (teal, right)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f4bd07dff1c42066f8b4657d9a9c0265c26708bfad2bacbcced9109c8657184b.png" src="../../_images/f4bd07dff1c42066f8b4657d9a9c0265c26708bfad2bacbcced9109c8657184b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">plot_beta_vs_aQ</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_after</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="n">ref_df</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">sweep_before</span><span class="p">)</span>                   <span class="c1"># calibrated (blue band) against the present factors (light red)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f01867d027780a1a9f359f75aff6ba32ec711dabe4671c405a8a227870297c69.png" src="../../_images/f01867d027780a1a9f359f75aff6ba32ec711dabe4671c405a8a227870297c69.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot_gamma_comparison</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Calibrated partial factors of the four calibrations'</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2b9b3dd30bd7c16a5baf09efc7bc0f4da8f1a67e70b5215f3bcfdfac3a0cbc91.png" src="../../_images/2b9b3dd30bd7c16a5baf09efc7bc0f4da8f1a67e70b5215f3bcfdfac3a0cbc91.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="what-the-study-concluded">
+<h2><span class="section-number">6.4. </span>3. What the study concluded<a class="headerlink" href="#what-the-study-concluded" title="Link to this heading">#</a></h2>
+<p>In the words of <span class="bibtex-citation" id="id3">[<a class="reference internal" href="../reference/bibliography.html#id7" title="Jochen Köhler. Reliability-based calibration of structural design standards: principles, practice and emerging challenges. In Time variant structural reliability analysis. 2026.">Köhler, 2026</a>]</span>, condensed:</p>
+<ul class="simple">
+<li><p>Which combination rule a country adopts matters: (8.12) gives the
+highest average reliability (3.74, closest to the target of 3.8),
+(8.13) and (8.14) are 0.3 lower with the recommended ξ = 0.85. All absolute values are
+conditional on the modelling assumptions; twenty years of use of all
+three rules without evidence of unacceptable failure rates say that
+the structural performance is acceptable with regard to public safety.</p></li>
+<li><p>The more robust finding is the <em>spread</em>: with (8.12), β ranges from
+2.4 to 4.5 (standard deviation 0.46). That is the price of a very
+simple format — the same <span class="math notranslate nohighlight">\(\gamma_Q\)</span> for wind, snow and imposed load
+although their model uncertainties differ — and it means a
+sub-optimal use of material in a sector that matters for
+sustainability.</p></li>
+<li><p>A moderate increase in complexity — load-specific <span class="math notranslate nohighlight">\(\gamma_Q\)</span> —
+halves the standard deviation (0.46 → 0.24). Calibrating the material
+factors as well would reduce it further.</p></li>
+<li><p>The committee’s position during the revision was that there was
+“no appetite for change” of the partial factors; the study documents
+the potential for a later recalibration.</p></li>
+</ul>
+<p>The lesson notebooks (<a class="reference internal" href="../../lessons/notebooks/05_calibration.html"><span class="doc">Lesson 5 — Calibration: choosing the partial factors</span></a>) take
+the calibration apart step by step; the <a class="reference internal" href="../manual/lab_mode.html"><span class="doc">Lab mode</span></a> lets
+you repeat any of the runs above with your own model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="o">**</span><span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">factors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">free</span><span class="p">},</span> <span class="s1">'beta'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">beta_after</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                  <span class="s1">'objective'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="s1">'evaluations'</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">history</span><span class="p">)}</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">summary</span><span class="p">[</span><span class="s1">'status quo 8.12'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'beta'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">weighted_mean_beta</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="s1">'8.12'</span><span class="p">]),</span> <span class="mi">3</span><span class="p">),</span>
+                              <span class="s1">'objective'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">sweeps</span><span class="p">[</span><span class="s1">'8.12'</span><span class="p">],</span> <span class="mf">3.8</span><span class="p">),</span> <span class="mi">4</span><span class="p">)}</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'results_summary.json'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ "cal 8.12, common \u03b3_Q": {
+  "gamma_G": 1.215,
+  "gamma_Q": 1.75,
+  "beta": 3.809,
+  "objective": 0.1366,
+  "evaluations": 16
+ },
+ "cal 8.12, per load": {
+  "gamma_G": 1.194,
+  "gamma_Q:wind": 1.937,
+  "gamma_Q:snow": 2.351,
+  "gamma_Q:imposed": 1.602,
+  "beta": 3.815,
+  "objective": 0.0721,
+  "evaluations": 42
+ },
+ "cal 8.13, common \u03b3_Q": {
+  "xi": 0.892,
+  "gamma_G": 1.329,
+  "gamma_Q": 1.779,
+  "beta": 3.809,
+  "objective": 0.1344,
+  "evaluations": 30
+ },
+ "cal 8.13, per load": {
+  "xi": 0.811,
+  "gamma_G": 1.33,
+  "gamma_Q:wind": 2.057,
+  "gamma_Q:snow": 2.517,
+  "gamma_Q:imposed": 1.686,
+  "beta": 3.816,
+  "objective": 0.0641,
+  "evaluations": 74
+ },
+ "status quo 8.12": {
+  "beta": 3.741,
+  "objective": 0.1889
+ }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/eurocode_study"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>The probabilistic model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="verification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Verification: how good is FORM here?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-values-from-the-ahg-study">6.1. Reference values from the AHG study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-status-quo-reliability-with-the-present-partial-factors">6.2. 1. The status quo: reliability with the present partial factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-per-failure-mode-and-load-eq-8-12">6.2.1. Mean β per failure mode and load (eq. 8.12)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-to-beta-t-3-8">6.3. 2. Calibration to <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-spread-of-before-and-after-calibration-eq-8-12">6.3.1. The spread of β before and after calibration (eq. 8.12)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-study-concluded">6.4. 3. What the study concluded</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

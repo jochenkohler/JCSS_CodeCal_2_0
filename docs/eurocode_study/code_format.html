@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. The code format: three combination rules &#8212; JCSS CodeCal 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/eurocode_study/code_format';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. The probabilistic model" href="model.html" />
+    <link rel="prev" title="3. The reliability concepts needed" href="../background/reliability_primer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/jcss.png" class="logo__image only-light" alt="JCSS CodeCal 2.0 - Home"/>
+    <img src="../../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="JCSS CodeCal 2.0 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Background</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background/codes_and_decisions.html">1. Codes as decision rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/calibration.html">2. Reliability-based code calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/reliability_primer.html">3. The reliability concepts needed</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Eurocode study</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. The code format: three combination rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">5. The probabilistic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">6. Results of the Eurocode study — reproduced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verification.html">7. Verification: how good is FORM here?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The tool — manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../manual/getting_started.html">8. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/learning_mode.html">9. Learning mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/lab_mode.html">10. Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/model_files.html">11. Model files (JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/scripting.html">12. Scripting with <code class="docutils literal notranslate"><span class="pre">codecal</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The lessons</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/01_random_variables.html">13. Lesson 1 — Random variables and characteristic values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/02_form.html">14. Lesson 2 — The reliability index and FORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/03_design_situation.html">15. Lesson 3 — The design equation and one design situation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/04_the_sweep.html">16. Lesson 4 — The sweep: how reliable are structures designed with the present Eurocode?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/05_calibration.html">17. Lesson 5 — Calibration: choosing the partial factors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lessons/notebooks/06_verification.html">18. Lesson 6 — How good is FORM? Verification and the method decision</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/eurocode_study/code_format.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The code format: three combination rules</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-the-format-equations-8-12-8-13-and-8-14">4.1. Step 3 — the format: equations (8.12), (8.13) and (8.14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">4.1.1. Nomenclature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limit-state-function">4.2. The limit state function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmark-and-the-calibration">4.3. The benchmark and the calibration</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-code-format-three-combination-rules">
+<h1><span class="section-number">4. </span>The code format: three combination rules<a class="headerlink" href="#the-code-format-three-combination-rules" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">The study in one paragraph</p>
+<p>During the revision of the Eurocodes, members of the JCSS prepared the
+scientific background for a possible reliability-based re-calibration of
+the partial factors, within the CEN/TC 250/SC 10 Ad-hoc Group <em>Reliability
+Background of the Eurocodes</em> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../reference/bibliography.html#id2" title="T. Vrouwenvelder, S. Dimova, M. L. Sousa, J. Marková, G. Mancini, U. Kuhlmann, A. Taras, R. Jockwer, W. Jäger, T. Schweckendiek, P. Franchin, D. Skejić, J. D. Sørensen, P. Spehl, M. Stacy, M. Feldmann, P. Croce, B. Zhao, P. Tanner, J. Knippers, M. Mollaert, J. André, R. Steenbergen, J. Köhler, T. Bakeer, J. Maljaars, D. Allaix, and J. Spross. Reliability background of the Eurocodes. JRC Technical Report EUR 40072, JRC139110, European Commission, Joint Research Centre, Luxembourg, 2024. URL: https://data.europa.eu/doi/10.2760/9482837, doi:10.2760/9482837.">Vrouwenvelder <em>et al.</em>, 2024</a>]</span>. The work followed the seven
+steps of <a class="reference internal" href="../background/calibration.html"><span class="doc">Reliability-based code calibration</span></a>, with the emphasis on steps 3–7:
+the code format (this page), the failure modes and probabilistic models
+(<a class="reference internal" href="model.html"><span class="doc">The probabilistic model</span></a>), the measure of closeness, the optimal factors and the
+verification (<a class="reference internal" href="results.html"><span class="doc">Results of the Eurocode study — reproduced</span></a>, <a class="reference internal" href="verification.html"><span class="doc">Verification: how good is FORM here?</span></a>). Sources:
+<span class="bibtex-citation" id="id2">[<a class="reference internal" href="../reference/bibliography.html#id7" title="Jochen Köhler. Reliability-based calibration of structural design standards: principles, practice and emerging challenges. In Time variant structural reliability analysis. 2026.">Köhler, 2026</a>, <a class="reference internal" href="../reference/bibliography.html#id3" title="Jochen Köhler, Ramon Hingorani, and John Dalsgaard Sørensen. Calibration of load partial factors. Working document of the CEN/TC 250/SC 10 Ad-hoc Group “Reliability Background of the Eurocodes”, version 3, November 2021.">Köhler <em>et al.</em>, 2021</a>, <a class="reference internal" href="../reference/bibliography.html#id4" title="Jochen Köhler, Ramon Hingorani, and John Dalsgaard Sørensen. Reliability level of the second generation of the Eurocodes – status and potential. In 14th International Conference on Applications of Statistics and Probability in Civil Engineering (ICASP14). Dublin, Ireland, 2023.">Köhler <em>et al.</em>, 2023</a>]</span>.</p>
+</div>
+<section id="step-3-the-format-equations-8-12-8-13-and-8-14">
+<h2><span class="section-number">4.1. </span>Step 3 — the format: equations (8.12), (8.13) and (8.14)<a class="headerlink" href="#step-3-the-format-equations-8-12-8-13-and-8-14" title="Link to this heading">#</a></h2>
+<p>EN 1990:2023 <span class="bibtex-citation" id="id3">[<a class="reference internal" href="../reference/bibliography.html#id10" title="CEN. EN 1990:2023 Eurocode – basis of structural and geotechnical design. Technical Report, European Committee for Standardization, Brussels, 2023.">CEN, 2023</a>]</span> offers three alternative expressions for
+the combination of actions in persistent and transient design situations,
+(8.12), (8.13) and (8.14) — the successors of (6.10) and (6.10 a/b) of
+EN 1990:2002. National standardisation committees must choose one of them,
+and to support that choice the reliability implied by each was needed.</p>
+<p>The design situations of the study comprise one permanent load (self-weight
+<span class="math notranslate nohighlight">\(G_S\)</span> and other permanent load <span class="math notranslate nohighlight">\(G_P\)</span>) and one variable load <span class="math notranslate nohighlight">\(Q_j\)</span>. For such
+cases the three expressions become <em>design equations</em> in which the design
+solution <span class="math notranslate nohighlight">\(p_{ij}\)</span> — the resistance that the engineer provides for failure
+mode <span class="math notranslate nohighlight">\(i\)</span> under variable load <span class="math notranslate nohighlight">\(j\)</span>, e.g. the cross-section area of a tension
+rod — is identified as follows.</p>
+<p><strong>(8.12)</strong> — one combination:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{ij} = \frac{\gamma_{M,i}}{\theta_{Ri,k}\, r_{i,k}}
+\Big\{ (1-a_Q)\big[a_G\,\gamma_{GS}\,g_{S,k} + (1-a_G)\,\gamma_{GP}\,g_{P,k}\big]
+      + a_Q\,\theta_{Qj,k}\,\gamma_Q\,q_{j,k} \Big\}
+\]</div>
+<p><strong>(8.13)</strong> — the larger of two combinations, the first with the variable
+load reduced by <span class="math notranslate nohighlight">\(\psi_{0,j}\)</span>, the second with the permanent load reduced by
+<span class="math notranslate nohighlight">\(\xi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p_{ij} = \max \begin{cases}
+\dfrac{\gamma_{M,i}}{\theta_{Ri,k}\, r_{i,k}}
+\Big\{ (1-a_Q)\big[a_G\,\gamma_{GS}\,g_{S,k} + (1-a_G)\,\gamma_{GP}\,g_{P,k}\big]
+      + a_Q\,\theta_{Qj,k}\,\psi_{0,j}\,\gamma_Q\,q_{j,k} \Big\} \\[2ex]
+\dfrac{\gamma_{M,i}}{\theta_{Ri,k}\, r_{i,k}}
+\Big\{ (1-a_Q)\,\xi\big[a_G\,\gamma_{GS}\,g_{S,k} + (1-a_G)\,\gamma_{GP}\,g_{P,k}\big]
+      + a_Q\,\theta_{Qj,k}\,\gamma_Q\,q_{j,k} \Big\}
+\end{cases}
+\end{split}\]</div>
+<p><strong>(8.14)</strong> — the larger of the permanent load alone and the second
+combination of (8.13):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p_{ij} = \max \begin{cases}
+\dfrac{\gamma_{M,i}}{\theta_{Ri,k}\, r_{i,k}}
+\,(1-a_Q)\big[a_G\,\gamma_{GS}\,g_{S,k} + (1-a_G)\,\gamma_{GP}\,g_{P,k}\big] \\[2ex]
+\dfrac{\gamma_{M,i}}{\theta_{Ri,k}\, r_{i,k}}
+\Big\{ (1-a_Q)\,\xi\big[a_G\,\gamma_{GS}\,g_{S,k} + (1-a_G)\,\gamma_{GP}\,g_{P,k}\big]
+      + a_Q\,\theta_{Qj,k}\,\gamma_Q\,q_{j,k} \Big\}
+\end{cases}
+\end{split}\]</div>
+<p>Three parts can be recognised in each: the resistance (the fraction in
+front), the permanent load (the term in square brackets) and the variable
+load (the term with <span class="math notranslate nohighlight">\(q_{j,k}\)</span>). The second sub-equations of (8.13) and
+(8.14) are identical; the first sub-equation of (8.14) neglects the
+variable load, and the first of (8.13) reduces it by <span class="math notranslate nohighlight">\(\psi_0\)</span>. Since the
+second combination governs most situations, (8.13) and (8.14) give nearly
+the same designs — and both give smaller designs than (8.12).</p>
+<section id="nomenclature">
+<h3><span class="section-number">4.1.1. </span>Nomenclature<a class="headerlink" href="#nomenclature" title="Link to this heading">#</a></h3>
+<dl class="simple myst">
+<dt><span class="math notranslate nohighlight">\(p_{ij}\)</span></dt><dd><p>the design solution for material (failure mode) <span class="math notranslate nohighlight">\(i\)</span> and variable load <span class="math notranslate nohighlight">\(j\)</span></p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\gamma_{M,i}\)</span></dt><dd><p>the material partial factor of failure mode <span class="math notranslate nohighlight">\(i\)</span> (fixed in the study)</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\theta_{Ri,k}\)</span>, <span class="math notranslate nohighlight">\(r_{i,k}\)</span></dt><dd><p>the characteristic values of the resistance model uncertainty (often 1;
+a bias or hidden safety could be introduced here) and of the material
+strength</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(a_Q\)</span></dt><dd><p>the share of the variable load in the total load, between 0 (no
+variable load) and 1 (no permanent load)</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(a_G\)</span></dt><dd><p>the share of the structural self-weight in the permanent load, between 0
+(no self-weight) and 1 (no other permanent load)</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(g_{S,k}\)</span>, <span class="math notranslate nohighlight">\(\gamma_{GS}\)</span></dt><dd><p>the characteristic value of the self-weight and its partial factor</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(g_{P,k}\)</span>, <span class="math notranslate nohighlight">\(\gamma_{GP}\)</span></dt><dd><p>the characteristic value of the permanent load from non-structural
+elements and its partial factor</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(q_{j,k}\)</span>, <span class="math notranslate nohighlight">\(\theta_{Qj,k}\)</span>, <span class="math notranslate nohighlight">\(\gamma_Q\)</span></dt><dd><p>the characteristic value of variable load <span class="math notranslate nohighlight">\(j\)</span>, of its model uncertainty,
+and the partial factor on the variable load</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\psi_{0,j}\)</span></dt><dd><p>the combination factor of variable load <span class="math notranslate nohighlight">\(j\)</span></p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\xi\)</span></dt><dd><p>the reduction factor on the permanent actions</p>
+</dd>
+</dl>
+<p>In CodeCal 2.0, <span class="math notranslate nohighlight">\(p_{ij}\)</span> is called the <em>design parameter</em> <span class="math notranslate nohighlight">\(z\)</span>
+(<code class="docutils literal notranslate"><span class="pre">DesignSituation.design_parameter</span></code>), and <span class="math notranslate nohighlight">\(\gamma_{GS}\)</span>, <span class="math notranslate nohighlight">\(\gamma_{GP}\)</span> are
+<code class="docutils literal notranslate"><span class="pre">gamma_G</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma_GP</span></code> of <code class="docutils literal notranslate"><span class="pre">PartialFactors</span></code>. Following the convention of
+the study, calibrating “γ_G” calibrates both permanent-load factors
+together unless <code class="docutils literal notranslate"><span class="pre">gamma_GP</span></code> is named separately.</p>
+</section>
+</section>
+<section id="the-limit-state-function">
+<h2><span class="section-number">4.2. </span>The limit state function<a class="headerlink" href="#the-limit-state-function" title="Link to this heading">#</a></h2>
+<p>For all three design equations the same limit state function applies,</p>
+<div class="math notranslate nohighlight" id="equation-eq-lsf">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-lsf" title="Link to this equation">#</a></span>\[
+g(\mathbf{X}, p_{ij}) = p_{ij}\,\Theta_{R,i}\,R_i
+  - \Theta_E \Big[ (1-a_Q)\big(a_G\,G_S + (1-a_G)\,G_P\big) + a_Q\,\Theta_{Q,j}\,Q_j \Big] ,
+\]</div>
+<p>with the seven random variables</p>
+<dl class="simple myst">
+<dt><span class="math notranslate nohighlight">\(\Theta_{R,i}\)</span>, <span class="math notranslate nohighlight">\(R_i\)</span></dt><dd><p>the resistance model uncertainty and the strength of material <span class="math notranslate nohighlight">\(i\)</span></p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\Theta_E\)</span></dt><dd><p>the model uncertainty of the load effect (common to all situations)</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(G_S\)</span>, <span class="math notranslate nohighlight">\(G_P\)</span></dt><dd><p>the self-weight and the other permanent load</p>
+</dd>
+<dt><span class="math notranslate nohighlight">\(\Theta_{Q,j}\)</span>, <span class="math notranslate nohighlight">\(Q_j\)</span></dt><dd><p>the model uncertainty and the 50-year maximum of variable load <span class="math notranslate nohighlight">\(j\)</span>.</p>
+</dd>
+</dl>
+<p>A design situation is thus fully described by a failure mode <span class="math notranslate nohighlight">\(i\)</span>, a
+variable load <span class="math notranslate nohighlight">\(j\)</span>, and the two proportions <span class="math notranslate nohighlight">\((a_G, a_Q)\)</span>. The design equation
+gives <span class="math notranslate nohighlight">\(p_{ij}\)</span>, the limit state function with that <span class="math notranslate nohighlight">\(p_{ij}\)</span> gives <span class="math notranslate nohighlight">\(\beta\)</span>
+by FORM, and the sweep over all situations gives the picture of the code.</p>
+</section>
+<section id="the-benchmark-and-the-calibration">
+<h2><span class="section-number">4.3. </span>The benchmark and the calibration<a class="headerlink" href="#the-benchmark-and-the-calibration" title="Link to this heading">#</a></h2>
+<p>Compliance with the reliability objective is assessed for the three rules
+on a representative domain <span class="math notranslate nohighlight">\(D\)</span> of design situations: nine failure modes,
+three variable loads, and the ranges of <span class="math notranslate nohighlight">\(a_Q\)</span> and <span class="math notranslate nohighlight">\(a_G\)</span> of the next page.
+Two steps:</p>
+<ol class="arabic simple">
+<li><p>the design solutions <span class="math notranslate nohighlight">\(p_{ij}\)</span> are computed with (8.12), (8.13) or (8.14)
+and the present factors (<span class="math notranslate nohighlight">\(\gamma_G = 1.35\)</span>, <span class="math notranslate nohighlight">\(\gamma_Q = 1.5\)</span>, <span class="math notranslate nohighlight">\(\xi = 0.85\)</span>,
+<span class="math notranslate nohighlight">\(\psi_0\)</span> = 0.6 / 0.5 / 0.7 for wind / snow / imposed);</p></li>
+<li><p>the reliability index of each solution is computed with the limit state
+function <a class="reference internal" href="#equation-eq-lsf">(4.1)</a>.</p></li>
+</ol>
+<p>The weighted average <span class="math notranslate nohighlight">\(\beta_{\text{w-average}} = \sum_k w_k \beta_k\)</span> is the
+headline number; the spread of the <span class="math notranslate nohighlight">\(\beta_k\)</span> is the story. For the
+calibration, an alternative set of action factors
+<span class="math notranslate nohighlight">\(\boldsymbol{\gamma}_S = (\gamma_G, \gamma_{Q,\text{wind}}, \gamma_{Q,\text{snow}},
+\gamma_{Q,\text{imposed}})\)</span> — or just <span class="math notranslate nohighlight">\((\gamma_G, \gamma_Q)\)</span> — is found by
+minimising</p>
+<div class="math notranslate nohighlight">
+\[
+M(\boldsymbol{\gamma}_S) = \sum_{k \in D} w_k \big(\beta_k(\boldsymbol{\gamma}_S) - \beta_t\big)^2
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\beta_t = 3.8\)</span>, the EN 1990 target for a 50-year reference period
+(step 5 and 6 of the procedure). The material factors <span class="math notranslate nohighlight">\(\gamma_{M,i}\)</span> are
+kept at their Eurocode values throughout.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/eurocode_study"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../background/reliability_primer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>The reliability concepts needed</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>The probabilistic model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-the-format-equations-8-12-8-13-and-8-14">4.1. Step 3 — the format: equations (8.12), (8.13) and (8.14)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">4.1.1. Nomenclature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limit-state-function">4.2. The limit state function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmark-and-the-calibration">4.3. The benchmark and the calibration</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jochen Köhler, NTNU — Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Jochen Köhler — code MIT, text CC BY 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
