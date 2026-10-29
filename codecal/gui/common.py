@@ -166,10 +166,12 @@ def sweep_metrics(df: pd.DataFrame, beta_target: float, ref_df: pd.DataFrame | N
 
 
 def sweep_plots(df, beta_target, key, ref_df=None, labels=('current', 'reference')):
-    view = st.radio('View', ['β per failure mode', 'β per load', 'β against a_Q', 'sensitivities α²',
-                             'table: mean β per mode × load'],
+    view = st.radio('View', ['β per load and failure mode', 'β per failure mode', 'β per load', 'β against a_Q',
+                             'sensitivities α²', 'table: mean β per mode × load'],
                     horizontal=True, key=f'{key}_view', label_visibility='collapsed')
-    if view == 'β per failure mode':
+    if view == 'β per load and failure mode':
+        show(plots.plot_beta_distribution(df, 'both', beta_target, ref_df, labels))
+    elif view == 'β per failure mode':
         show(plots.plot_beta_distribution(df, 'mode', beta_target, ref_df, labels))
     elif view == 'β per load':
         show(plots.plot_beta_distribution(df, 'load', beta_target, ref_df, labels))

@@ -59,6 +59,7 @@ def main(argv=None):
         f.write(str(res) + '\n\nmean beta per mode x load, calibrated:\n')
         f.write(cc.beta_table(res.sweep_after).round(3).to_string() + '\n')
     for name, fig in [
+        ('violin_comcal.png', plots.plot_beta_distribution(res.sweep_after, 'both', a.target, res.sweep_before)),
         ('beta_by_mode.png', plots.plot_beta_distribution(res.sweep_after, 'mode', a.target, res.sweep_before,
                                                           labels=('calibrated', 'start values'))),
         ('beta_by_load.png', plots.plot_beta_distribution(res.sweep_after, 'load', a.target, res.sweep_before,

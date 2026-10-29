@@ -115,26 +115,14 @@ pd.DataFrame({eq: {'ξ = 0.85 (EN 1990)': cc.weighted_mean_beta(sweeps[eq]),
                    'chapter 2026': AHG['status quo, chapter'][eq]} for eq in ('8.13', '8.14')}).T
 
 # %%
-fig = plots.plot_beta_distribution(sweeps['8.12'], 'mode', 3.8, title='Status quo, eq. 8.12 — β per failure mode')
-fig
+labelled = {f'({eq})': df for eq, df in sweeps.items()}
+plots.plot_beta_distribution(labelled)                 # the "Reliability Benchmark Design Equations" figure of the study
 
 # %%
-from codecal.plots import Figure
-fig = Figure(figsize=(10, 4.2))
-axes = fig.subplots(1, 3, sharey=True)
-for ax, (eq, df) in zip(axes, sweeps.items()):
-    for load, grp in df.groupby('load'):
-        g = grp.groupby('a_Q')['beta']
-        ax.plot(g.mean().index, g.mean().values, '-', label=load)
-        ax.fill_between(g.min().index, g.min().values, g.max().values, alpha=0.15)
-    ax.axhline(3.8, color=plots.TARGET, ls='--', lw=1)
-    ax.set_title(f'eq. {eq}: weighted mean {cc.weighted_mean_beta(df):.2f}', fontsize=10)
-    ax.set_xlabel('a_Q (share of the variable load)')
-    ax.grid(alpha=0.3)
-axes[0].set_ylabel('β (50 a)')
-axes[0].legend(fontsize=8)
-fig.tight_layout()
-fig
+plots.plot_beta_distribution(sweeps['8.12'])           # β per load and per failure mode, eq. 8.12
+
+# %%
+plots.plot_beta_vs_aQ(labelled)                        # β against a_q per failure mode: (8.12) red, (8.13) blue, (8.14) green
 
 # %% [markdown]
 # ### Mean β per failure mode and load (eq. 8.12)
@@ -213,15 +201,10 @@ spread
 
 # %%
 res = results['cal 8.12, per load']
-fig = plots.plot_beta_distribution(res.sweep_after, 'mode', 3.8, ref_df=res.sweep_before,
-                                   labels=('calibrated (per load)', 'present factors'),
-                                   title='Eq. 8.12: present factors against load-specific calibrated factors')
-fig
+plots.plot_beta_distribution(res.sweep_after, 'both', 3.8, ref_df=res.sweep_before)    # "Effect of calibration": existing (grey, left) against calibrated (teal, right)
 
 # %%
-fig = plots.plot_beta_vs_aQ(res.sweep_after, 3.8, ref_df=res.sweep_before,
-                            title='β against a_Q — calibrated (blue) and present factors (red)')
-fig
+plots.plot_beta_vs_aQ(res.sweep_after, 3.8, ref_df=res.sweep_before)                   # calibrated (blue band) against the present factors (light red)
 
 # %%
 fig = plots.plot_gamma_comparison(results, title='Calibrated partial factors of the four calibrations')

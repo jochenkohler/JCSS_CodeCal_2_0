@@ -61,7 +61,7 @@ the cost), whether to give $\gamma_Q$ per load, and the factors; the
 caption estimates the running time. The result panel has the metrics
 (weighted-mean β, the distance to the target, the min/max, the
 objective), a warning if FORM did not converge for some situations, the
-five views, a *Save snapshot* row and a CSV download of the sweep.
+six views (see the learning mode), a *Save snapshot* row and a CSV download of the sweep.
 
 ## Calibration
 
@@ -97,7 +97,7 @@ The Compare tab: two snapshots overlaid, and the calibrated factors of all calib
 
 Every status-quo or calibration result can be saved as a named snapshot
 (model, factors, equation, method, the sweep). This tab lists them,
-overlays any snapshot against any other in the five views (the metrics
+overlays any snapshot against any other in the six views (the metrics
 show the difference of the weighted means), and — when at least two
 calibrations are saved — draws their factors side by side. Snapshots live
 in the browser session; download the CSVs if you want to keep them.

@@ -19,6 +19,7 @@ os.makedirs(OUT, exist_ok=True)
 
 
 async def shot(pg, name, full=True):
+    await pg.evaluate("for (const el of document.querySelectorAll('section, [data-testid=\"stAppViewContainer\"], [data-testid=\"stMain\"]')) el.scrollTo(0, 0); window.scrollTo(0, 0);")
     await pg.wait_for_timeout(800)
     await pg.screenshot(path=os.path.join(OUT, name), full_page=full)
     print('  ', name)

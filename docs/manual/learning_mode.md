@@ -62,10 +62,14 @@ Step 4: the status quo of the present factors over all design situations.
 ```
 
 FORM over all design situations (full grid: 810, quick grid: 135) with the
-factors you set. The result panel offers five views: β per failure mode
-(violins with the weighted means), β per load, β against $a_Q$,
-sensitivities $\alpha^2$ per variable, and the mode × load table of mean
-β coloured against the target.
+factors you set. The result panel offers six views: the bean plot of the
+AHG study (one violin per load and per failure mode, the design situations
+as dots, the weighted mean as a bar), the same per failure mode or per
+load only, β against $a_Q$ in the 3 × 3 grid of the study (min–max band
+over the loads and $a_G$, the target as a red line), sensitivities
+$\alpha^2$ per variable, and the mode × load table of mean β coloured
+against the target. The figures have the layout of the study's reports,
+so they can go straight into a document.
 
 ## Step 5 — Calibration
 
@@ -79,8 +83,10 @@ $\gamma_{G,P}$ separately; or one $\gamma_Q$ per load; or ξ for the
 two-combination rules), the combination rule, the target and the grid, and
 press *Calibrate*. The progress display shows every evaluation of the
 objective; the result shows the calibrated factors, the weighted-mean β
-before and after, the objective, and the same five views with the start
-values as reference. Inconsistent choices (a common and a per-load
+before and after, the objective, and the same six views with the start
+values as reference — in the bean plot the existing factors in grey on the
+left-hand half, the calibrated ones in teal on the right ("Effect of
+calibration"). Inconsistent choices (a common and a per-load
 $\gamma_Q$ at the same time; ξ with (8.12)) are explained and block the
 button rather than producing nonsense.
 
